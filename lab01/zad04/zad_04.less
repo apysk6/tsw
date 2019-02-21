@@ -1,0 +1,42 @@
+@yellow-color: yellow;
+@blue-color: blue;
+@green-color: green;
+@red-color: rgb(100, 19, 19);
+
+body {
+    background-image: url("papier.gif");
+}  
+
+div.adres {
+    margin-left: auto;
+    margin-right: auto;
+    width: 12em;
+    border-style: solid;
+    border-width: 4px;
+    padding: 5px;
+    background-color: @yellow-color;
+    margin-bottom: 10px;
+
+    span {
+        margin-left: 5px;
+
+        &.nazwisko {
+            display: block;
+            font-weight: bold;
+            border-bottom: thin solid @blue-color;
+            border-top: thin solid @blue-color;
+            color: @blue-color
+        }
+
+        &.ulica {
+            display: block;
+            color: @green-color;
+        }
+        &.kod {
+            color: @red-color;
+        }
+        &.telefon {
+            display: block;
+        }
+    }
+}

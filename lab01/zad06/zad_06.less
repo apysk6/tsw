@@ -1,0 +1,25 @@
+@green-color: green;
+@red-color: red;
+@blue-color: blue;
+
+ul {
+    li {
+      list-style-type: decimal;
+      color: @red-color;
+    }
+  
+    ul {
+      li {
+        list-style-type: lower-alpha;
+          color: @green-color;
+      }
+  
+      ul {
+        li {
+          list-style-type: disc;
+          color: @blue-color;
+        }
+      }
+    }
+}
+  
