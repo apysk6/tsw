@@ -1,0 +1,30 @@
+@yellow: yellow;
+@red: red;
+@blue: blue;
+@white: white;
+@grey: grey;
+
+body {
+    background: @grey;
+}
+
+.design(@bg-color, @border-color) {
+    text-align: center;
+    position: absolute;
+    background-color: @bg-color;
+    width: 50%;
+    height: 50%;
+    border: solid @border-color 2px;
+}
+
+.A {
+    .design(@yellow, @red);
+    top: 15%;
+    left: 10%;
+}
+
+.B {
+    .design(@white, @blue);
+    top: 30%;
+    right: 10%;
+}
