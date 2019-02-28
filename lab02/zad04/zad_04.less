@@ -1,0 +1,55 @@
+@black: black;
+@grey: rgb(202, 197, 197);
+@white: white;
+@red: rgb(143, 51, 51);
+@header-color: rgb(133, 128, 128);
+@menu-width: 18%;
+@menu-margin-left: 4%;
+@menu-margin-top: 20px;
+@content-width: 70%;
+
+body {
+    background: @grey;
+}
+
+#menu {
+    text-align: center;
+    float: left;
+    display: grid;
+    margin-top: @menu-margin-top;
+    margin-left: @menu-margin-left;
+    width: @menu-width;
+
+    .el_menu {
+        background: @white;
+        padding: 2px;
+        border-bottom: 2px solid @black;
+        border: solid 1px;
+
+        a {
+            text-decoration: none;
+            color: @red;
+        }
+    }
+}
+
+#naglowek {
+    position: fixed;
+    left: 0;
+    top: 0;
+    padding: 5px;
+    border-bottom: 1px solid @black;
+    background: @header-color;
+    width: 30%;
+}
+
+#tresc {
+    float: left;
+    width: @content-width;
+    margin-left: 5%;
+    border-left: 3px solid @black;
+
+    p {
+        margin-left: 25px;
+    }
+}
