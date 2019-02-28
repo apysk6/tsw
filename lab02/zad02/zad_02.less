@@ -1,0 +1,36 @@
+@grey: rgb(204, 190, 190);
+@white: white;
+@red: rgb(128, 23, 23);
+@black: black;
+
+body {
+    background: @grey;
+}
+
+#menu {
+    border: solid 2px @white;
+    border-bottom: solid 3px @black;
+    text-align: center;
+    background: @white;
+    position: fixed;
+    height: 20px;
+    width: 99%;
+    text-align: center;
+    padding: 5px 0px 5px;
+
+    a {
+        color: @red;
+        margin-left: 5px;
+        padding: 2px;
+        text-decoration: none;
+        border: solid 1px;
+    }
+}
+
+#tresc {
+    position: absolute;
+    overflow-y: scroll;
+    height: 300px;
+    margin-top: 25px;
+    top: 20px;
+  }
