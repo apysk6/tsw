@@ -1,3 +1,3 @@
 # Artur Pyśk
 
-email?
+a.pysk6@gmail.com
