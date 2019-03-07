@@ -1,0 +1,45 @@
+@menuColor: rgb(190, 181, 181);
+@mainColor: rgb(226, 220, 220);
+@borderColor: darken(@menuColor, 15%);
+
+#all {
+    display: flex;
+
+    #menu {
+        background: @menuColor;
+        width: 30%;
+        flex-direction: column;
+        align-items: center;
+        display: flex;
+
+        p {
+            background: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 15vh;
+            padding: 5px 0;
+            border-radius: 8px 5px 0px 0px;
+            border-top: 2px solid @borderColor;
+            border-left: 5px solid @borderColor;
+        }
+    }
+
+    #main {
+        background: @mainColor;
+        padding-left: 2%;
+        display: flex;
+        flex-direction: column;
+        
+    }
+
+    @media(max-width: 960px) {
+        #menu {
+            align-items: flex-end;
+        }
+
+        #main {
+            width: 80%;
+        }
+    }
+}
