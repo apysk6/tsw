@@ -1,0 +1,34 @@
+@firstChildColor: gray;
+@secondChildColor: rgb(184, 174, 174);
+@thirdChildColor: rgb(216, 207, 207);
+@whiteColor: white;
+
+#outer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
+.box {
+    height: 30px;
+    width: 30px;
+    display: flex;
+    color: @whiteColor;
+    justify-content: center;
+    align-items: center;
+    max-height: 50%;
+
+    &:first-child {
+        background: @firstChildColor;
+    }
+
+    &:nth-child(2){
+        background: @secondChildColor;
+    }
+
+    &:nth-child(3){
+        background: @thirdChildColor;
+    }
+}
