@@ -23,7 +23,7 @@ let appFun = function(f) {
         }
         else
         {
-            throw({ typerr: "Argument: " + element + " is not valid type!" });
+            throw({ typerr: "Argument: " + element + " is " + typeof(element) + ". Should be number type." });
         }
         
     });
