@@ -7,17 +7,19 @@ const ocena = (ruch)  => {
         white: 0
     }
 
-    // Black stones.
     kod.forEach( (value, index) => { 
         let ruchSet = ruch.get(index);
         
         if (ruchSet !== undefined) {
-            let intersection = new Set([...value].filter(x => ruchSet.has(x)));
-            result.black += intersection.size;
+            let intersectionBlack = new Set([...value].filter(x => ruchSet.has(x)));
+            result.black += intersectionBlack.size;
+
+            let differenceWhite = new Set([...ruchSet].filter(x => !value.has(x)));
+            if (differenceWhite.size > 0) {
+                result.white += differenceWhite.size - intersectionBlack.size;
+            }
         }
     } );
-
-    // White stones.
 
     return result;
 }
@@ -36,7 +38,7 @@ const toMap = (tab) => {
 }
 
 const kod = toMap([1, 3, 3, 2, 2]);
-const ruch = toMap([2, 2, 3, 9, 2]);
+const ruch = toMap([1, 3, 8, 3, 3]);
 
 console.log(kod);
 console.log(ruch);
