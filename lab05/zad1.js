@@ -14,10 +14,10 @@ const ocena = (ruch)  => {
             let intersectionBlack = new Set([...value].filter(x => ruchSet.has(x)));
             result.black += intersectionBlack.size;
 
-            let differenceWhite = new Set([...ruchSet].filter(x => !value.has(x)));
-            if (differenceWhite.size > 0) {
-                result.white += differenceWhite.size - intersectionBlack.size;
-            }
+            let differenceKod = new Set([...value].filter(x => !intersectionBlack.has(x)));
+            let differenceRuch = new Set([...ruchSet].filter(x => !intersectionBlack.has(x)));
+            result.white += Math.min(differenceKod.size, differenceRuch.size);
+        
         }
     } );
 
@@ -38,7 +38,7 @@ const toMap = (tab) => {
 }
 
 const kod = toMap([1, 3, 3, 2, 2]);
-const ruch = toMap([1, 3, 8, 3, 3]);
+const ruch = toMap([1, 3, 3, 2, 2]);
 
 console.log(kod);
 console.log(ruch);
