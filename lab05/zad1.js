@@ -1,13 +1,25 @@
 /* jshint strict: global, esversion: 6, devel: true */
 'use strict';
 
-const ocena = (kod)  => {
-    return (ruch) => {
-        let newMap = toMap(kod).(toMap(ruch));
-        console.log(newMap);
-
-        return newMap;
+const ocena = (ruch)  => {
+    let result = {
+        black: 0,
+        white: 0
     }
+
+    // Black stones.
+    kod.forEach( (value, index) => { 
+        let ruchSet = ruch.get(index);
+        
+        if (ruchSet !== undefined) {
+            let intersection = new Set([...value].filter(x => ruchSet.has(x)));
+            result.black += intersection.size;
+        }
+    } );
+
+    // White stones.
+
+    return result;
 }
 
 const toMap = (tab) => {
@@ -29,4 +41,4 @@ const ruch = toMap([2, 2, 3, 9, 2]);
 console.log(kod);
 console.log(ruch);
 
-console.log(ocena(kod));
+console.log(ocena(ruch));
