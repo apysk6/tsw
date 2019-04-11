@@ -1,0 +1,42 @@
+@backgroundColor: #ECF0F1;
+
+body {
+    background-color: @backgroundColor;
+    font-family     : "Lucida Console";
+
+    .newGameForm {
+        margin    : auto;
+        text-align: center;
+        
+        label {
+            margin-bottom: 20px;
+        }
+
+        input {
+            background-color: @backgroundColor;
+            display         : block;
+            margin          : 0 auto;
+            color: black;
+        }
+
+        .inputText {
+            position       : relative;
+            text-decoration: none;
+            border         : none;
+            border-bottom  : 2px solid #34495E;
+        }
+
+        button {
+            display         : inline-block;
+            border          : none;
+            margin          : 5;
+            text-decoration : none;
+            background-color: #D98880;
+            color           : #ffffff;
+            font-family     : sans-serif;
+            padding         : 16px 32px;
+            margin          : 4px 2px;
+            cursor          : pointer;
+        }
+    }
+}
