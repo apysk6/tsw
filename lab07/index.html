@@ -9,12 +9,21 @@
     <script src="skrypt.js"></script>
 </head>
 <body>
-    <form method="POST" action="#" class="newGameForm">
+    <section class="container">
+    <div id="gameMenu">
+        <button id="gameStatusButton">Status gry</button>
+    </div>
+
+    <form method="POST" action="#" class="newGameForm" id="newGame">
         <label>ROZMIAR PLANSZY</label><input type="text" id="size" class="inputText"><br>
         <label>ILOŚĆ KOLORÓW</label><input type="text" id="colors" class="inputText"><br>
         <label>ILOŚĆ PRÓB</label><input type="text" id="steps" class="inputText"><br>
-
-        <button id="newGameButton" onclick="newGameRequest()">Rozpocznij nową grę</button>
     </form>
+
+    <form method="POST" action="#" class="moveForm" id="moveForm">
+    </form>
+
+    <button id="newGameButton">Rozpocznij nową grę</button>
+    </section>
 </body>
 </html>

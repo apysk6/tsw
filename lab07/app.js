@@ -12,8 +12,17 @@ let games = new Map();
 
 app.use(bodyParser.json());
 
-app.post('/game/new', (_req, res) => {
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
 
+app.use(function (_req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
+
+app.post('/game/new', (_req, res) => {
     let uuid = uuidv1();   
     let game = {
         "solved": false,
@@ -23,7 +32,7 @@ app.post('/game/new', (_req, res) => {
 
     games.set(uuid, game);
 
-    res.json( {
+    res.status(200).json( {
         game: uuid,
         size: _req.body.size,
         colors: _req.body.colors,
@@ -38,7 +47,6 @@ app.post('/game/move', (_req, res) => {
 
     let currentGame = games.get(uuid);
 
-    console.log(currentGame.board  + " " + move);
     let moveResult = moveRating(moveToMap(currentGame.board), moveToMap(move));
 
     if (moveResult.black === currentGame.board.size) {
