@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let gameMenu = document.getElementById('gameMenu');
 
     const colors = new Map();
+    let currentColor;
 
     const buildUI = () => {
         moveForm.style.display = "none";
@@ -73,6 +74,11 @@ document.addEventListener('DOMContentLoaded', () => {
         for (let i = 1; i <= currentGameColors; i++) {
             let colorBracket = document.createElement('div');
             colorBracket.style.backgroundColor = colors.get(i);
+
+            colorBracket.addEventListener('click', function (event) {
+                currentColor = event.target.style.backgroundColor;
+            });
+
             gameMenu.appendChild(colorBracket);
         }
     }
@@ -82,7 +88,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
         for (let i = 0; i < currentGameSize; i++) {
             let moveBracket = document.createElement('div');
+            moveBracket.addEventListener('click', function (event) {
+                event.target.style.backgroundColor = currentColor;
+            });
             moveForm.appendChild(moveBracket);
         }
+
+        let makeMoveButton = document.createElement('button');
+        makeMoveButton.innerHTML = "Ruch";
+        makeMoveButton.addEventListener('click', makeMove)
+        moveForm.appendChild(makeMoveButton);
+
+    }
+
+    const makeMove = () => {
+        
     }
 });
