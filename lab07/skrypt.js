@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const newGameForm = document.getElementById('newGame');
     const newGameButton = document.getElementById('newGameButton');
-    const moveForm = document.getElementById('moveForm');
+    const movesContainer = document.getElementById('moves-container');
     let gameMenu = document.getElementById('gameMenu');
 
     const colors = new Map();
@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentColorNumber;
 
     const buildUI = () => {
-        moveForm.style.display = "none";
     };
 
     const buildColors = () => {
@@ -61,11 +60,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const createNewGame = () => {
         newGameForm.style.display = "none";
         newGameButton.style.display = "none";
-        moveForm.style.display = "inline-block";
+        movesContainer.style.display = "inline-block";
 
         buildColors();
         buildColorsBrackets();
-        newMove();
+        newMoveRow();
     };
 
     const buildColorsBrackets = () => {
@@ -75,6 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
             let colorBracket = document.createElement('div');
             colorBracket.style.backgroundColor = colors.get(i);
             colorBracket.setAttribute("data-colorNumber", i);
+            colorBracket.setAttribute("class", "colorMenu");
             colorBracket.addEventListener('click', function (event) {
                 currentColor = event.target.style.backgroundColor;
                 currentColorNumber = event.target.getAttribute("data-colorNumber");
@@ -84,37 +84,43 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    const newMove = () => {
+    const newMoveRow = () => {
         let move = [];
         let currentGameSize = localStorage.getItem('gameSize');
+        let movesRow = document.createElement('div');
+        movesRow.setAttribute("class", "row");
 
         for (let i = 0; i < currentGameSize; i++) {
             let moveBracket = document.createElement('div');
+            moveBracket.setAttribute("class", "colorMove");
             moveBracket.addEventListener('click', function (event) {
                 event.target.style.backgroundColor = currentColor;
                 moveBracket.setAttribute("data-colorNumber", currentColorNumber);
             });
             
-            moveForm.appendChild(moveBracket);
+            movesRow.appendChild(moveBracket);
         }
 
+        movesContainer.appendChild(movesRow);
+
         let makeMoveButton = document.createElement('button');
+        makeMoveButton.setAttribute("class", "moveButton");
         makeMoveButton.innerHTML = "Ruch";
         
+        // Make move click.
         makeMoveButton.addEventListener('click', function (event) {
-            moveForm.removeChild(makeMoveButton);
+            movesRow.removeChild(makeMoveButton);
 
-            let colorBrackets = Array.from(moveForm.children);
-            colorBrackets.forEach((item) => {
-                let currentColorNumber = item.getAttribute("data-colorNumber");
-                move.push(currentColorNumber);
+            let moveRow = Array.from(movesContainer.lastChild.childNodes);
+            moveRow.forEach((item) => {
+                let currentColorNumber = item.getAttribute("data-colornumber");
+                move.push(parseInt(currentColorNumber));
             });
 
-            makeMoveRequest(move);
-            
+            makeMoveRequest(move);           
         });
 
-        moveForm.appendChild(makeMoveButton);
+        movesRow.appendChild(makeMoveButton);
     };
 
     const makeMoveRequest = (move) => {
@@ -127,8 +133,6 @@ document.addEventListener('DOMContentLoaded', () => {
             move: move
         };
 
-        console.log(move);
-
         request.open('POST', 'http://localhost:3000/game/move', true);
         request.setRequestHeader('Content-Type', 'application/json');
         request.send(JSON.stringify(requestData));
@@ -140,14 +144,36 @@ document.addEventListener('DOMContentLoaded', () => {
                 let whiteScore = moveResult.white;
                 let blackScore = moveResult.black;
 
-                console.log(whiteScore);
-                console.log(blackScore);
-                console.log(moveResult.board);
+                applyMoveResult(whiteScore, blackScore);
 
                 }
                 else {
                     alert(this.responseText);
-            }
+            };
         };
-    }
+    };
+
+    const applyMoveResult = (whiteScore, blackScore) => {
+        let lastMoveRow = movesContainer.lastChild;
+
+        if (whiteScore > 0) {
+            for (let i = 0; i < whiteScore; i++) {
+                let whiteResult = document.createElement('div');
+                whiteResult.setAttribute("class", "resultDiv");
+                lastMoveRow.appendChild(whiteResult);
+            };
+        }
+
+        if (blackScore > 0) {
+            for (let i = 0; i < blackScore; i++) {
+                let blackResult = document.createElement('div');
+                blackResult.setAttribute("class", "resultDiv");
+                blackResult.style.backgroundColor = "black";
+                lastMoveRow.appendChild(blackResult);
+            };
+        }
+
+        newMoveRow();
+    };
+
 });

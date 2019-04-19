@@ -1,78 +1,108 @@
-@backgroundColor: #ECF0F1;
+@backgroundColor: #ecf0f1;
 
 body {
-    background-color: @backgroundColor;
-    font-family     : "Lucida Console";
+  background-color: @backgroundColor;
+  font-family: "Lucida Console";
 
-    .container {
-        width: 80%;
+  .container {
+    width: 80%;
+    height: 200px;
+    margin: auto;
+    padding: 10px;
+    display: flex;
+
+    .moves-container {
+      display: flex;
+      flex-direction: column;
+
+      .row {
+        margin-left: 15%;
         height: 200px;
-        margin: auto;
-        padding: 10px;
         display: flex;
+        flex-direction: row;
 
-        #gameMenu {
-            width: 15%;
-            height: 200px;
-            display: flex;
-            flex-direction: column;
-            margin-top: 20px;
-
-            div {
-                background: white;
-                border: solid black 1px;
-                height: 75px;
-                width: 75px;
-                margin-bottom: 10px;
-                display: flex;
-                flex-direction: column;
-              }
-    
+        .colorMove {
+            background: white;
+            border: solid black 1px;
+            height: 75px;
+            width: 75px;
+            margin-left: 10px;
         }
 
-        .moveForm {
-            margin-left: 15%;
-            height: 200px;
-
-            div {
-                background: white;
-                height: 75px;
-                border: solid black 1px;
-                width: 75px;
-                margin: 10px;
-                display: inline-block;
-              }
+        .moveButton {
+            margin-left: 20px;
+            margin-top: 15px;
+            height:40px;
+            width: 80px;
+            text-align: center;
+            border: none;
+            background-color: royalblue;
+            color: #ffffff;
         }
+
+        .resultDiv {
+            background: white;
+            border: solid black 1px;
+            height: 35px;
+            width: 35px;
+            border-radius: 50%;
+            margin-left: 20px;
+            margin-top: 15px;
+        }
+      }
+    }
+
+    #gameMenu {
+      width: 15%;
+      height: 200px;
+      display: flex;
+      flex-direction: column;
+      margin-top: 20px;
+
+      .colorMenu {
+        background: white;
+        border: solid black 1px;
+        height: 75px;
+        width: 75px;
+        margin-bottom: 10px;
+        display: flex;
+        flex-direction: column;
+      }
     }
 
     .newGameForm {
-        margin    : auto;
-        text-align: center;
-        
-        label {
-            margin-bottom: 20px;
-        }
+      margin: auto;
+      text-align: center;
 
-        input {
-            background-color: @backgroundColor;
-            display         : block;
-            margin          : 0 auto;
-            color: black;
-        }
+      label {
+        margin-bottom: 20px;
+      }
 
-        .inputText {
-            position       : relative;
-            text-decoration: none;
-            border         : none;
-            border-bottom  : 2px solid #34495E;
-        }
+      input {
+        background-color: @backgroundColor;
+        display: block;
+        margin: 0 auto;
+        color: black;
+      }
+
+      .inputText {
+        position: relative;
+        text-decoration: none;
+        border: none;
+        border-bottom: 2px solid #34495e;
+      }
     }
 
-    button {
-        border          : none;
-        text-decoration : none;
-        background-color: #D98880;
-        color           : #ffffff;
-        text-align      : center;
+    .newGameButton {
+      border: none;
+      text-decoration: none;
+      background-color: #d98880;
+      color: #ffffff;
+      text-align: center;
+      margin: auto;
+      position: relative;
+      height: 60px;
+      width: 100px;
     }
+  }
 }
