@@ -4,6 +4,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const newGameForm = document.getElementById('newGame');
     const newGameButton = document.getElementById('newGameButton');
     const movesContainer = document.getElementById('moves-container');
+    const gameStepsContainer = document.getElementById('gameStepsContainer');
+    const availableSteps = document.getElementById('availableSteps');
     let gameMenu = document.getElementById('gameMenu');
 
     const colors = new Map();
@@ -12,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const buildUI = () => {
         movesContainer.style.display = "none";
+        gameStepsContainer.style.display = "none";
     };
 
     const buildColors = () => {
@@ -61,7 +64,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const createNewGame = () => {
         newGameForm.style.display = "none";
         newGameButton.style.display = "none";
-        movesContainer.style.display = "inline-block";
+        movesContainer.style.display = "flex";
+        gameStepsContainer.style.display = "flex";
+
+        availableSteps.innerHTML = localStorage.getItem("gameSteps");
 
         buildColors();
         buildColorsBrackets();
@@ -158,8 +164,17 @@ document.addEventListener('DOMContentLoaded', () => {
         let gameSize = parseInt(localStorage.getItem('gameSize'));
 
         if (blackScore === gameSize) {
-            endGame();
+            endGame(true);
             return;
+        }
+
+        let gameSteps = localStorage.getItem("gameSteps");
+        gameSteps -= 1;
+        localStorage.setItem("gameSteps", gameSteps);
+        availableSteps.innerHTML = gameSteps;
+
+        if (gameSteps === 0) {
+            endGame(false);
         }
 
         let lastMoveRow = movesContainer.lastChild;
@@ -184,8 +199,14 @@ document.addEventListener('DOMContentLoaded', () => {
         newMoveRow();
     };
 
-    const endGame = () => {
-        alert("Wygrałeś!");
+    const endGame = (win) => {
+
+        if (win) {
+            alert("Wygrałeś!");
+        }
+        else {
+            alert("Koniec ruchów! Przegrałeś! Spróbuj ponownie.")
+        }
 
         removeChildElements(movesContainer);
         removeChildElements(gameMenu);

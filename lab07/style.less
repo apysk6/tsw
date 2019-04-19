@@ -2,11 +2,9 @@
 
 body {
   background-color: @backgroundColor;
-  font-family: "Lucida Console";
+  font-family: "Futura";
 
   .container {
-    width: 80%;
-    height: 200px;
     margin: auto;
     padding: 10px;
     display: flex;
@@ -58,6 +56,18 @@ body {
       display: flex;
       flex-direction: column;
       margin-top: 20px;
+
+      #gameStepsContainer {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 10px;
+
+        label {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+    }
 
       .colorMenu {
         background: white;
