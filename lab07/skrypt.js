@@ -1,13 +1,14 @@
 /* jshint esversion: 6, browser: true, devel: true */
 document.addEventListener('DOMContentLoaded', () => {
+    //localStorage.clear();
 
+    // Properties.
     const newGameForm = document.getElementById('newGame');
     const newGameButton = document.getElementById('newGameButton');
     const movesContainer = document.getElementById('moves-container');
     const gameStepsContainer = document.getElementById('gameStepsContainer');
     const availableSteps = document.getElementById('availableSteps');
     let gameMenu = document.getElementById('gameMenu');
-
     const colors = new Map();
     let currentColor;
     let currentColorNumber;
@@ -24,7 +25,74 @@ document.addEventListener('DOMContentLoaded', () => {
         colors.set(4, "#00008B");
     };
 
-    buildUI();
+    const checkIfGameExists = () => {
+        let game = localStorage.getItem("gameId");
+        
+        if (game !== null) {
+            restoreGame();
+        }
+    }
+
+    const createMoveButton = (movesRow) => {
+        let makeMoveButton = document.createElement('button');
+        makeMoveButton.setAttribute("class", "moveButton");
+        makeMoveButton.innerHTML = "Ruch";
+        
+        // Make move click.
+        makeMoveButton.addEventListener('click', makeMoveClick);
+        movesRow.appendChild(makeMoveButton);
+    };
+
+    const makeMoveClick = () => {
+            let move = [];
+            let moveRow = Array.from(movesContainer.lastChild.childNodes);
+            moveRow.forEach((item) => {
+                let currentColorNumber = item.getAttribute("data-colornumber");
+                move.push(parseInt(currentColorNumber));
+
+            let movesHistory = JSON.parse(localStorage.getItem("movesHistory"));
+            movesHistory.push(move);
+            localStorage.setItem("movesHistory", JSON.stringify(movesHistory));
+
+            makeMoveRequest(move);  
+            });         
+
+};
+
+    const restoreGame = () => {
+        newGameGUI();
+
+        let movesHistory = JSON.parse(localStorage.getItem("movesHistory"));
+        let currentGameSize = localStorage.getItem("gameColors");
+
+        if (movesHistory.length === 0) {
+            newMoveRow();
+            return;
+        }
+        
+        movesHistory.forEach((item) => {
+
+            let movesRow = document.createElement('div');
+            movesRow.setAttribute("class", "row");
+
+            for (let i = 0; i < currentGameSize; i++) {
+                let moveBracket = document.createElement('div');
+                moveBracket.setAttribute("class", "colorMove");
+                moveBracket.style.backgroundColor = colors.get(item[i]);
+
+                moveBracket.addEventListener('click', function (event) {
+                    event.target.style.backgroundColor = currentColor;
+                    moveBracket.setAttribute("data-colorNumber", currentColorNumber);
+                });
+                
+                movesRow.appendChild(moveBracket);
+            }
+
+            movesContainer.appendChild(movesRow);
+        });
+
+        createMoveButton(movesContainer.lastChild);
+    }
 
     // New game.
     newGameButton.addEventListener('click', (e) => {
@@ -62,6 +130,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     const createNewGame = () => {
+        let movesHistory = [];
+        localStorage.setItem("movesHistory", JSON.stringify(movesHistory));
+
+        newGameGUI();
+        newMoveRow();
+    };
+
+    const newGameGUI = () => {
         newGameForm.style.display = "none";
         newGameButton.style.display = "none";
         movesContainer.style.display = "flex";
@@ -71,8 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         buildColors();
         buildColorsBrackets();
-        newMoveRow();
-    };
+    }
 
     const buildColorsBrackets = () => {
         let currentGameColors = localStorage.getItem('gameColors');
@@ -92,7 +167,6 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const newMoveRow = () => {
-        let move = [];
         let currentGameSize = localStorage.getItem('gameSize');
         let movesRow = document.createElement('div');
         movesRow.setAttribute("class", "row");
@@ -110,29 +184,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         movesContainer.appendChild(movesRow);
 
-        let makeMoveButton = document.createElement('button');
-        makeMoveButton.setAttribute("class", "moveButton");
-        makeMoveButton.innerHTML = "Ruch";
-        
-        // Make move click.
-        makeMoveButton.addEventListener('click', function (event) {
-            movesRow.removeChild(makeMoveButton);
-
-            let moveRow = Array.from(movesContainer.lastChild.childNodes);
-            moveRow.forEach((item) => {
-                let currentColorNumber = item.getAttribute("data-colornumber");
-                move.push(parseInt(currentColorNumber));
-            });
-
-            makeMoveRequest(move);           
-        });
-
-        movesRow.appendChild(makeMoveButton);
+        createMoveButton(movesRow);
     };
 
     const makeMoveRequest = (move) => {
-        let movesMap = localStorage.getItem("moves");
-
         let request = new XMLHttpRequest();
 
         let requestData = {
@@ -175,6 +230,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (gameSteps === 0) {
             endGame(false);
+            return;
         }
 
         let lastMoveRow = movesContainer.lastChild;
@@ -214,6 +270,8 @@ document.addEventListener('DOMContentLoaded', () => {
         movesContainer.style.display = "none";
         newGameForm.style.display = "inline-block";
         newGameButton.style.display = "inline-block";
+
+        localStorage.clear();
     };
 
     const removeChildElements = (node) => {
@@ -222,5 +280,9 @@ document.addEventListener('DOMContentLoaded', () => {
             node.removeChild(node.firstChild);
         };
     }
+
+    // On-launch.
+    buildUI();
+    checkIfGameExists();
 
 });
