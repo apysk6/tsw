@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentColorNumber;
 
     const buildUI = () => {
+        movesContainer.style.display = "none";
     };
 
     const buildColors = () => {
@@ -44,9 +45,9 @@ document.addEventListener('DOMContentLoaded', () => {
             if (this.status === 200) {
                 let newGame = JSON.parse(this.responseText)
                 localStorage.setItem('gameId', newGame.game);
-                localStorage.setItem('gameSize', newGame.size);
-                localStorage.setItem('gameColors', newGame.colors);
-                localStorage.setItem('gameSteps', newGame.steps);
+                localStorage.setItem('gameSize', parseInt(newGame.size));
+                localStorage.setItem('gameColors', parseInt(newGame.colors));
+                localStorage.setItem('gameSteps', parseInt(newGame.steps));
                 createNewGame();
                 }
                 else {
@@ -141,8 +142,8 @@ document.addEventListener('DOMContentLoaded', () => {
             if (this.status === 200) {
                 let moveResult = JSON.parse(this.responseText);
 
-                let whiteScore = moveResult.white;
-                let blackScore = moveResult.black;
+                let whiteScore = parseInt(moveResult.white);
+                let blackScore = parseInt(moveResult.black);
 
                 applyMoveResult(whiteScore, blackScore);
 
@@ -154,6 +155,13 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const applyMoveResult = (whiteScore, blackScore) => {
+        let gameSize = parseInt(localStorage.getItem('gameSize'));
+
+        if (blackScore === gameSize) {
+            endGame();
+            return;
+        }
+
         let lastMoveRow = movesContainer.lastChild;
 
         if (whiteScore > 0) {
@@ -175,5 +183,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
         newMoveRow();
     };
+
+    const endGame = () => {
+        alert("Wygrałeś!");
+
+        removeChildElements(movesContainer);
+        removeChildElements(gameMenu);
+
+        movesContainer.style.display = "none";
+        newGameForm.style.display = "inline-block";
+        newGameButton.style.display = "inline-block";
+    };
+
+    const removeChildElements = (node) => {
+
+        while(node.firstChild) {
+            node.removeChild(node.firstChild);
+        };
+    }
 
 });
