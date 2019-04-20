@@ -45,25 +45,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const makeMoveClick = () => {
             let move = [];
-            let moveRow = Array.from(movesContainer.lastChild.childNodes);
+            let currentMoveBrackets = movesContainer.lastChild;
+            let makeMoveButton = currentMoveBrackets.lastChild;
+            currentMoveBrackets.removeChild(makeMoveButton);
+            let moveRow = Array.from(currentMoveBrackets.childNodes);
+
             moveRow.forEach((item) => {
                 let currentColorNumber = item.getAttribute("data-colornumber");
                 move.push(parseInt(currentColorNumber));
+            });   
 
             let movesHistory = JSON.parse(localStorage.getItem("movesHistory"));
             movesHistory.push(move);
             localStorage.setItem("movesHistory", JSON.stringify(movesHistory));
 
-            makeMoveRequest(move);  
-            });         
-
+            makeMoveRequest(move);        
 };
 
     const restoreGame = () => {
         newGameGUI();
 
         let movesHistory = JSON.parse(localStorage.getItem("movesHistory"));
-        let currentGameSize = localStorage.getItem("gameColors");
+        let currentGameSize = localStorage.getItem("gameSize");
 
         if (movesHistory.length === 0) {
             newMoveRow();
