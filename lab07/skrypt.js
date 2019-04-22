@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const movesContainer = document.getElementById('moves-container');
     const gameStepsContainer = document.getElementById('gameStepsContainer');
     const availableSteps = document.getElementById('availableSteps');
+    const backToMenuButton = document.getElementById('backToMenuButton');
     let gameMenu = document.getElementById('gameMenu');
     const colors = new Map();
     let currentColor;
@@ -16,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const buildUI = () => {
         movesContainer.style.display = "none";
         gameStepsContainer.style.display = "none";
+        backToMenuButton.style.display = "none";
     };
 
     const buildColors = () => {
@@ -145,6 +147,9 @@ document.addEventListener('DOMContentLoaded', () => {
         newGameButton.style.display = "none";
         movesContainer.style.display = "flex";
         gameStepsContainer.style.display = "flex";
+        backToMenuButton.style.display = "flex";
+
+        backToMenuButton.addEventListener('click', endGame);
 
         availableSteps.innerHTML = localStorage.getItem("gameSteps");
 
@@ -260,10 +265,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const endGame = (win) => {
 
-        if (win) {
+        if (win === true) {
             alert("Wygrałeś!");
         }
-        else {
+        
+        if (win === false) {
             alert("Koniec ruchów! Przegrałeś! Spróbuj ponownie.")
         }
 
