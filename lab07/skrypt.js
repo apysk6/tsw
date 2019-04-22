@@ -57,10 +57,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 move.push(parseInt(currentColorNumber));
             });   
 
-            let movesHistory = JSON.parse(localStorage.getItem("movesHistory"));
-            movesHistory.push(move);
-            localStorage.setItem("movesHistory", JSON.stringify(movesHistory));
-
             makeMoveRequest(move);        
 };
 
@@ -68,6 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
         newGameGUI();
 
         let movesHistory = JSON.parse(localStorage.getItem("movesHistory"));
+        console.log(movesHistory);
         let currentGameSize = localStorage.getItem("gameSize");
 
         if (movesHistory.length === 0) {
@@ -83,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
             for (let i = 0; i < currentGameSize; i++) {
                 let moveBracket = document.createElement('div');
                 moveBracket.setAttribute("class", "colorMove");
-                moveBracket.style.backgroundColor = colors.get(item[i]);
+                moveBracket.style.backgroundColor = colors.get(item.move[i]);
 
                 moveBracket.addEventListener('click', function (event) {
                     event.target.style.backgroundColor = currentColor;
@@ -94,9 +91,10 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             movesContainer.appendChild(movesRow);
+            setResultsGUI(item.whiteScore, item.blackScore);
         });
 
-        createMoveButton(movesContainer.lastChild);
+        newMoveRow();
     }
 
     // New game.
@@ -215,12 +213,28 @@ document.addEventListener('DOMContentLoaded', () => {
                 let blackScore = parseInt(moveResult.black);
 
                 applyMoveResult(whiteScore, blackScore);
+                addMoveToHistory(move, whiteScore, blackScore);
 
                 }
                 else {
                     alert(this.responseText);
             };
         };
+    };
+
+    const addMoveToHistory = (move, whiteScore, blackScore) => {
+        moveElement = {
+            move: move,
+            whiteScore: whiteScore,
+            blackScore: blackScore
+        };
+
+        console.log(moveElement);
+
+        let movesHistory = JSON.parse(localStorage.getItem("movesHistory"));
+        console.log(movesHistory);
+        movesHistory.push(moveElement);
+        localStorage.setItem("movesHistory", JSON.stringify(movesHistory));
     };
 
     const applyMoveResult = (whiteScore, blackScore) => {
@@ -241,8 +255,13 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        let lastMoveRow = movesContainer.lastChild;
+        setResultsGUI(whiteScore, blackScore);
+        newMoveRow();
+    };
 
+    const setResultsGUI = (whiteScore, blackScore) => {
+        let lastMoveRow = movesContainer.lastChild;
+        console.log(movesContainer);
         if (whiteScore > 0) {
             for (let i = 0; i < whiteScore; i++) {
                 let whiteResult = document.createElement('div');
@@ -259,8 +278,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 lastMoveRow.appendChild(blackResult);
             };
         }
-
-        newMoveRow();
     };
 
     const endGame = (win) => {
