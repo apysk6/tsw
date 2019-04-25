@@ -7,10 +7,10 @@ document.addEventListener('DOMContentLoaded', () => {
         header.addEventListener('click', (header) => {
 
             if (header.nextSibling.nextSibling.style.display === "none") {
-                text.style.display = "block";
+                header.nextSibling.nextSibling.style.display = "block";
             }
             else {
-                text.style.display = "none";
+                header.nextSibling.nextSibling.style.display = "none";
             };
         });
     });  
