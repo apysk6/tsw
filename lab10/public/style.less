@@ -1,0 +1,49 @@
+@backgroundColor: #dee5f2;
+
+body {
+    background-color: @backgroundColor;
+    font-family: "Futura";
+
+    #chatForm {
+        width: 400px;
+        margin: 0 auto;
+        border: solid 1px #ccc;
+        border-radius: 5px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+
+        #messagesBox {
+            height: 400px;
+            overflow: auto;
+
+            #singleMessage {
+                border-bottom: 2px solid #b7b8bb;
+                background-color: #dee5f2;
+                border-radius: 5px;
+                padding: 10px;
+                margin: 10px 0;
+                position: relative;
+            }
+        }
+
+        #sendMessageBox {
+            width: 100%;
+            border-top: 1px solid black;
+            border: none;
+            font-size: 16px;
+            padding: 10px;
+            background-color: #8bb3f4;
+    
+            #sendMessageButton {
+                background-color: #6b6bdc;
+                width: 70px;
+                height: 25px;
+                border: none;
+                color: white;
+                cursor: pointer;
+            }
+        }
+    }
+ 
+}

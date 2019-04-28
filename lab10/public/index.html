@@ -4,6 +4,7 @@
 <head>
   <title>Socket Chat</title>
   <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css">
   <script src="./js/skrypt.js"></script>
   <script src="/socket.io/socket.io.js"></script>
 </head>
@@ -16,11 +17,12 @@
       <button id="setUsername">Rozpocznij czat</button>
     </div>
     <div id="chatForm">
-    <p>
-      Wiadomość:&nbsp;
-      <input id="text">&nbsp;<input id="send" type="button" value="Wyślij">
-    </p>
-    <p id="message"></p>
+      <div id="messagesBox">
+
+      </div>
+      <div id="sendMessageBox">
+          <input id="messageText">&nbsp;<input id="sendMessageButton" type="button" value="Wyślij">
+      </div>
   </div>
   </div>
 </body>
