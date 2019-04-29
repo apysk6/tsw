@@ -15,9 +15,11 @@ document.onreadystatechange = () => {
             let username = document.getElementById('usernameInput').value.trim();
 
             let socket = io.connect(`http://${location.host}`);
+            
 
             socket.on('connect', () => {
                 socket.emit('setUsername', username);
+                socket.emit('restoreHistory');
             });
 
             socket.on('checkUsername', (isAlreadyConnected) => {
@@ -32,12 +34,24 @@ document.onreadystatechange = () => {
             });
 
             socket.on('sendMessage', (message) => {
+                insertMessage(message);
+            });
+
+            socket.on('restoreHistory', (messages) => {
+                let messagesArray = Array.from(messages);
+                messagesArray.forEach((element) => {
+                    insertMessage(element.message);
+                });
+            });
+
+            let insertMessage = (message) => {
                 let newMessage = document.createElement('div');
                 newMessage.setAttribute('id', 'singleMessage');
                 newMessage.innerHTML = message;
     
                 messagesBox.appendChild(newMessage);
-            });
+                messagesBox.scrollTop = messagesBox.scrollHeight;
+            };
 
             let sendMessageButtonClick = () => {
                 let message = messageText.value.trim();

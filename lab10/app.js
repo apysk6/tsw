@@ -21,7 +21,7 @@ db.defaults({ messages: [], currentId: 1 }).write();
 
 io.sockets.on('connect', (socket) => {
     console.log('Socket.io: połączono.');
-    
+
     socket.on('setUsername', (data) => {
         let isAlreadyConnected = false;
 
@@ -34,6 +34,11 @@ io.sockets.on('connect', (socket) => {
             users.push(socket.nickname);
             socket.emit('checkUsername', isAlreadyConnected);
         }
+    });
+
+    socket.on('restoreHistory', () => {
+        let messages = db.get('messages').value();
+        socket.emit('restoreHistory', messages);
     });
 
     socket.on('sendMessage', (message) => {
