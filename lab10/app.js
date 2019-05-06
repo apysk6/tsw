@@ -17,10 +17,11 @@ const io = socketio.listen(httpServer);
 
 app.use(serveStatic('public'));
 
-db.defaults({ messages: [], currentId: 1 }).write();
+db.defaults({ history: [], rooms: ['ogolny'], currentId: 1 }).write();
 
 io.sockets.on('connect', (socket) => {
     console.log('Socket.io: połączono.');
+    io.emit('updateRooms', rooms);
 
     socket.on('setUsername', (data) => {
         let isAlreadyConnected = false;
@@ -36,18 +37,36 @@ io.sockets.on('connect', (socket) => {
         }
     });
 
-    socket.on('restoreHistory', () => {
-        let messages = db.get('messages').value();
-        socket.emit('restoreHistory', messages);
+    socket.on('connectToRoom', (roomName) => {
+        socket.join(roomName);
+        let rooms = db.get('rooms').value();
+
+        if (!rooms.includes(roomName)) {
+            db.get('rooms').push({room: roomName}).write();
+        }
+
+        io.emit('updateRooms', rooms);
     });
 
-    socket.on('sendMessage', (message) => {
+    socket.on('restoreHistory', () => {
+        let history = db.get('history').value();
+        socket.emit('restoreHistory', history);
+    });
+
+    socket.on('sendMessage', (message, roomName) => {
         let currentId = db.get('currentId').value();
-        db.get('messages').push({id:currentId, message: message}).write();
+
+        let archivedMessage = {
+            message: message,
+            roomName: roomName
+        };
+
+        db.get('history').push({id:currentId, message: archivedMessage}).write();
         db.update('currentId', n => n + 1).write()
 
         io.emit('sendMessage', message);
     });
+
 
     socket.on('disconnect', () => {
         users.splice(users.indexOf(socket.username), 1);
