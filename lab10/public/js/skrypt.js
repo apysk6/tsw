@@ -47,17 +47,21 @@ document.onreadystatechange = () => {
             });
 
             socket.on('restoreHistory', (messages) => {
+                console.log(messages);
                 let messagesArray = Array.from(messages);
                 messagesArray.forEach((element) => {
-                    insertMessage(element.message);
+                    console.log(element.message.message);
+                    insertMessage(element.message.message);
                 });
             });
 
-            socket.on('updateRooms', (rooms) => {
-                rooms.forEach((room) => {
+            socket.on('updateRooms', (updatedRooms) => {
+                let currentRooms = document.getElementById('rooms');
+                removeChildElements(currentRooms);
+                updatedRooms.forEach((room) => {
                     let roomLabel = document.createElement('p');
-                    roomLabel.innerHTML = room;
-                    menu.appendChild(roomLabel);
+                    roomLabel.innerHTML = room.room;
+                    currentRooms.appendChild(roomLabel);
                 });
             });
 
@@ -103,6 +107,12 @@ document.onreadystatechange = () => {
 
             setUsernameButton.addEventListener('click', setUsernameClick);
         };
+
+        const removeChildElements = (node) => {
+            while(node.firstChild) {
+                node.removeChild(node.firstChild);
+            };
+        }
 
         buildUI();
     }
