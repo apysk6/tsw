@@ -54,7 +54,6 @@ io.sockets.on('connect', (socket) => {
         };
 
         rooms = db.get('rooms').value();
-
         io.emit('updateRooms', rooms);
     });
 

@@ -47,23 +47,34 @@ document.onreadystatechange = () => {
             });
 
             socket.on('restoreHistory', (messages) => {
-                console.log(messages);
                 let messagesArray = Array.from(messages);
                 messagesArray.forEach((element) => {
-                    console.log(element.message.message);
                     insertMessage(element.message.message);
                 });
             });
 
             socket.on('updateRooms', (updatedRooms) => {
+                let roomName = localStorage.getItem('roomName')
                 let currentRooms = document.getElementById('rooms');
                 removeChildElements(currentRooms);
                 updatedRooms.forEach((room) => {
                     let roomLabel = document.createElement('p');
                     roomLabel.innerHTML = room.room;
+                    roomLabel.addEventListener('click', changeRoomClicked);
                     currentRooms.appendChild(roomLabel);
+
+                    if (room.room === roomName) {
+                        roomLabel.style.color = "red";
+                    };
                 });
             });
+
+            let changeRoomClicked = () => {
+                let changingRoomName = event.target.innerHTML;
+                removeChildElements(messagesBox);
+                connectToRoom(changingRoomName);
+                localStorage.setItem('roomName', changingRoomName);
+            };
 
             let insertMessage = (message) => {
                 let newMessage = document.createElement('div');
@@ -85,14 +96,7 @@ document.onreadystatechange = () => {
 
             const newRoomClick = () => {
                 let newRoomName = document.getElementById('newRoomName').value.trim();
-                let newRoomLabel = document.createElement('p');
-                newRoomLabel.innerHTML = newRoomName;
-                menu.appendChild(newRoomLabel);
-
-                while (messagesBox.firstChild) {
-                    messagesBox.removeChild(messagesBox.firstChild);
-                }
-    
+                removeChildElements(messagesBox);
                 connectToRoom(newRoomName);
                 localStorage.setItem('roomName', newRoomName);
             }
