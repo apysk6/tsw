@@ -1,0 +1,65 @@
+<template>
+  <div class="container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Nazwa</th>
+          <th>Kraj</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="horse in horses" :key="horse.id">
+          <td>{{ horse.nazwa }}</td>
+          <td>{{ horse.kraj }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</template>
+
+<script>
+import { mapState } from 'vuex'
+import store from "../store"
+
+export default {
+  name: 'Horses',
+  mounted () {
+    this.$store.dispatch('getHorses')
+  },
+  computed: mapState([
+    'horses'
+  ])
+}
+</script>
+
+<style scoped>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 30%;
+  margin: 50px auto 0 auto;
+}
+
+li {
+  list-style: none;
+}
+
+tr {
+  border-bottom: 1px solid black;
+}
+
+th {
+    background-color: #dbdaf7;
+}
+
+td {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+  text-align: center;
+}
+
+td input {
+    text-align: center;
+}
+</style>
