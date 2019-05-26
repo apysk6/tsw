@@ -3,12 +3,14 @@
     <table class="table">
       <thead>
         <tr>
+                    <th>Numer</th>
           <th>Nazwa</th>
           <th>Kraj</th>
         </tr>
       </thead>
       <tbody>
         <tr v-for="horse in horses" :key="horse.id">
+          <td>{{ horse.numer }}</td>
           <td>{{ horse.nazwa }}</td>
           <td>{{ horse.kraj }}</td>
         </tr>

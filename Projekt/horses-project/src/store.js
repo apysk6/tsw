@@ -43,6 +43,11 @@ export default new Vuex.Store({
       state.classes = classes;
     },
 
+    DELETE_CLASS(state, id) {
+      let index = state.classes.findIndex(singleClass => singleClass.id === id);
+      state.classes.splice(index, 1);
+    },
+
     SET_MESSAGE(state, message) {
       state.actionMessage = message;
       setTimeout(() => {
@@ -141,11 +146,53 @@ export default new Vuex.Store({
         .then(classes => {
           commit("SET_CLASSES", classes);
         });
+    },
+
+    deleteClass({ commit }, id) {
+      let errorOccured = false;
+      axios
+        .delete("http://localhost:3000/klasy/" + id)
+        .then(() => {
+          commit("DELETE_CLASS", id);
+        })
+        .catch(() => {
+          commit(
+            "SET_MESSAGE",
+            "Nie udało się wykonać żądania. Spróbuj ponownie!"
+          );
+          errorOccured = true;
+        });
+
+      if (!errorOccured) {
+        commit("SET_MESSAGE", "Klasa została pomyślnie usunięta.");
+      }
     }
   },
   getters: {
     getJudgeById: state => id => {
       return state.judges.find(judge => judge.id === id);
+    },
+
+    getClassById: state => id => {
+      return state.classes.find(singleClass => singleClass.id === id);
+    },
+
+    getUniqueJudges: state => judges => {
+      let uniqueJudges = [];
+      state.judges.forEach(judge => {
+        let match = false;
+        judges.forEach(classJudge => {
+          if (judge.id === classJudge) {
+            match = true;
+          }
+        });
+
+        if (!match) {
+          uniqueJudges.push(judge);
+        }
+      });
+
+      return uniqueJudges;
     }
   }
 });
