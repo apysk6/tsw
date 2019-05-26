@@ -10,11 +10,29 @@ export default new Vuex.Store({
   state: {
     judges: [],
     horses: [],
-    classes: []
+    classes: [],
+    actionMessage: null
   },
   mutations: {
     SET_JUDGES(state, judges) {
       state.judges = judges;
+    },
+
+    DELETE_JUDGE(state, id) {
+      let index = state.judges.findIndex(judge => judge.id === id);
+      state.judges.splice(index, 1);
+    },
+
+    UPDATE_JUDGE(state, judge) {
+      let storedJudge = state.judges.find(
+        storedJudge => storedJudge.id === judge.id
+      );
+      storedJudge.sedzia = judge.sedzia;
+      storedJudge.kraj = judge.kraj;
+    },
+
+    ADD_JUDGE(state, judge) {
+      state.judges.push(judge);
     },
 
     SET_HORSES(state, horses) {
@@ -23,6 +41,13 @@ export default new Vuex.Store({
 
     SET_CLASSES(state, classes) {
       state.classes = classes;
+    },
+
+    SET_MESSAGE(state, message) {
+      state.actionMessage = message;
+      setTimeout(() => {
+        state.actionMessage = null;
+      }, 3000);
     }
   },
   actions: {
@@ -35,6 +60,71 @@ export default new Vuex.Store({
         });
     },
 
+    addJudge({ commit }, judge) {
+      let errorOccured = false;
+      axios
+        .post("http://localhost:3000/sedziowie", {
+          sedzia: judge.sedzia,
+          kraj: judge.kraj
+        })
+        .then(() => {
+          commit("ADD_JUDGE", judge);
+        })
+        .catch(() => {
+          commit(
+            "SET_MESSAGE",
+            "Nie udało się wykonać żądania. Spróbuj ponownie!"
+          );
+          errorOccured = true;
+        });
+
+      if (!errorOccured) {
+        commit("SET_MESSAGE", "Sędzia został pomyślnie dodany.");
+      }
+    },
+
+    updateJudge({ commit }, judge) {
+      let errorOccured = false;
+      axios
+        .put("http://localhost:3000/sedziowie/" + judge.id, {
+          sedzia: judge.sedzia,
+          kraj: judge.kraj
+        })
+        .then(() => {
+          commit("UPDATE_JUDGE", judge);
+        })
+        .catch(() => {
+          commit(
+            "SET_MESSAGE",
+            "Nie udało się wykonać żądania. Spróbuj ponownie!"
+          );
+          errorOccured = true;
+        });
+
+      if (!errorOccured) {
+        commit("SET_MESSAGE", "Sędzia został pomyślnie edytowany.");
+      }
+    },
+
+    deleteJudge({ commit }, id) {
+      let errorOccured = false;
+      axios
+        .delete("http://localhost:3000/sedziowie/" + id)
+        .then(() => {
+          commit("DELETE_JUDGE", id);
+        })
+        .catch(() => {
+          commit(
+            "SET_MESSAGE",
+            "Nie udało się wykonać żądania. Spróbuj ponownie!"
+          );
+          errorOccured = true;
+        });
+
+      if (!errorOccured) {
+        commit("SET_MESSAGE", "Sędzia został pomyślnie usunięty.");
+      }
+    },
     getHorses({ commit }) {
       axios
         .get("http://localhost:3000/konie")

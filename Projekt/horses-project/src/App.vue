@@ -1,11 +1,11 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/judges">Sędziowie</router-link> |
-      <router-link to="/horses">Konie</router-link> |
-      <router-link to="/classes">Klasy</router-link> 
+    <div id="header-nav" class="nav-bars">
+      <router-link to="/judges">Sędziowie</router-link>|
+      <router-link to="/horses">Konie</router-link>|
+      <router-link to="/classes">Klasy</router-link>
     </div>
-    <router-view />
+    <router-view id="views"/>
   </div>
 </template>
 
@@ -16,15 +16,27 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
+
+  .nav-bars {
+    background: cornflowerblue;
+    position: fixed;
+    width: 100%;
+    padding: 10px;
+    color: white;
+
+    a {
+      color: white;
+      text-decoration: none;
     }
   }
+
+  #header-nav {
+    top: 0;
+    left: 0;
+  }
+}
+
+#views {
+  margin-top: 5%;
 }
 </style>
