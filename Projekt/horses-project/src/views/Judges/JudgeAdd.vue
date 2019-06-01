@@ -54,7 +54,8 @@ export default {
       this.validationMessages = [];
       if (this.judge.sedzia && this.judge.kraj) {
         this.$store.dispatch("addJudge", this.judge);
-        this.$router.go(-1);
+        this.$store.dispatch("getJudges");
+        this.$router.push({ name: 'judges' });
       } else {
         if (!this.judge.sedzia) {
           this.validationMessages.push(

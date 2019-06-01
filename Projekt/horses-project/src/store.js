@@ -43,6 +43,10 @@ export default new Vuex.Store({
       state.classes = classes;
     },
 
+    ADD_CLASS(state, singleClass) {
+      state.classes.push(singleClass);
+    },
+
     DELETE_CLASS(state, id) {
       let index = state.classes.findIndex(singleClass => singleClass.id === id);
       state.classes.splice(index, 1);
@@ -157,6 +161,30 @@ export default new Vuex.Store({
         });
     },
 
+    addClass({ commit }, singleClass) {
+      let errorOccured = false;
+      axios
+        .post("http://localhost:3000/klasy", {
+          numer: singleClass.numer,
+          kat: singleClass.kat,
+          komisja: singleClass.komisja
+        })
+        .then(() => {
+          commit("ADD_CLASS", singleClass);
+        })
+        .catch(() => {
+          commit(
+            "SET_MESSAGE",
+            "Nie udało się wykonać żądania. Spróbuj ponownie!"
+          );
+          errorOccured = true;
+        });
+
+      if (!errorOccured) {
+        commit("SET_MESSAGE", "Klasa została pomyślnie dodana.");
+      }
+    },
+
     deleteClass({ commit }, id) {
       let errorOccured = false;
       axios
@@ -207,8 +235,25 @@ export default new Vuex.Store({
       return state.judges.find(judge => judge.id === id);
     },
 
+    getJudges: state => () => {
+      return state.judges;
+    },
+
     getClassById: state => id => {
       return state.classes.find(singleClass => singleClass.id === id);
+    },
+
+    getHighestClassNumber: state => () => {
+      let id =
+        Math.max.apply(
+          Math,
+          Array.from(state.classes).map(function(o) {
+            return o.numer;
+          })
+        ) + 1;
+
+      if (isFinite(id)) return id;
+      else return 1;
     },
 
     getUniqueJudges: state => judges => {

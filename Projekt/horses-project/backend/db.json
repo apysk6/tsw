@@ -1,3 +1,19 @@
 {
-  "sedziowie": []
+  "sedziowie": [
+    {
+      "id": "14yrj963wsjwdl5mba",
+      "sedzia": "Artur Pyśk",
+      "kraj": "PL"
+    }
+  ],
+  "klasy": [
+    {
+      "id": "14yrj9674gjwdl75na",
+      "numer": 1,
+      "kat": "waga",
+      "komisja": [
+        "14yrj963wsjwdl5mba"
+      ]
+    }
+  ]
 }

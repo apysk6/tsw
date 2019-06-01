@@ -157,6 +157,7 @@ export default {
       this.validationMessages = [];
       if (this.singleClass.numer && this.singleClass.kat) {
         this.$store.dispatch("updateClass", this.singleClass);
+        this.$store.dispatch("getClasses");
         this.$router.go(-1);
       } else {
         if (!this.singleClass.numer) {

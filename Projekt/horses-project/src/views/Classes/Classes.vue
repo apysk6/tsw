@@ -64,6 +64,7 @@ export default {
     },
 
     removeClass: function(id) {
+      console.log(id);
       this.$store.dispatch("deleteClass", id);
     }
   }
