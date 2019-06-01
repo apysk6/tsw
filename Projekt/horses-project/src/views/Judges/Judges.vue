@@ -32,14 +32,14 @@
 import { mapState } from "vuex";
 import axios from "axios";
 import store from "@/store";
-import ActionMessage from "@/components/ActionMessage.vue"
+import ActionMessage from "@/components/ActionMessage.vue";
 
 export default {
   name: "Judges",
   mounted() {
     this.$store.dispatch("getJudges");
   },
-    components: {
+  components: {
     ActionMessage
   },
   computed: mapState(["judges"]),
@@ -51,11 +51,11 @@ export default {
 };
 </script>
  
-<style>
+<style scoped>
 table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
-  width: 30%;
+  width: 60%;
   margin: 50px auto 0 auto;
 }
 
@@ -83,8 +83,8 @@ td input {
 }
 
 #addButton {
-  float: right;
-  margin-top: 10px;
+  margin-left: 54%;
+  margin-top: 20px;
 }
 </style>
 

@@ -30,14 +30,6 @@
               >{{ getJudgeById(judge).sedzia }}</option>
             </b-form-select>
           </div>
-          <div v-if="validationMessages.length">
-            <b-badge
-              variant="danger"
-              :key="validationMessage"
-              v-for="validationMessage in validationMessages"
-              class="error-badge"
-            >{{ validationMessage }}</b-badge>
-          </div>
         </div>
         <div class="col-lg-6">
           <div class="form-group">
@@ -65,19 +57,27 @@
         <div class="col-lg-6">
           <button
             type="button"
-            class="btn btn-success"
+            class="btn btn-primary"
             variant="success"
-            @click="deleteSelectedJudges()"
+            @click="addSelectedJudges()"
           >Dodaj</button>
         </div>
       </div>
-      <div v-if="validationMessages.length">
+      <div v-if="validationMessages.length" class="validation">
         <b-badge
           variant="danger"
           :key="validationMessage"
           v-for="validationMessage in validationMessages"
           class="error-badge"
         >{{ validationMessage }}</b-badge>
+      </div>
+      <div class="buttonsPanel">
+        <button
+          type="button"
+          class="btn btn-success"
+          variant="success"
+          @click="updateClass()"
+        >Modyfikuj</button>
       </div>
     </div>
   </form>
@@ -125,24 +125,64 @@ export default {
     },
 
     deleteSelectedJudges: function() {
-      console.log(this.selectedJudges);
-      this.singleClass.komisja.forEach((judge) => {
-          this.selectedJudges.forEach((selectedJudge) => {
-              let currentJudge = this.getJudgeById(judge);
-              if (this.getJudgeById(judge).sedzia === selectedJudge) {
-                  this.singleClass.komisja.splice(this.singleClass.komisja.findIndex(x => this.getJudgeById(x).sedzia === selectedJudge), 1);
-              }
-          });
+      this.singleClass.komisja.forEach(judge => {
+        this.selectedJudges.forEach(selectedJudge => {
+          let currentJudge = this.getJudgeById(judge);
+          if (this.getJudgeById(judge).sedzia === selectedJudge) {
+            this.singleClass.komisja.splice(
+              this.singleClass.komisja.findIndex(
+                x => this.getJudgeById(x).sedzia === selectedJudge
+              ),
+              1
+            );
+          }
+        });
       });
       this.fetchAvailableJudges();
+    },
+
+    addSelectedJudges: function() {
+      let selectedJudges = this.selectedAvailableJudges;
+      selectedJudges.forEach(selectedJudge => {
+        let judge = store.getters.getJudgeByName(selectedJudge);
+        this.singleClass.komisja.push(judge.id);
+        this.availableJudges.splice(
+          this.availableJudges.findIndex(x => x.sedzia === selectedJudge),
+          1
+        );
+      });
+    },
+
+    updateClass: function() {
+      this.validationMessages = [];
+      if (this.singleClass.numer && this.singleClass.kat) {
+        this.$store.dispatch("updateClass", this.singleClass);
+        this.$router.go(-1);
+      } else {
+        if (!this.singleClass.numer) {
+          this.validationMessages.push("Numer kategorii jest wymagany!");
+        }
+
+        if (!this.singleClass.kat) {
+          this.validationMessages.push("Nazwa klasy jest wymagana!");
+        }
+      }
     }
   }
 };
 </script>
 
-<style>
+<style scoped>
 .classForm {
   width: 30%;
   margin-left: 35%;
+}
+
+.buttonsPanel {
+  margin-top: 30px;
+}
+
+.validation {
+  margin-top: 20px;
 }
 </style>

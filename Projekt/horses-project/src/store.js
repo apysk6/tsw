@@ -48,6 +48,15 @@ export default new Vuex.Store({
       state.classes.splice(index, 1);
     },
 
+    UPDATE_CLASS(state, updatingClass) {
+      let storedClass = state.classes.find(
+        storedClass => storedClass.id === updatingClass.id
+      );
+      storedClass.numer = updatingClass.numer;
+      storedClass.kat = updatingClass.kat;
+      storedClass.komisja = updatingClass.komisja;
+    },
+
     SET_MESSAGE(state, message) {
       state.actionMessage = message;
       setTimeout(() => {
@@ -166,8 +175,33 @@ export default new Vuex.Store({
       if (!errorOccured) {
         commit("SET_MESSAGE", "Klasa została pomyślnie usunięta.");
       }
+    },
+
+    updateClass({ commit }, singleClass) {
+      let errorOccured = false;
+      axios
+        .put("http://localhost:3000/klasy/" + singleClass.id, {
+          numer: singleClass.numer,
+          kat: singleClass.kat,
+          komisja: singleClass.komisja
+        })
+        .then(() => {
+          commit("UPDATE_CLASS", singleClass);
+        })
+        .catch(() => {
+          commit(
+            "SET_MESSAGE",
+            "Nie udało się wykonać żądania. Spróbuj ponownie!"
+          );
+          errorOccured = true;
+        });
+
+      if (!errorOccured) {
+        commit("SET_MESSAGE", "Klasa została pomyślnie edytowana.");
+      }
     }
   },
+
   getters: {
     getJudgeById: state => id => {
       return state.judges.find(judge => judge.id === id);
@@ -193,6 +227,10 @@ export default new Vuex.Store({
       });
 
       return uniqueJudges;
+    },
+
+    getJudgeByName: state => judgeName => {
+      return state.judges.find(judge => judge.sedzia === judgeName);
     }
   }
 });

@@ -34,6 +34,9 @@
         </tr>
       </tbody>
     </table>
+    <router-link :to="{ name: 'addClass'}">
+      <button type="button" id="addButton" class="btn btn-success" variant="success">Dodaj</button>
+    </router-link>
   </div>
 </template>
 
@@ -48,6 +51,9 @@ export default {
     this.$store.dispatch("getJudges"), this.$store.dispatch("getClasses");
   },
   computed: mapState(["classes", "judges"]),
+  components: {
+    ActionMessage
+  },
   methods: {
     getJudgeById: function(id) {
       return store.getters.getJudgeById(id);
@@ -89,6 +95,12 @@ td {
   text-align: left;
   padding: 8px;
   text-align: center;
+}
+
+#addButton {
+  margin-left: 69%;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 td input {

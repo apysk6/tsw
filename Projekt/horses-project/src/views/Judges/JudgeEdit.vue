@@ -83,7 +83,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .judgeEdit-form {
   width: 20%;
   margin-left: 40%;

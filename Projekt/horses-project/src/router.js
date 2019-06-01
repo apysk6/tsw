@@ -3,10 +3,10 @@ import Router from "vue-router";
 import Horses from "./views/Horses.vue";
 import Judges from "./views/Judges/Judges.vue";
 import Classes from "./views/Classes/Classes.vue";
-import ClassDetails from "./views/Classes/ClassDetails.vue"
+import ClassDetails from "./views/Classes/ClassDetails.vue";
+import ClassAdd from "./views/Classes/ClassAdd.vue"
 import JudgeEdit from "./views/Judges/JudgeEdit.vue";
 import JudgeAdd from "./views/Judges/JudgeAdd.vue";
-
 
 Vue.use(Router);
 
@@ -39,6 +39,11 @@ export default new Router({
       path: "/classes/:id",
       name: "classDetails",
       component: ClassDetails
+    },
+    {
+      path: "/classes/add",
+      name: "addClass",
+      component: ClassAdd
     },
     {
       path: "/horses",
