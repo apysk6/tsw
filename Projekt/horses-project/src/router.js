@@ -5,6 +5,7 @@ import Judges from "./views/Judges/Judges.vue";
 import Classes from "./views/Classes/Classes.vue";
 import ClassDetails from "./views/Classes/ClassDetails.vue";
 import ClassAdd from "./views/Classes/ClassAdd.vue";
+import ClassRank from "./views/Classes/ClassRank.vue";
 import JudgeEdit from "./views/Judges/JudgeEdit.vue";
 import JudgeAdd from "./views/Judges/JudgeAdd.vue";
 import HorseDetails from "./views/Horses/HorseDetails.vue";
@@ -46,6 +47,11 @@ export default new Router({
       path: "/classes/add",
       name: "addClass",
       component: ClassAdd
+    },
+    {
+      path: "/classes/rank/:id",
+      name: "classRank",
+      component: ClassRank
     },
     {
       path: "/horses",

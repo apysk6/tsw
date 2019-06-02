@@ -10,23 +10,32 @@
     </tr>
     <tr v-for="(judge, index) in judges" :key="index">
       <td>
-        <input v-model="horse.wynik.noty[index].typ"/>
+        <input v-model="horse.wynik.noty[index].typ">
       </td>
       <td>
-        <input v-model="horse.wynik.noty[index].glowa"/>
+        <input v-model="horse.wynik.noty[index].glowa">
       </td>
       <td>
-        <input v-model="horse.wynik.noty[index].kloda"/>
+        <input v-model="horse.wynik.noty[index].kloda">
       </td>
       <td>
-        <input v-model="horse.wynik.noty[index].nogi"/>
+        <input v-model="horse.wynik.noty[index].nogi">
       </td>
       <td>
-        <input v-model="horse.wynik.noty[index].ruch"/>
+        <input v-model="horse.wynik.noty[index].ruch">
       </td>
       <td>
         <a>{{ judge.sedzia }} ({{ judge.kraj }})</a>
       </td>
+    </tr>
+    <tr>
+      <a class="sumResult">Suma ruch: {{ getSumMoves() }}</a>
+    </tr>
+    <tr>
+      <a class="sumResult">Suma typ: {{ getSumTypes() }}</a>
+    </tr>
+    <tr>
+      <a class="sumResult">Suma punktów: {{ getSumPoints() }}</a>
     </tr>
   </table>
 </template>
@@ -44,12 +53,58 @@ export default {
       judges: []
     };
   },
+  computed: {},
   mounted() {
-      this.singleClass = store.getters.getClassById(this.horse.klasa);
-      Array.from(this.singleClass.komisja).forEach(element => {
-          let judge = store.getters.getJudgeById(element);
-          this.judges.push(judge);
-      });
+    this.singleClass = store.getters.getClassById(this.horse.klasa);
+    Array.from(this.singleClass.komisja).forEach(element => {
+      let judge = store.getters.getJudgeById(element);
+      this.judges.push(judge);
+    });
+  },
+  methods: {
+    getSumTypes: function() {
+      let numberOfNotes = store.getters.getNumberOfJudgesInClass(
+        this.horse.klasa
+      );
+      let typesSum = 0;
+
+      for (let i = 0; i < numberOfNotes; i++) {
+        typesSum += parseFloat(this.horse.wynik.noty[i].typ);
+      }
+
+      return typesSum;
+    },
+
+    getSumMoves: function() {
+      let numberOfNotes = store.getters.getNumberOfJudgesInClass(
+        this.horse.klasa
+      );
+      let moveSum = 0;
+
+      for (let i = 0; i < numberOfNotes; i++) {
+        moveSum += parseFloat(this.horse.wynik.noty[i].ruch);
+      }
+
+      return moveSum;
+    },
+
+    getSumPoints: function() {
+      let numberOfNotes = store.getters.getNumberOfJudgesInClass(
+        this.horse.klasa
+      );
+      
+      let sum = 0;
+
+        Array.from(this.horse.wynik.noty).forEach((results) => {
+            sum += parseFloat(results.ruch);
+            sum += parseFloat(results.typ);
+            sum += parseFloat(results.glowa);
+            sum += parseFloat(results.kloda);
+            sum += parseFloat(results.nogi);
+        });
+
+      return sum;
+    }
   }
 };
 </script>
@@ -60,6 +115,13 @@ table {
   border-collapse: collapse;
   margin: 50px auto 0 auto;
   margin-bottom: 50px;
+}
+
+.sumResult {
+  width: auto;
+  margin-top: 10px;
+  font-weight: bold;
+  float: left;
 }
 
 td,

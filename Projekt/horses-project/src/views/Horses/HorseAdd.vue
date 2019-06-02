@@ -235,14 +235,12 @@
 <script>
 import { mapState } from "vuex";
 import store from "@/store";
-import HorseResultTable from "@/components/HorseResultTable.vue";
 
 export default {
-  name: "HorseDetails",
+  name: "HorseAdd",
   data() {
     return {
       horse: {
-        id: this.$route.params.id,
         numer: "",
         klasa: "",
         nazwa: "",
@@ -279,19 +277,35 @@ export default {
       validationMessages: [],
       selectedAvailableJudges: [],
       selectedJudges: [],
-      availableJudges: [],
-      isMounted: false
+      availableJudges: []
     };
   },
-  mounted() {
-  },
+  mounted() {},
   computed: mapState(["horses"]),
-  components: { HorseResultTable },
+  components: {},
   methods: {
-    updateHorse: function() {
+    addHorse: function() {
       this.validationMessages = [];
       if (this.horse.numer && this.horse.klasa) {
-        this.$store.dispatch("updateHorse", this.horse);
+        this.$store.dispatch("getClasses");
+        let numberOfNotes = store.getters.getNumberOfJudgesInClass(
+          this.horse.klasa
+        );
+
+        for (let i = 0; i < numberOfNotes; i++) {
+          let emptyNotes = {
+            typ: 0,
+            glowa: 0,
+            kloda: 0,
+            nogi: 0,
+            ruch: 0
+          };
+          this.horse.wynik.noty.push(emptyNotes);
+        }
+
+        this.$store.dispatch("getClasses");
+        this.$store.dispatch("getJudges");
+        this.$store.dispatch("addHorse", this.horse);
         this.$store.dispatch("getHorses");
         this.$router.go(-1);
       } else {

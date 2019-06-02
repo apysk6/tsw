@@ -30,7 +30,7 @@
             >Edytuj</button>
             <button
               class="btn btn-success btn-space btn-sm"
-              @click="removeClass(singleClass.id)"
+              @click="classRank(singleClass.numer)"
             >Ranking</button>
             <button class="btn btn-danger btn-space btn-sm" @click="removeClass(singleClass.id)">X</button>
           </td>
@@ -64,6 +64,10 @@ export default {
 
     classDetails: function(classId) {
       this.$router.push({ name: "classDetails", params: { id: classId } });
+    },
+
+    classRank: function(classId) {
+      this.$router.push({ name: "classRank", params: { id: classId } });
     },
 
     removeClass: function(id) {

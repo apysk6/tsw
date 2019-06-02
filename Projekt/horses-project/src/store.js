@@ -66,6 +66,10 @@ export default new Vuex.Store({
       storedClass.komisja = updatingClass.komisja;
     },
 
+    ADD_HORSE(state, horse) {
+      state.horses.push(horse);
+    },
+
     UPDATE_HORSE(state, updatingHorse) {
       let storedHorse = state.horses.find(
         storedHorse => storedHorse.id === updatingHorse.id
@@ -266,7 +270,9 @@ export default new Vuex.Store({
           hodowca: horse.hodowca,
           wlasciciel: horse.wlasciciel,
           rodowod: horse.rodowod,
-          noty: horse.noty
+          wynik: {
+            noty: horse.wynik.noty
+          }
         })
         .then(() => {
           commit("UPDATE_HORSE", horse);
@@ -281,6 +287,40 @@ export default new Vuex.Store({
 
       if (!errorOccured) {
         commit("SET_MESSAGE", "Koń został pomyślnie edytowany.");
+      }
+    },
+
+    addHorse({ commit }, horse) {
+      let errorOccured = false;
+      axios
+        .post("http://localhost:3000/konie", {
+          numer: parseInt(horse.numer),
+          klasa: parseInt(horse.klasa),
+          nazwa: horse.nazwa,
+          kraj: horse.kraj,
+          rocznik: parseInt(horse.rocznik),
+          masc: horse.masc,
+          plec: horse.plec,
+          hodowca: horse.hodowca,
+          wlasciciel: horse.wlasciciel,
+          rodowod: horse.rodowod,
+          wynik: {
+            noty: horse.wynik.noty
+          }
+        })
+        .then(() => {
+          commit("ADD_HORSE", horse);
+        })
+        .catch(() => {
+          commit(
+            "SET_MESSAGE",
+            "Nie udało się wykonać żądania. Spróbuj ponownie!"
+          );
+          errorOccured = true;
+        });
+
+      if (!errorOccured) {
+        commit("SET_MESSAGE", "Koń został pomyślnie dodany.");
       }
     },
 
@@ -322,7 +362,7 @@ export default new Vuex.Store({
       let id =
         Math.max.apply(
           Math,
-          Array.from(state.classes).map(function(o) {
+          Array.from(state.classes).map(function (o) {
             return o.numer;
           })
         ) + 1;
@@ -357,10 +397,12 @@ export default new Vuex.Store({
       return state.horses.find(horse => horse.id === id);
     },
 
-    getNumberOfJudges: state => classId => {
-      return Array.from(
-        state.classes.find(singleClass => singleClass.id === classId).komisja
-      ).length;
+    getNumberOfJudgesInClass: state => classNumber => {
+      return Array.from(state.classes.find(singleClass => parseInt(singleClass.numer) === parseInt(classNumber)).komisja).length;
+    },
+
+    getClassHorses: state => classNumber => {
+      return state.horses.filter(horse => parseInt(horse.klasa) === parseInt(classNumber));
     }
   }
 });
