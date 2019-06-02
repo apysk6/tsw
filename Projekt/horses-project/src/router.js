@@ -1,12 +1,14 @@
 import Vue from "vue";
 import Router from "vue-router";
-import Horses from "./views/Horses.vue";
+import Horses from "./views/Horses/Horses.vue";
 import Judges from "./views/Judges/Judges.vue";
 import Classes from "./views/Classes/Classes.vue";
 import ClassDetails from "./views/Classes/ClassDetails.vue";
-import ClassAdd from "./views/Classes/ClassAdd.vue"
+import ClassAdd from "./views/Classes/ClassAdd.vue";
 import JudgeEdit from "./views/Judges/JudgeEdit.vue";
 import JudgeAdd from "./views/Judges/JudgeAdd.vue";
+import HorseDetails from "./views/Horses/HorseDetails.vue";
+import HorseAdd from "./views/Horses/HorseAdd.vue";
 
 Vue.use(Router);
 
@@ -49,6 +51,16 @@ export default new Router({
       path: "/horses",
       name: "horses",
       component: Horses
-    }
+    },
+    {
+      path: "/horses/:id",
+      name: "horseDetails",
+      component: HorseDetails
+    },
+    {
+      path: "/horses/add",
+      name: "addHorse",
+      component: HorseAdd
+    },
   ]
 });

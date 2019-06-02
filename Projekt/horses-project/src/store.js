@@ -52,6 +52,11 @@ export default new Vuex.Store({
       state.classes.splice(index, 1);
     },
 
+    DELETE_HORSE(state, id) {
+      let index = state.horses.findIndex(horse => horse.id === id);
+      state.horses.splice(index, 1);
+    },
+
     UPDATE_CLASS(state, updatingClass) {
       let storedClass = state.classes.find(
         storedClass => storedClass.id === updatingClass.id
@@ -59,6 +64,24 @@ export default new Vuex.Store({
       storedClass.numer = updatingClass.numer;
       storedClass.kat = updatingClass.kat;
       storedClass.komisja = updatingClass.komisja;
+    },
+
+    UPDATE_HORSE(state, updatingHorse) {
+      let storedHorse = state.horses.find(
+        storedHorse => storedHorse.id === updatingHorse.id
+      );
+
+      storedHorse.numer = updatingHorse.numer;
+      storedHorse.klasa = updatingHorse.klasa;
+      storedHorse.nazwa = updatingHorse.nazwa;
+      storedHorse.kraj = updatingHorse.kraj;
+      storedHorse.rocznik = updatingHorse.rocznik;
+      storedHorse.masc = updatingHorse.masc;
+      storedHorse.plec = updatingHorse.plec;
+      storedHorse.hodowca = updatingHorse.hodowca;
+      storedHorse.wlasciciel = updatingHorse.wlasciciel;
+      storedHorse.rodowod = updatingHorse.rodowod;
+      storedHorse.noty = updatingHorse.noty;
     },
 
     SET_MESSAGE(state, message) {
@@ -227,6 +250,58 @@ export default new Vuex.Store({
       if (!errorOccured) {
         commit("SET_MESSAGE", "Klasa została pomyślnie edytowana.");
       }
+    },
+
+    updateHorse({ commit }, horse) {
+      let errorOccured = false;
+      axios
+        .put("http://localhost:3000/konie/" + horse.id, {
+          numer: horse.numer,
+          klasa: horse.klasa,
+          nazwa: horse.nazwa,
+          kraj: horse.kraj,
+          rocznik: horse.rocznik,
+          masc: horse.masc,
+          plec: horse.plec,
+          hodowca: horse.hodowca,
+          wlasciciel: horse.wlasciciel,
+          rodowod: horse.rodowod,
+          noty: horse.noty
+        })
+        .then(() => {
+          commit("UPDATE_HORSE", horse);
+        })
+        .catch(() => {
+          commit(
+            "SET_MESSAGE",
+            "Nie udało się wykonać żądania. Spróbuj ponownie!"
+          );
+          errorOccured = true;
+        });
+
+      if (!errorOccured) {
+        commit("SET_MESSAGE", "Koń został pomyślnie edytowany.");
+      }
+    },
+
+    deleteHorse({ commit }, id) {
+      let errorOccured = false;
+      axios
+        .delete("http://localhost:3000/konie/" + id)
+        .then(() => {
+          commit("DELETE_HORSE", id);
+        })
+        .catch(() => {
+          commit(
+            "SET_MESSAGE",
+            "Nie udało się wykonać żądania. Spróbuj ponownie!"
+          );
+          errorOccured = true;
+        });
+
+      if (!errorOccured) {
+        commit("SET_MESSAGE", "Koń został pomyślnie usunięty.");
+      }
     }
   },
 
@@ -276,6 +351,16 @@ export default new Vuex.Store({
 
     getJudgeByName: state => judgeName => {
       return state.judges.find(judge => judge.sedzia === judgeName);
+    },
+
+    getHorseById: state => id => {
+      return state.horses.find(horse => horse.id === id);
+    },
+
+    getNumberOfJudges: state => classId => {
+      return Array.from(
+        state.classes.find(singleClass => singleClass.id === classId).komisja
+      ).length;
     }
   }
 });

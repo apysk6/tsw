@@ -1,8 +1,8 @@
 <template>
   <form class="classForm">
-    <div class="col-md-12">
+    <div class="col-md">
       <div class="form-group">
-        <label>Numer</label>
+        <label class="header">Numer</label>
         <input
           type="number"
           class="form-control"
@@ -11,7 +11,7 @@
         >
       </div>
       <div class="form-group">
-        <label for="category">Kategoria</label>
+        <label class="header">Kategoria</label>
         <input
           type="text"
           class="form-control"
@@ -22,7 +22,7 @@
       <div class="row">
         <div class="col-lg-6">
           <div class="form-group">
-            <label>Komisja</label>
+            <label class="header">Komisja</label>
             <b-form-select class="custom-select" v-model="selectedJudges" multiple size="5">
               <option
                 v-for="judge in singleClass.komisja"
@@ -33,7 +33,7 @@
         </div>
         <div class="col-lg-6">
           <div class="form-group">
-            <label>Dostępni sędziowie</label>
+            <label class="header">Dostępni sędziowie</label>
             <b-form-select
               v-model="selectedAvailableJudges"
               class="custom-select"
@@ -52,7 +52,7 @@
             class="btn btn-danger"
             variant="success"
             @click="deleteSelectedJudges()"
-          >Usuń</button>
+          >Usuń sędziego</button>
         </div>
         <div class="col-lg-6">
           <button
@@ -60,7 +60,7 @@
             class="btn btn-primary"
             variant="success"
             @click="addSelectedJudges()"
-          >Dodaj</button>
+          >Dodaj sędziego</button>
         </div>
       </div>
       <div v-if="validationMessages.length" class="validation">
@@ -71,14 +71,12 @@
           class="error-badge"
         >{{ validationMessage }}</b-badge>
       </div>
-      <div class="buttonsPanel">
-        <button
-          type="button"
-          class="btn btn-success"
-          variant="success"
-          @click="updateClass()"
-        >Modyfikuj</button>
-      </div>
+      <button
+        type="button"
+        class="btn modifyButton"
+        variant="success"
+        @click="updateClass()"
+      >Modyfikuj</button>
     </div>
   </form>
 </template>
@@ -175,12 +173,22 @@ export default {
 
 <style scoped>
 .classForm {
-  width: 30%;
-  margin-left: 35%;
+  width: 40%;
+  margin: auto;
+  border: 1px solid #b1b2b5;
+  border-radius: 5px;
+  padding: 10px;
 }
 
-.buttonsPanel {
+.header {
+  float: left;
+  font-weight: bold;
+}
+
+.modifyButton {
   margin-top: 30px;
+  background-color: #2f3a4c;
+  color: #e6e9ef;
 }
 
 .validation {

@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <h1 class="display-5">Klasy</h1>
     <ActionMessage/>
     <table>
       <thead>
@@ -23,13 +24,15 @@
             </ul>
           </td>
           <td>
-            <b-button
-              style="margin-right: 10px;"
-              variant="info"
-              size="sm"
+            <button
+              class="btn btn-primary btn-space btn-sm"
               @click="classDetails(singleClass.id)"
-            >Edytuj</b-button>
-            <button class="btn btn-danger btn-sm" @click="removeClass(singleClass.id)">X</button>
+            >Edytuj</button>
+            <button
+              class="btn btn-success btn-space btn-sm"
+              @click="removeClass(singleClass.id)"
+            >Ranking</button>
+            <button class="btn btn-danger btn-space btn-sm" @click="removeClass(singleClass.id)">X</button>
           </td>
         </tr>
       </tbody>
@@ -102,6 +105,10 @@ td {
   margin-left: 69%;
   margin-top: 20px;
   margin-bottom: 20px;
+}
+
+.btn-space {
+  margin-left: 10px;
 }
 
 td input {

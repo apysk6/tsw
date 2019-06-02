@@ -1,11 +1,14 @@
 <template>
   <div class="container">
+    <ActionMessage/>
+    <h1 class="display-5">Konie</h1>
     <table class="table">
       <thead>
         <tr>
-                    <th>Numer</th>
+          <th>Numer</th>
           <th>Nazwa</th>
           <th>Kraj</th>
+          <th>Akcje</th>
         </tr>
       </thead>
       <tbody>
@@ -13,6 +16,10 @@
           <td>{{ horse.numer }}</td>
           <td>{{ horse.nazwa }}</td>
           <td>{{ horse.kraj }}</td>
+          <td>
+            <button class="btn btn-primary btn-space btn-sm" @click="horseDetails(horse.id)">Edytuj</button>
+            <button class="btn btn-danger btn-space btn-sm" @click="deleteHorse(horse.id)">X</button>
+          </td>
         </tr>
       </tbody>
     </table>
@@ -20,25 +27,34 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
-import store from "../store"
+import { mapState } from "vuex";
+import store from "../store";
+import ActionMessage from "@/components/ActionMessage.vue";
 
 export default {
-  name: 'Horses',
-  mounted () {
-    this.$store.dispatch('getHorses')
+  name: "Horses",
+  mounted() {
+    this.$store.dispatch("getHorses");
   },
-  computed: mapState([
-    'horses'
-  ])
-}
+  computed: mapState(["horses"]),
+  components: { ActionMessage },
+  methods: {
+    horseDetails: function(horseId) {
+      this.$router.push({ name: "horseDetails", params: { id: horseId } });
+    },
+
+    deleteHorse: function(horseId) {
+      this.$store.dispatch("deleteHorse", horseId);
+    }
+  }
+};
 </script>
 
 <style scoped>
 table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
-  width: 30%;
+  width: 50%;
   margin: 50px auto 0 auto;
 }
 
@@ -51,7 +67,7 @@ tr {
 }
 
 th {
-    background-color: #dbdaf7;
+  background-color: #dbdaf7;
 }
 
 td {
@@ -61,7 +77,11 @@ td {
   text-align: center;
 }
 
+.btn-space {
+  margin-left: 10px;
+}
+
 td input {
-    text-align: center;
+  text-align: center;
 }
 </style>

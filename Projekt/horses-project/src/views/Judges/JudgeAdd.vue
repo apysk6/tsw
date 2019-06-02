@@ -25,7 +25,7 @@
       >{{ message }}</b-badge>
     </div>
     <div class="buttonsPanel">
-      <button type="button" class="btn btn-success" variant="success" @click="addJudge()">Dodaj</button>
+      <button type="button" class="btn modifyButton" variant="success" @click="addJudge()">Dodaj</button>
     </div>
   </div>
 </template>
@@ -75,7 +75,15 @@ export default {
 <style scoped>
 .judgeEdit-form {
   width: 20%;
-  margin-left: 40%;
+  margin: auto;
+  border: 1px solid #b1b2b5;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.modifyButton {
+  background-color: #2f3a4c;
+  color: #e6e9ef;
 }
 
 .property {

@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <h1 class="display-5">Sędziowie</h1>
     <ActionMessage/>
     <table class="table table">
       <thead>

@@ -1,10 +1,38 @@
 <template>
   <div id="app">
-    <div id="header-nav" class="nav-bars">
-      <router-link to="/judges">Sędziowie</router-link>|
-      <router-link to="/horses">Konie</router-link>|
-      <router-link to="/classes">Klasy</router-link>
-    </div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">Pokaz</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <router-link to="/classes">
+              <a class="nav-link">Klasy</a>
+            </router-link>
+          </li>
+          <li class="nav-item">
+            <router-link to="/judges">
+              <a class="nav-link">Sędziowie</a>
+            </router-link>
+          </li>
+          <li class="nav-item">
+            <router-link to="/horses">
+              <a class="nav-link">Konie</a>
+            </router-link>
+          </li>
+        </ul>
+      </div>
+    </nav>
     <router-view id="views"/>
   </div>
 </template>

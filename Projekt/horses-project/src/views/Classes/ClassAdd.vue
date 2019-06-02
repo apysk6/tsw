@@ -52,7 +52,7 @@
             class="btn btn-danger"
             variant="success"
             @click="deleteSelectedJudges()"
-          >Usuń</button>
+          >Usuń sędziego</button>
         </div>
         <div class="col-lg-6">
           <button
@@ -60,7 +60,7 @@
             class="btn btn-primary"
             variant="success"
             @click="addSelectedJudges()"
-          >Dodaj</button>
+          >Dodaj sędziego</button>
         </div>
       </div>
       <div v-if="validationMessages.length" class="validation">
@@ -72,7 +72,7 @@
         >{{ validationMessage }}</b-badge>
       </div>
       <div class="buttonsPanel">
-        <button type="button" class="btn btn-success" variant="success" @click="addClass()">Dodaj</button>
+        <button type="button" class="btn modifyButton" variant="success" @click="addClass()">Dodaj</button>
       </div>
     </div>
   </form>
@@ -167,12 +167,20 @@ export default {
 
 <style scoped>
 .classForm {
-  width: 30%;
-  margin-left: 35%;
+  width: 40%;
+  margin: auto;
+  border: 1px solid #b1b2b5;
+  border-radius: 5px;
+  padding: 10px;
 }
 
 .buttonsPanel {
   margin-top: 30px;
+}
+
+.modifyButton {
+  background-color: #2f3a4c;
+  color: #e6e9ef;
 }
 
 .validation {
