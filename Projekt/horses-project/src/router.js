@@ -10,20 +10,33 @@ import JudgeEdit from "./views/Judges/JudgeEdit.vue";
 import JudgeAdd from "./views/Judges/JudgeAdd.vue";
 import HorseDetails from "./views/Horses/HorseDetails.vue";
 import HorseAdd from "./views/Horses/HorseAdd.vue";
+import Login from "@/views/Login.vue";
+import store from "@/store";
 
 Vue.use(Router);
 
-export default new Router({
+const router = new Router({
   routes: [
+    {
+      path: "/login",
+      name: "login",
+      component: Login
+    },
     {
       path: "/judges",
       name: "judges",
-      component: Judges
+      component: Judges,
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: "/judges/add",
       name: "addJudge",
-      component: JudgeAdd
+      component: JudgeAdd,
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: "/judges/edit/:id",
@@ -31,42 +44,85 @@ export default new Router({
         default: true
       },
       name: "editJudge",
-      component: JudgeEdit
+      component: JudgeEdit,
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: "/classes",
       name: "classes",
-      component: Classes
+      component: Classes,
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: "/classes/:id",
       name: "classDetails",
-      component: ClassDetails
+      component: ClassDetails,
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: "/classes/add",
       name: "addClass",
-      component: ClassAdd
+      component: ClassAdd,
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: "/classes/rank/:id",
       name: "classRank",
-      component: ClassRank
+      component: ClassRank,
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: "/horses",
       name: "horses",
-      component: Horses
+      component: Horses,
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: "/horses/:id",
       name: "horseDetails",
-      component: HorseDetails
+      component: HorseDetails,
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: "/horses/add",
       name: "addHorse",
-      component: HorseAdd
-    },
+      component: HorseAdd,
+      meta: {
+        requiresAuth: true
+      }
+    }
   ]
 });
+
+router.beforeEach((to, from, next) => {
+  store.state.authStatus.then(loggedIn => {
+    if (to.matched.some(record => record.meta.requiresAuth)) {
+      console.log(loggedIn);
+      if (!loggedIn) {
+        next({
+          name: "login"
+        });
+      } else {
+        next();
+      }
+    } else {
+      next();
+    }
+  });
+});
+
+export default router;

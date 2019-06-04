@@ -2,16 +2,57 @@
 /*jshint node: true, esversion: 6 */
 "use strict";
 
+const cookieParser = require('cookie-parser');
 const bodyParser = require("body-parser");
 const express = require("express");
 const cors = require("cors");
 const app = require("express")();
 const uniqid = require("uniqid");
-const port = process.env.PORT || 3000;
 
+// Session config.
+const session = require("express-session");
+const RedisStore = require("connect-redis")(session);
+const sessionStore = new RedisStore({
+  host: "127.0.0.1",
+  port: 6379,
+  client: require("redis").createClient(),
+  ttl: 260
+});
+
+// Passport.js
+const passport = require("passport");
+const LocalStrategy = require("passport-local").Strategy;
+
+// Socket.io (wraz z modułem autoryzacji poprzez Passport)
+const socketIo = require("socket.io");
+const passportSocketIo = require("passport.socketio");
+
+// Konfiguracja passport.js
+passport.serializeUser((user, done) => {
+  done(null, user);
+});
+
+passport.deserializeUser((obj, done) => {
+  done(null, obj);
+});
+
+passport.use(
+  new LocalStrategy((username, password, done) => {
+    if (username === "admin" && password === "tajne") {
+      console.log("Udane logowanie...");
+      return done(null, {
+        username: username,
+        password: password
+      });
+    } else {
+      return done(null, false);
+    }
+  })
+);
+
+// Database config.
 const low = require("lowdb");
 const FileSync = require("lowdb/adapters/FileSync");
-
 const adapter = new FileSync("db.json");
 const db = low(adapter);
 
@@ -26,6 +67,38 @@ app.use(
 
 app.use(cors({ credentials: true, origin: "http://localhost:8080" }));
 app.use(express.static("public"));
+
+// konfiguracja obsługi sesji (poziom Express,js)
+const sessionSecret = "Wielki$ekret44";
+const sessionKey = "express.sid";
+app.use(
+  session({
+    key: sessionKey,
+    secret: sessionSecret,
+    store: sessionStore,
+    resave: false,
+    saveUninitialized: true
+  })
+);
+
+// middleware Passport.js
+app.use(passport.initialize());
+app.use(passport.session());
+// obsługa zasobów statycznych
+app.use(express.static("public"));
+
+app.post("/login", passport.authenticate("local"), (req, res) => {
+  res.status(200).send("ok");
+});
+app.get("/logout", (req, res) => {
+  console.log("Wylogowanie...");
+  req.logout();
+  res.send("Wylogowano");
+});
+
+app.get("/user", (req, res) => {
+  res.send(req.session.passport);
+});
 
 app.post("/sedziowie", (_req, res) => {
   let judge = _req.body.sedzia;
@@ -126,6 +199,43 @@ app.get("/klasy", (req, res) => {
   res.json(classes);
 });
 
-app.listen(port, function() {
-  console.log("Serwer nasłuchuje na porcie " + port);
+
+// serwer HTTP dla aplikacji „app”
+const server = require("http").createServer(app);
+
+// obsługa Socket.io
+const sio = socketIo.listen(server);
+// konfiguracja passport-socketio
+// połączenie od autoryzowanego użytkownika
+const onAuthorizeSuccess = (data, accept) => {
+  // data – informacje o połączeniu (od Passport.js)
+  // accept – funkcja służąca do akceptowania/odrzucania połączenia
+  //          odrzucenie: accept(new Error('powód odrzucenia'));
+  console.log("Udane połączenie z socket.io");
+  accept();
+};
+// połączenie od nieutoryzowanego użytkownika lub sytuacja błędna
+const onAuthorizeFail = (data, message, error, accept) => {
+  // połączenie nieautoryzowane (ale nie błąd)
+  console.log("Nieudane połączenie z socket.io");
+  accept(new Error("Brak autoryzacji!"));
+};
+// passport-socketio jako „middleware” dla Socket.io
+sio.use(
+  passportSocketIo.authorize({
+    cookieParser: cookieParser,
+    key: sessionKey,
+    secret: sessionSecret,
+    store: sessionStore,
+    success: onAuthorizeSuccess,
+    fail: onAuthorizeFail
+  })
+);
+
+sio.sockets.on("connection", socket => {
+  console.log("test");
+});
+
+server.listen(3000, () => {
+  console.log("Serwer pod adresem http://localhost:3000/");
 });

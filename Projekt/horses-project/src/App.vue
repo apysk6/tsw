@@ -15,27 +15,55 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
-          <li class="nav-item active">
-            <router-link to="/classes">
-              <a class="nav-link">Klasy</a>
-            </router-link>
-          </li>
-          <li class="nav-item">
-            <router-link to="/judges">
-              <a class="nav-link">Sędziowie</a>
-            </router-link>
-          </li>
-          <li class="nav-item">
-            <router-link to="/horses">
-              <a class="nav-link">Konie</a>
-            </router-link>
-          </li>
+          <template v-if="loggedIn">
+            <li class="nav-item active">
+              <router-link to="/classes">
+                <a class="nav-link">Klasy</a>
+              </router-link>
+            </li>
+            <li class="nav-item">
+              <router-link to="/judges">
+                <a class="nav-link">Sędziowie</a>
+              </router-link>
+            </li>
+            <li class="nav-item">
+              <router-link to="/horses">
+                <a class="nav-link">Konie</a>
+              </router-link>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" @click="logout()">Wyloguj</a>
+            </li>
+          </template>
+          <template v-else>
+            <li class="nav-item">
+              <router-link to="/login">
+                <a class="nav-link">Logowanie</a>
+              </router-link>
+            </li>
+          </template>
         </ul>
       </div>
     </nav>
     <router-view id="views"/>
   </div>
 </template>
+
+<script>
+export default {
+  methods: {
+    logout: function() {
+      this.$store.dispatch("logout");
+      this.$router.go(0);
+    }
+  },
+  computed: {
+    loggedIn() {
+      return this.$store.state.loggedIn;
+    }
+  }
+};
+</script>
 
 <style lang="less">
 #app {

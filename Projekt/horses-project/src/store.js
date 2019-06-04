@@ -2,18 +2,38 @@ import Vue from "vue";
 import Vuex from "vuex";
 import axios from "axios";
 import VueAxios from "vue-axios";
+import router from "./router";
 
 Vue.use(Vuex);
 Vue.use(VueAxios, axios);
 
-export default new Vuex.Store({
+axios.defaults.withCredentials = true;
+
+const store = new Vuex.Store({
   state: {
     judges: [],
     horses: [],
     classes: [],
-    actionMessage: null
+    actionMessage: null,
+    loggedIn: false,
+    authStatus: new Promise(resolve => {
+      setTimeout(() => {
+        axios
+          .get("http://localhost:3000/user")
+          .then(response => {
+            let requestResult = response.data.user ? true : false;
+            store.commit("SET_AUTH", requestResult);
+            resolve(requestResult);
+          })
+          .catch(errors => {});
+      }, 1000);
+    })
   },
   mutations: {
+    SET_AUTH(state, loginResult) {
+      state.loggedIn = loginResult;
+    },
+
     SET_JUDGES(state, judges) {
       state.judges = judges;
     },
@@ -96,6 +116,40 @@ export default new Vuex.Store({
     }
   },
   actions: {
+    login({ commit }, user) {
+      let errorOccured = false;
+      axios
+        .post("http://localhost:3000/login", {
+          username: user.login,
+          password: user.password
+        })
+        .then(() => {
+          commit("SET_AUTH", true);
+        })
+        .catch(() => {
+          commit("SET_AUTH", false);
+          commit(
+            "SET_MESSAGE",
+            "Nie udało się wykonać żądania. Spróbuj ponownie!"
+          );
+          errorOccured = true;
+        });
+
+      if (!errorOccured) {
+        commit("SET_MESSAGE", "Zostałeś pomyślnie zalogowany!");
+      }
+    },
+
+    logout({ commit }) {
+      axios
+        .get("http://localhost:3000/logout")
+        .then(r => r.data)
+        .then(() => {
+          commit("SET_AUTH", false);
+          commit("SET_MESSAGE", "Zostałeś pomyślnie wylogowany!");
+        });
+    },
+
     getJudges({ commit }) {
       axios
         .get("http://localhost:3000/sedziowie")
@@ -346,6 +400,10 @@ export default new Vuex.Store({
   },
 
   getters: {
+    getLoggedIn: state => () => {
+      return state.loggedIn;
+    },
+
     getJudgeById: state => id => {
       return state.judges.find(judge => judge.id === id);
     },
@@ -362,7 +420,7 @@ export default new Vuex.Store({
       let id =
         Math.max.apply(
           Math,
-          Array.from(state.classes).map(function (o) {
+          Array.from(state.classes).map(function(o) {
             return o.numer;
           })
         ) + 1;
@@ -398,11 +456,19 @@ export default new Vuex.Store({
     },
 
     getNumberOfJudgesInClass: state => classNumber => {
-      return Array.from(state.classes.find(singleClass => parseInt(singleClass.numer) === parseInt(classNumber)).komisja).length;
+      return Array.from(
+        state.classes.find(
+          singleClass => parseInt(singleClass.numer) === parseInt(classNumber)
+        ).komisja
+      ).length;
     },
 
     getClassHorses: state => classNumber => {
-      return state.horses.filter(horse => parseInt(horse.klasa) === parseInt(classNumber));
+      return state.horses.filter(
+        horse => parseInt(horse.klasa) === parseInt(classNumber)
+      );
     }
   }
 });
+
+export default store;
