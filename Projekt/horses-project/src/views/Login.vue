@@ -13,7 +13,7 @@
     <div class="property">
       <label>Hasło</label>
       <input
-        type="text"
+        type="password"
         v-model="user.password"
         class="form-control"
         placeholder="Wprowadź hasło użytkownika."

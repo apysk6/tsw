@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h1 class="display-5">Ranking Klasy {{ currentClass.numer }} - {{ currentClass.kat }}</h1>
+    <h1 class="display-5">Ranking Klasy</h1>
     <table class="table">
       <thead>
         <tr>

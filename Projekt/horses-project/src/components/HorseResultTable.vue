@@ -56,6 +56,7 @@ export default {
   computed: {},
   mounted() {
     this.singleClass = store.getters.getClassById(this.horse.klasa);
+    console.log(this.singleClass);
     Array.from(this.singleClass.komisja).forEach(element => {
       let judge = store.getters.getJudgeById(element);
       this.judges.push(judge);

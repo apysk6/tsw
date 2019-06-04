@@ -2,7 +2,6 @@ import Vue from "vue";
 import Vuex from "vuex";
 import axios from "axios";
 import VueAxios from "vue-axios";
-import router from "./router";
 
 Vue.use(Vuex);
 Vue.use(VueAxios, axios);
@@ -128,10 +127,7 @@ const store = new Vuex.Store({
         })
         .catch(() => {
           commit("SET_AUTH", false);
-          commit(
-            "SET_MESSAGE",
-            "Nie udało się wykonać żądania. Spróbuj ponownie!"
-          );
+          commit("SET_MESSAGE", "Nie udało się zalogować. Spróbuj ponownie!");
           errorOccured = true;
         });
 

@@ -2,7 +2,7 @@
 /*jshint node: true, esversion: 6 */
 "use strict";
 
-const cookieParser = require('cookie-parser');
+const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const express = require("express");
 const cors = require("cors");
@@ -56,7 +56,11 @@ const FileSync = require("lowdb/adapters/FileSync");
 const adapter = new FileSync("db.json");
 const db = low(adapter);
 
-db.defaults({ sedziowie: [], klasy: [] }).write();
+db.defaults({
+  sedziowie: [],
+  klasy: [],
+  konie: []
+}).write();
 app.use(bodyParser.json());
 
 app.use(
@@ -65,7 +69,10 @@ app.use(
   })
 );
 
-app.use(cors({ credentials: true, origin: "http://localhost:8080" }));
+app.use(cors({
+  credentials: true,
+  origin: "http://localhost:8080"
+}));
 app.use(express.static("public"));
 
 // konfiguracja obsługi sesji (poziom Express,js)
@@ -111,7 +118,11 @@ app.post("/sedziowie", (_req, res) => {
   };
 
   db.get("sedziowie")
-    .push({ id: newJudge.id, sedzia: newJudge.sedzia, kraj: newJudge.kraj })
+    .push({
+      id: newJudge.id,
+      sedzia: newJudge.sedzia,
+      kraj: newJudge.kraj
+    })
     .write();
 
   res.status(201).send("Judge has been created");
@@ -120,7 +131,9 @@ app.post("/sedziowie", (_req, res) => {
 app.delete("/sedziowie/:id", (_req, res) => {
   let deleteId = _req.params.id;
   db.get("sedziowie")
-    .remove({ id: deleteId })
+    .remove({
+      id: deleteId
+    })
     .write();
 
   res.status(200).send("Judge has been removed");
@@ -135,7 +148,9 @@ app.put("/sedziowie/:id", (req, res) => {
   let updateId = req.params.id;
 
   db.get("sedziowie")
-    .find({ id: updateId })
+    .find({
+      id: updateId
+    })
     .assign({
       sedzia: req.body.sedzia,
       kraj: req.body.kraj
@@ -173,7 +188,9 @@ app.put("/klasy/:id", (req, res) => {
   let updateId = req.params.id;
 
   db.get("klasy")
-    .find({ id: updateId })
+    .find({
+      id: updateId
+    })
     .assign({
       numer: req.body.numer,
       nazwa: req.body.nazwa,
@@ -188,7 +205,9 @@ app.put("/klasy/:id", (req, res) => {
 app.delete("/klasy/:id", (_req, res) => {
   let deleteId = _req.params.id;
   db.get("klasy")
-    .remove({ id: deleteId })
+    .remove({
+      id: deleteId
+    })
     .write();
 
   res.status(200).send("Class has been removed");
@@ -199,6 +218,79 @@ app.get("/klasy", (req, res) => {
   res.json(classes);
 });
 
+app.get("/konie", (req, res) => {
+  const horses = db.get("konie");
+  res.json(horses);
+});
+
+app.post("/konie", (_req, res) => {
+  let number = _req.body.numer;
+  let className = _req.body.klasa;
+  let name = _req.body.nazwa;
+  let country = _req.body.kraj;
+  let year = _req.body.rocznik;
+  let masc = _req.body.masc;
+  let gender = _req.body.plec;
+  let breeder = _req.body.hodowca;
+  let owner = _req.body.wlasciciel;
+  let lineage = _req.body.rodowod;
+  let results = _req.body.wynik;
+
+  db.get("konie")
+    .push({
+      id: uniqid(),
+      numer: number,
+      klasa: className,
+      nazwa: name,
+      kraj: country,
+      rocznik: year,
+      masc: masc,
+      plec: gender,
+      hodowca: breeder,
+      wlasciciel: owner,
+      rodowod: lineage,
+      wynik: results
+    })
+    .write();
+
+  res.status(201).send("Horse has been created");
+});
+
+app.put("/konie/:id", (req, res) => {
+  let updateId = req.params.id;
+
+  db.get("konie")
+    .find({
+      id: updateId
+    })
+    .assign({
+      numer: req.body.numer,
+      klasa: req.body.klasa,
+      nazwa: req.body.nazwa,
+      kraj: req.body.kraj,
+      rocznik: req.body.rocznik,
+      masc: req.body.masc,
+      plec: req.body.plec,
+      hodowca: req.body.hodowca,
+      wlasciciel: req.body.wlasciciel,
+      rodowod: req.body.rodowod,
+      wynik: req.body.wynik
+    })
+    .write();
+
+  res.status(200).send("Horse has been updated");
+});
+
+app.delete("/konie/:id", (_req, res) => {
+  let deleteId = _req.params.id;
+  db.get("konie")
+    .remove({
+      id: deleteId
+    })
+    .write();
+
+  res.status(200).send("Hrse has been removed");
+});
 
 // serwer HTTP dla aplikacji „app”
 const server = require("http").createServer(app);

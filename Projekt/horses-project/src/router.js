@@ -85,25 +85,19 @@ const router = new Router({
       path: "/horses",
       name: "horses",
       component: Horses,
-      meta: {
-        requiresAuth: true
-      }
+
     },
     {
       path: "/horses/:id",
       name: "horseDetails",
       component: HorseDetails,
-      meta: {
-        requiresAuth: true
-      }
+
     },
     {
       path: "/horses/add",
       name: "addHorse",
       component: HorseAdd,
-      meta: {
-        requiresAuth: true
-      }
+
     }
   ]
 });
