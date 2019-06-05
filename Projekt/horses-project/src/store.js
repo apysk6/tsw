@@ -463,6 +463,10 @@ const store = new Vuex.Store({
       return state.horses.filter(
         horse => parseInt(horse.klasa) === parseInt(classNumber)
       );
+    },
+
+    getClassByNumber: state => classNumber => {
+      return state.classes.find(singleClass => singleClass.numer == classNumber);
     }
   }
 });

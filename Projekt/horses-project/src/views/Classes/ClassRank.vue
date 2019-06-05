@@ -13,10 +13,14 @@
       </thead>
       <tbody>
         <tr v-for="horse in horses" :key="horse.id">
-          <td>{{ horse.numer }}</td>
-          <td>{{ horse.nazwa }}</td>
-          <td>{{ horse.kraj }}</td>
-          <td>{{ horse.sumScore || 0 }}</td>
+          <td v-if="horse.isDraw" style="background: #c14e43">{{ horse.numer}}</td>
+          <td v-if="!horse.isDraw" style>{{ horse.numer}}</td>
+          <td v-if="horse.isDraw" style="background: #c14e43">{{ horse.nazwa}}</td>
+          <td v-if="!horse.isDraw" style>{{ horse.nazwa}}</td>
+          <td v-if="horse.isDraw" style="background: #c14e43">{{ horse.kraj }}</td>
+          <td v-if="!horse.isDraw" style>{{ horse.kraj}}</td>
+          <td v-if="horse.isDraw" style="background: #c14e43">{{ horse.sumScore || 0 }}</td>
+          <td v-if="!horse.isDraw" style>{{ horse.sumScore || 0 }}</td>
           <td>
             <button class="btn setScoreButton" @click="horseDetails(horse.id)">Oceń</button>
           </td>
@@ -41,23 +45,38 @@ export default {
   data() {
     return {
       horses: null,
-      currentClass: null
+      currentClass: null,
+      isActive: false
     };
   },
   methods: {
     setHorsesScores: function() {
       Array.from(this.horses).forEach(horse => {
         horse.sumScore = this.getSumPoints(horse);
+        horse.moveSum = this.getSumMoves(horse);
+        horse.typesSum = this.getSumTypes(horse);
       });
 
-      this.horses.sort(
-        (a, b) => parseFloat(b.sumScore) - parseFloat(a.sumScore)
-      );
+      this.horses.sort((firstHorse, secondHorse) => {
+        if (firstHorse.sumScore < secondHorse.sumScore) return 1;
+
+        if (firstHorse.sumScore > secondHorse.sumScore) return -1;
+
+        if (firstHorse.typesSum < secondHorse.typesSum) return 1;
+
+        if (firstHorse.typesSum > secondHorse.typesSum) return -1;
+
+        if (firstHorse.moveSum < secondHorse.moveSum) return 1;
+
+        if (firstHorse.moveSum > secondHorse.moveSum) return -1;
+
+        console.log("draw");
+        firstHorse.isDraw = true;
+        secondHorse.isDraw = true;
+      });
     },
 
     getSumPoints: function(horse) {
-      let numberOfNotes = store.getters.getNumberOfJudgesInClass(horse.klasa);
-
       let sum = 0;
 
       Array.from(horse.wynik.noty).forEach(results => {
@@ -68,7 +87,27 @@ export default {
         sum += parseFloat(results.nogi);
       });
 
-      return sum;
+      return parseFloat(sum);
+    },
+
+    getSumTypes: function(horse) {
+      let typesSum = 0;
+
+      Array.from(horse.wynik.noty).forEach(results => {
+        typesSum += parseFloat(results.typ);
+      });
+
+      return parseFloat(typesSum);
+    },
+
+    getSumMoves: function(horse) {
+      let moveSum = 0;
+
+      Array.from(horse.wynik.noty).forEach(results => {
+        moveSum += parseFloat(results.ruch);
+      });
+
+      return parseFloat(moveSum);
     }
   }
 };
