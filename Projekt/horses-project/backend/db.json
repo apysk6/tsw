@@ -3,7 +3,7 @@
     {
       "id": "a6m5vu5ncjwi4ta9i",
       "sedzia": "Artur Pyśk",
-      "kraj": "PL"
+      "kraj": "GR"
     },
     {
       "id": "a6m5vu5ncjwi4ta9j",
@@ -273,7 +273,7 @@
       "id": "a6m5vu5ncjwi4taab",
       "numer": 1,
       "klasa": 1,
-      "nazwa": "Pajac",
+      "nazwa": "ss",
       "kraj": "TK",
       "rocznik": 2018,
       "masc": "gniada",
@@ -303,21 +303,21 @@
       "wynik": {
         "noty": [
           {
-            "typ": "20",
-            "glowa": "20",
+            "typ": 17.5,
+            "glowa": 16,
             "kloda": 17.5,
             "nogi": 15,
             "ruch": 13.5
           },
           {
-            "typ": "20",
-            "glowa": "20",
+            "typ": 12,
+            "glowa": 12,
             "kloda": 10,
             "nogi": 12.5,
             "ruch": 18.5
           },
           {
-            "typ": "20",
+            "typ": 16,
             "glowa": 17,
             "kloda": 20,
             "nogi": 11,
@@ -358,6 +358,7 @@
         }
       },
       "wynik": {
+        "rozjemca": 3,
         "noty": [
           {
             "typ": "0",
@@ -371,14 +372,14 @@
             "glowa": "0",
             "kloda": "0",
             "nogi": "0",
-            "ruch": "0"
+            "ruch": "10"
           },
           {
             "typ": "0",
             "glowa": "0",
             "kloda": "0",
             "nogi": "0",
-            "ruch": "1"
+            "ruch": "0"
           }
         ]
       }
@@ -928,27 +929,28 @@
         }
       },
       "wynik": {
+        "rozjemca": 2,
         "noty": [
           {
-            "typ": 12,
-            "glowa": 11,
-            "kloda": 15.5,
-            "nogi": 11.5,
-            "ruch": 13.5
+            "typ": "0",
+            "glowa": "0",
+            "kloda": "0",
+            "nogi": "0",
+            "ruch": "0"
           },
           {
-            "typ": "19",
-            "glowa": 16.5,
-            "kloda": 17,
-            "nogi": 18,
+            "typ": "0",
+            "glowa": "0",
+            "kloda": "0",
+            "nogi": "0",
             "ruch": 10
           },
           {
-            "typ": 13.5,
-            "glowa": 11.5,
-            "kloda": 14,
-            "nogi": 18,
-            "ruch": 13
+            "typ": "0",
+            "glowa": "0",
+            "kloda": "0",
+            "nogi": "0",
+            "ruch": "0"
           }
         ]
       }
@@ -16971,8 +16973,8 @@
       }
     },
     {
-      "id": "a6m5vu5igjwiv569u",
-      "numer": 267,
+      "id": "a6m5vu39sjwji0a6y",
+      "numer": 444,
       "klasa": 1,
       "nazwa": "Test",
       "kraj": "Test",
@@ -16980,25 +16982,25 @@
       "masc": "",
       "plec": "",
       "hodowca": {
-        "nazwa": "Test",
-        "kraj": "Test"
+        "nazwa": "",
+        "kraj": ""
       },
       "wlasciciel": {
-        "nazwa": "Test",
-        "kraj": "Test"
+        "nazwa": "",
+        "kraj": ""
       },
       "rodowod": {
         "o": {
-          "nazwa": "Test",
-          "kraj": "Test"
+          "nazwa": "",
+          "kraj": ""
         },
         "m": {
-          "nazwa": "Test",
-          "kraj": "Test"
+          "nazwa": "",
+          "kraj": ""
         },
         "om": {
-          "nazwa": "Test",
-          "kraj": "Test"
+          "nazwa": "",
+          "kraj": ""
         }
       },
       "wynik": {
@@ -17014,8 +17016,8 @@
             "typ": 0,
             "glowa": 0,
             "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "nogi": "20",
+            "ruch": "20"
           },
           {
             "typ": 0,

@@ -40,7 +40,9 @@ export default {
     this.$store.dispatch("getHorses");
     this.horses = store.getters.getClassHorses(this.$route.params.id);
     this.currentClass = store.getters.getClassById(this.$route.params.id);
-    this.setHorsesScores();
+    setTimeout(() => {
+      this.setHorsesScores();
+    }, 80);
   },
   data() {
     return {
@@ -50,6 +52,9 @@ export default {
     };
   },
   methods: {
+    horseDetails: function(horseId) {
+      this.$router.push({ name: "horseDetails", params: { id: horseId } });
+    },
     setHorsesScores: function() {
       Array.from(this.horses).forEach(horse => {
         horse.sumScore = this.getSumPoints(horse);
@@ -70,9 +75,31 @@ export default {
 
         if (firstHorse.moveSum > secondHorse.moveSum) return -1;
 
-        console.log("draw");
-        firstHorse.isDraw = true;
-        secondHorse.isDraw = true;
+        if (
+          typeof firstHorse.wynik.rozjemca === "undefined" ||
+          firstHorse.wynik.rozjemca === null || typeof secondHorse.wynik.rozjemca === "undefined" ||
+          secondHorse.wynik.rozjemca === null
+        ) {
+          this.$store.dispatch("makeHorseDraw", firstHorse);
+          this.$store.dispatch("makeHorseDraw", secondHorse);
+
+          firstHorse.isDraw = true;
+          secondHorse.isDraw = true;
+        } else {
+          firstHorse.isDraw = false;
+          secondHorse.isDraw = false;
+          if (
+            parseInt(firstHorse.wynik.rozjemca) <
+            parseInt(secondHorse.wynik.rozjemca)
+          )
+            return -1;
+
+          if (
+            parseInt(firstHorse.wynik.rozjemca) >
+            parseInt(secondHorse.wynik.rozjemca)
+          )
+            return 1;
+        }
       });
     },
 

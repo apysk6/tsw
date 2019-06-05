@@ -248,6 +248,8 @@ export default {
     return {
       horse: {
         id: this.$route.params.id,
+        isDraw: null,
+        rozjemca: null,
         numer: "",
         klasa: "",
         nazwa: "",
@@ -290,6 +292,7 @@ export default {
   },
   mounted() {
     this.horse = store.getters.getHorseById(this.$route.params.id);
+    console.log(this.horse);
     this.isMounted = true;
   },
   computed: mapState(["horses"]),

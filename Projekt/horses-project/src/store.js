@@ -89,6 +89,14 @@ const store = new Vuex.Store({
       state.horses.push(horse);
     },
 
+    HORSE_DRAW(state, horse) {
+      let storedHorse = state.horses.find(
+        storedHorse => storedHorse.id === horse.id
+      );
+      storedHorse.isDraw = true;
+      console.log(storedHorse);
+    },
+
     UPDATE_HORSE(state, updatingHorse) {
       let storedHorse = state.horses.find(
         storedHorse => storedHorse.id === updatingHorse.id
@@ -229,6 +237,10 @@ const store = new Vuex.Store({
         });
     },
 
+    makeHorseDraw({ commit }, horse) {
+      commit("HORSE_DRAW", horse);
+    },
+
     getClasses({ commit }) {
       axios
         .get("http://localhost:3000/klasy")
@@ -308,32 +320,62 @@ const store = new Vuex.Store({
 
     updateHorse({ commit }, horse) {
       let errorOccured = false;
-      axios
-        .put("http://localhost:3000/konie/" + horse.id, {
-          numer: horse.numer,
-          klasa: horse.klasa,
-          nazwa: horse.nazwa,
-          kraj: horse.kraj,
-          rocznik: horse.rocznik,
-          masc: horse.masc,
-          plec: horse.plec,
-          hodowca: horse.hodowca,
-          wlasciciel: horse.wlasciciel,
-          rodowod: horse.rodowod,
-          wynik: {
-            noty: horse.wynik.noty
-          }
-        })
-        .then(() => {
-          commit("UPDATE_HORSE", horse);
-        })
-        .catch(() => {
-          commit(
-            "SET_MESSAGE",
-            "Nie udało się wykonać żądania. Spróbuj ponownie!"
-          );
-          errorOccured = true;
-        });
+      if (typeof horse.wynik.rozjemca !== "undefined") {
+        axios
+          .put("http://localhost:3000/konie/" + horse.id, {
+            numer: horse.numer,
+            klasa: horse.klasa,
+            nazwa: horse.nazwa,
+            kraj: horse.kraj,
+            rocznik: horse.rocznik,
+            masc: horse.masc,
+            plec: horse.plec,
+            hodowca: horse.hodowca,
+            wlasciciel: horse.wlasciciel,
+            rodowod: horse.rodowod,
+            wynik: {
+              rozjemca: parseInt(horse.wynik.rozjemca),
+              noty: horse.wynik.noty
+            }
+          })
+          .then(() => {
+            commit("UPDATE_HORSE", horse);
+          })
+          .catch(() => {
+            commit(
+              "SET_MESSAGE",
+              "Nie udało się wykonać żądania. Spróbuj ponownie!"
+            );
+            errorOccured = true;
+          });
+      } else {
+        axios
+          .put("http://localhost:3000/konie/" + horse.id, {
+            numer: horse.numer,
+            klasa: horse.klasa,
+            nazwa: horse.nazwa,
+            kraj: horse.kraj,
+            rocznik: horse.rocznik,
+            masc: horse.masc,
+            plec: horse.plec,
+            hodowca: horse.hodowca,
+            wlasciciel: horse.wlasciciel,
+            rodowod: horse.rodowod,
+            wynik: {
+              noty: horse.wynik.noty
+            }
+          })
+          .then(() => {
+            commit("UPDATE_HORSE", horse);
+          })
+          .catch(() => {
+            commit(
+              "SET_MESSAGE",
+              "Nie udało się wykonać żądania. Spróbuj ponownie!"
+            );
+            errorOccured = true;
+          });
+      }
 
       if (!errorOccured) {
         commit("SET_MESSAGE", "Koń został pomyślnie edytowany.");
@@ -466,7 +508,9 @@ const store = new Vuex.Store({
     },
 
     getClassByNumber: state => classNumber => {
-      return state.classes.find(singleClass => singleClass.numer == classNumber);
+      return state.classes.find(
+        singleClass => singleClass.numer == classNumber
+      );
     }
   }
 });

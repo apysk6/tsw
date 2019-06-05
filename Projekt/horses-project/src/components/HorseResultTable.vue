@@ -10,19 +10,19 @@
     </tr>
     <tr v-for="(judge, index) in judges" :key="index">
       <td>
-        <input v-model="horse.wynik.noty[index].typ">
+        <input v-model="horse.wynik.noty[index].typ" @change="resultChanged()">
       </td>
       <td>
-        <input v-model="horse.wynik.noty[index].glowa">
+        <input v-model="horse.wynik.noty[index].glowa" @change="resultChanged()">
       </td>
       <td>
-        <input v-model="horse.wynik.noty[index].kloda">
+        <input v-model="horse.wynik.noty[index].kloda" @change="resultChanged()">
       </td>
       <td>
-        <input v-model="horse.wynik.noty[index].nogi">
+        <input v-model="horse.wynik.noty[index].nogi" @change="resultChanged()">
       </td>
       <td>
-        <input v-model="horse.wynik.noty[index].ruch">
+        <input v-model="horse.wynik.noty[index].ruch" @change="resultChanged()">
       </td>
       <td>
         <a>{{ judge.sedzia }} ({{ judge.kraj }})</a>
@@ -37,6 +37,10 @@
     <tr>
       <a class="sumResult">Suma punktów: {{ getSumPoints() }}</a>
     </tr>
+    <tr v-if="horse.wynik.rozjemca || horse.isDraw">
+      <a class="sumResult">Rozjemca: </a>
+      <input v-model="horse.wynik.rozjemca">
+    </tr>
   </table>
 </template>
 
@@ -50,19 +54,27 @@ export default {
   data() {
     return {
       singleClass: null,
-      judges: []
+      judges: [],
     };
   },
   computed: {},
   mounted() {
     this.singleClass = store.getters.getClassByNumber(this.horse.klasa);
-    console.log(this.singleClass);
     Array.from(this.singleClass.komisja).forEach(element => {
       let judge = store.getters.getJudgeById(element);
       this.judges.push(judge);
     });
+
+    if (typeof this.horse.wynik.rozjemca !== 'undefined') {
+      this.isDraw = true;
+    }
   },
   methods: {
+    resultChanged: function() {
+        delete this.horse.wynik.rozjemca;
+        this.horse.isDraw = false;
+    },
+
     getSumTypes: function() {
       let numberOfNotes = store.getters.getNumberOfJudgesInClass(
         this.horse.klasa
@@ -93,16 +105,16 @@ export default {
       let numberOfNotes = store.getters.getNumberOfJudgesInClass(
         this.horse.klasa
       );
-      
+
       let sum = 0;
 
-        Array.from(this.horse.wynik.noty).forEach((results) => {
-            sum += parseFloat(results.ruch);
-            sum += parseFloat(results.typ);
-            sum += parseFloat(results.glowa);
-            sum += parseFloat(results.kloda);
-            sum += parseFloat(results.nogi);
-        });
+      Array.from(this.horse.wynik.noty).forEach(results => {
+        sum += parseFloat(results.ruch);
+        sum += parseFloat(results.typ);
+        sum += parseFloat(results.glowa);
+        sum += parseFloat(results.kloda);
+        sum += parseFloat(results.nogi);
+      });
 
       return sum;
     }
