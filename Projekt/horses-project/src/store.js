@@ -163,7 +163,7 @@ const store = new Vuex.Store({
         });
     },
 
-    addJudge({ commit }, judge) {
+    addJudge({ commit, dispatch }, judge) {
       let errorOccured = false;
       axios
         .post("http://localhost:3000/sedziowie", {
@@ -171,7 +171,8 @@ const store = new Vuex.Store({
           kraj: judge.kraj
         })
         .then(() => {
-          commit("ADD_JUDGE", judge);
+          dispatch("getJudges");
+          //commit("ADD_JUDGE", judge);
         })
         .catch(() => {
           commit(
@@ -318,7 +319,7 @@ const store = new Vuex.Store({
       }
     },
 
-    updateHorse({ commit }, horse) {
+    updateHorse({ commit, dispatch }, horse) {
       let errorOccured = false;
       if (typeof horse.wynik.rozjemca !== "undefined") {
         axios
@@ -339,7 +340,7 @@ const store = new Vuex.Store({
             }
           })
           .then(() => {
-            commit("UPDATE_HORSE", horse);
+            dispatch("getHorses");
           })
           .catch(() => {
             commit(
@@ -366,7 +367,7 @@ const store = new Vuex.Store({
             }
           })
           .then(() => {
-            commit("UPDATE_HORSE", horse);
+            dispatch("getHorses");
           })
           .catch(() => {
             commit(

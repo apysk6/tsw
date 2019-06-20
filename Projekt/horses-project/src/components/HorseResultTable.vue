@@ -10,19 +10,19 @@
     </tr>
     <tr v-for="(judge, index) in judges" :key="index">
       <td>
-        <input v-model="horse.wynik.noty[index].typ" @change="resultChanged()">
+        <ScoreInput v-model="horse.wynik.noty[index].typ" :index="1" @change="resultChanged()"/>
       </td>
       <td>
-        <input v-model="horse.wynik.noty[index].glowa" @change="resultChanged()">
+        <ScoreInput v-model="horse.wynik.noty[index].glowa" :index="2" @change="resultChanged()"/>
       </td>
       <td>
-        <input v-model="horse.wynik.noty[index].kloda" @change="resultChanged()">
+        <ScoreInput v-model="horse.wynik.noty[index].kloda" :index="3" @change="resultChanged()"/>
       </td>
       <td>
-        <input v-model="horse.wynik.noty[index].nogi" @change="resultChanged()">
+        <ScoreInput v-model="horse.wynik.noty[index].nogi" :index="4" @change="resultChanged()"/>
       </td>
       <td>
-        <input v-model="horse.wynik.noty[index].ruch" @change="resultChanged()">
+        <ScoreInput v-model="horse.wynik.noty[index].ruch" :index="5" @change="resultChanged()"/>
       </td>
       <td>
         <a>{{ judge.sedzia }} ({{ judge.kraj }})</a>
@@ -46,10 +46,11 @@
 
 <script>
 import store from "../store";
+import ScoreInput from "./ScoreInput";
 
 export default {
   name: "HorseResultTable",
-  components: {},
+  components: { ScoreInput },
   props: ["horse"],
   data() {
     return {
