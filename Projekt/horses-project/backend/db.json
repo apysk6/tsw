@@ -20,6 +20,15 @@
         "sadoy3l2lwjx51ruz7",
         "sadoy3l2lwjx51xfa9"
       ]
+    },
+    {
+      "id": "sadoy3l9tgjx7ljfg2",
+      "numer": 2,
+      "kat": "klacze dwuroczne",
+      "komisja": [
+        "sadoy3l2lwjx51ruz7",
+        "sadoy3l2lwjx51xfa9"
+      ]
     }
   ],
   "konie": [
@@ -58,118 +67,18 @@
         "rozjemca": 2,
         "noty": [
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": "10",
+            "glowa": "1",
+            "kloda": "1",
+            "nogi": "10",
+            "ruch": "10"
           },
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": "0",
-            "ruch": "1"
-          }
-        ]
-      }
-    },
-    {
-      "id": "sadoy3l2lwjx5205a3",
-      "numer": 2,
-      "klasa": 1,
-      "nazwa": "Aga",
-      "kraj": "",
-      "rocznik": null,
-      "masc": "",
-      "plec": "",
-      "hodowca": {
-        "nazwa": "",
-        "kraj": ""
-      },
-      "wlasciciel": {
-        "nazwa": "",
-        "kraj": ""
-      },
-      "rodowod": {
-        "o": {
-          "nazwa": "",
-          "kraj": ""
-        },
-        "m": {
-          "nazwa": "",
-          "kraj": ""
-        },
-        "om": {
-          "nazwa": "",
-          "kraj": ""
-        }
-      },
-      "wynik": {
-        "noty": [
-          {
-            "typ": 0,
-            "glowa": "0",
-            "kloda": 20,
-            "nogi": "15",
-            "ruch": 0
-          },
-          {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 20,
-            "nogi": "5",
-            "ruch": "1"
-          }
-        ]
-      }
-    },
-    {
-      "id": "sadoy3l2lwjx52efbe",
-      "numer": 4,
-      "klasa": 1,
-      "nazwa": "Tada",
-      "kraj": "",
-      "rocznik": null,
-      "masc": "",
-      "plec": "",
-      "hodowca": {
-        "nazwa": "",
-        "kraj": ""
-      },
-      "wlasciciel": {
-        "nazwa": "",
-        "kraj": ""
-      },
-      "rodowod": {
-        "o": {
-          "nazwa": "",
-          "kraj": ""
-        },
-        "m": {
-          "nazwa": "",
-          "kraj": ""
-        },
-        "om": {
-          "nazwa": "",
-          "kraj": ""
-        }
-      },
-      "wynik": {
-        "noty": [
-          {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 20,
-            "nogi": 0,
-            "ruch": 0
-          },
-          {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": "10",
+            "glowa": "10",
+            "kloda": "10",
+            "nogi": "10",
+            "ruch": "10"
           }
         ]
       }

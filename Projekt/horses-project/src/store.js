@@ -94,7 +94,6 @@ const store = new Vuex.Store({
         storedHorse => storedHorse.id === horse.id
       );
       storedHorse.isDraw = true;
-      console.log(storedHorse);
     },
 
     UPDATE_HORSE(state, updatingHorse) {

@@ -17,7 +17,7 @@
         <ul class="navbar-nav">
           <template v-if="loggedIn">
             <li class="nav-item active">
-              <router-link to="/classes">
+              <router-link :to="{ name: 'classes', params: {isManaging: true } }">
                 <a class="nav-link">Klasy</a>
               </router-link>
             </li>
@@ -39,6 +39,11 @@
             <li class="nav-item">
               <router-link to="/login">
                 <a class="nav-link">Logowanie</a>
+              </router-link>
+            </li>
+            <li class="nav-item">
+              <router-link :to="{ name: 'classes', params: {isManaging: false } }">
+                <a class="nav-link">Panel Kibica</a>
               </router-link>
             </li>
           </template>

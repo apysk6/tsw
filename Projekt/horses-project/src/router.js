@@ -53,8 +53,9 @@ const router = new Router({
       path: "/classes",
       name: "classes",
       component: Classes,
+      props: true,
       meta: {
-        requiresAuth: true
+        requiresAuth: false
       }
     },
     {
@@ -77,8 +78,9 @@ const router = new Router({
       path: "/classes/rank/:id",
       name: "classRank",
       component: ClassRank,
+      props: true,
       meta: {
-        requiresAuth: true
+        requiresAuth: false
       }
     },
     {
@@ -105,7 +107,6 @@ const router = new Router({
 router.beforeEach((to, from, next) => {
   store.state.authStatus.then(loggedIn => {
     if (to.matched.some(record => record.meta.requiresAuth)) {
-      console.log(loggedIn);
       if (!loggedIn) {
         next({
           name: "login"

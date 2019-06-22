@@ -8,6 +8,7 @@
           <th>Numer</th>
           <th>Kategoria</th>
           <th>Komisja</th>
+          <th>Status</th>
           <th>Akcje</th>
         </tr>
       </thead>
@@ -24,7 +25,11 @@
             </ul>
           </td>
           <td>
+            <ClassStatus :classNumber="singleClass.numer"/>
+          </td>
+          <td>
             <button
+              v-if="isManaging"
               class="btn btn-primary btn-space btn-sm"
               @click="classDetails(singleClass.id)"
             >Edytuj</button>
@@ -32,12 +37,16 @@
               class="btn btn-success btn-space btn-sm"
               @click="classRank(singleClass.numer)"
             >Ranking</button>
-            <button class="btn btn-danger btn-space btn-sm" @click="removeClass(singleClass.id)">X</button>
+            <button
+              class="btn btn-danger btn-space btn-sm"
+              v-if="isManaging"
+              @click="removeClass(singleClass.id)"
+            >X</button>
           </td>
         </tr>
       </tbody>
     </table>
-    <router-link :to="{ name: 'addClass'}">
+    <router-link :to="{ name: 'addClass'}" v-if="isManaging">
       <button type="button" id="addButton" class="btn btn-success" variant="success">Dodaj</button>
     </router-link>
   </div>
@@ -47,15 +56,20 @@
 import { mapState } from "vuex";
 import store from "@/store";
 import ActionMessage from "@/components/ActionMessage.vue";
+import ClassStatus from "@/components/ClassStatus.vue";
 
 export default {
   name: "Classes",
   mounted() {
-    this.$store.dispatch("getJudges"), this.$store.dispatch("getClasses");
+    this.$store.dispatch("getJudges");
+    this.$store.dispatch("getClasses");
+    this.$store.dispatch("getHorses");
   },
   computed: mapState(["classes", "judges"]),
+  props: ["isManaging"],
   components: {
-    ActionMessage
+    ActionMessage,
+    ClassStatus
   },
   methods: {
     getJudgeById: function(id) {
@@ -67,7 +81,11 @@ export default {
     },
 
     classRank: function(classId) {
-      this.$router.push({ name: "classRank", params: { id: classId } });
+      console.log(this.isManaging);
+      this.$router.push({
+        name: "classRank",
+        params: { id: classId, isManaging: this.isManaging }
+      });
     },
 
     removeClass: function(id) {

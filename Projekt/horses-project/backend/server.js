@@ -278,6 +278,8 @@ app.put("/konie/:id", (req, res) => {
     })
     .write();
 
+  sio.sockets.emit("updateScores");
+  sio.sockets.emit("updateRank");
   res.status(200).send("Horse has been updated");
 });
 
@@ -308,9 +310,7 @@ const onAuthorizeSuccess = (data, accept) => {
 };
 // połączenie od nieutoryzowanego użytkownika lub sytuacja błędna
 const onAuthorizeFail = (data, message, error, accept) => {
-  // połączenie nieautoryzowane (ale nie błąd)
-  console.log("Nieudane połączenie z socket.io");
-  accept(new Error("Brak autoryzacji!"));
+  accept();
 };
 // passport-socketio jako „middleware” dla Socket.io
 sio.use(

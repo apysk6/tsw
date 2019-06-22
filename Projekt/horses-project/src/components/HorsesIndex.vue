@@ -5,7 +5,7 @@
     <table class="table">
       <thead>
         <tr>
-          <th>Numer</th>
+          <th>Numer startowy</th>
           <th>Nazwa</th>
           <th>Kraj</th>
           <th>Akcje</th>

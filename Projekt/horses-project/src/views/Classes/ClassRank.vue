@@ -8,7 +8,7 @@
           <th>Nazwa</th>
           <th>Kraj</th>
           <th>Suma punktów</th>
-          <th>Akcje</th>
+          <th v-if="isLogged">Akcje</th>
         </tr>
       </thead>
       <tbody>
@@ -21,7 +21,7 @@
           <td v-if="!horse.isDraw" style>{{ horse.kraj}}</td>
           <td v-if="horse.isDraw" style="background: #c14e43">{{ horse.sumScore || 0 }}</td>
           <td v-if="!horse.isDraw" style>{{ horse.sumScore || 0 }}</td>
-          <td>
+          <td v-if="isLogged">
             <button class="btn setScoreButton" @click="horseDetails(horse.id)">Oceń</button>
           </td>
         </tr>
@@ -38,17 +38,19 @@ export default {
   name: "ClassRank",
   mounted() {
     this.$store.dispatch("getHorses");
-    this.horses = store.getters.getClassHorses(this.$route.params.id);
-    this.currentClass = store.getters.getClassById(this.$route.params.id);
     setTimeout(() => {
+      this.horses = store.getters.getClassHorses(this.$route.params.id);
+      this.currentClass = store.getters.getClassById(this.$route.params.id);
       this.setHorsesScores();
     }, 80);
   },
+  props: ["isManaging"],
   data() {
     return {
       horses: null,
       currentClass: null,
-      isActive: false
+      isActive: false,
+      isLogged: store.getters.getLoggedIn()
     };
   },
   methods: {
@@ -77,7 +79,8 @@ export default {
 
         if (
           typeof firstHorse.wynik.rozjemca === "undefined" ||
-          firstHorse.wynik.rozjemca === null || typeof secondHorse.wynik.rozjemca === "undefined" ||
+          firstHorse.wynik.rozjemca === null ||
+          typeof secondHorse.wynik.rozjemca === "undefined" ||
           secondHorse.wynik.rozjemca === null
         ) {
           this.$store.dispatch("makeHorseDraw", firstHorse);
@@ -101,6 +104,15 @@ export default {
             return 1;
         }
       });
+    },
+
+    refreshScores: function() {
+      this.$store.dispatch("getHorses");
+      setTimeout(() => {
+        this.horses = store.getters.getClassHorses(this.$route.params.id);
+        this.currentClass = store.getters.getClassById(this.$route.params.id);
+        this.setHorsesScores();
+      }, 80);
     },
 
     getSumPoints: function(horse) {
@@ -135,6 +147,11 @@ export default {
       });
 
       return parseFloat(moveSum);
+    }
+  },
+  sockets: {
+    updateScores: function(data) {
+      this.refreshScores();
     }
   }
 };
