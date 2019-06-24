@@ -452,6 +452,24 @@ const store = new Vuex.Store({
       if (!errorOccured) {
         commit("SET_MESSAGE", "Import zakończony pomyślnie.");
       }
+    },
+
+    newEvent({ commit }) {
+      let errorOccured = false;
+      axios
+        .post("http://192.168.0.13:3000/newEvent/")
+        .then(() => {})
+        .catch(() => {
+          commit(
+            "SET_MESSAGE",
+            "Nie udało się wykonać żądania. Spróbuj ponownie!"
+          );
+          errorOccured = true;
+        });
+
+      if (!errorOccured) {
+        commit("SET_MESSAGE", "Nowy pokaz został utworzony pomyślnie.");
+      }
     }
   },
 

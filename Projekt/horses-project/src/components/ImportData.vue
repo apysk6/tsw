@@ -16,6 +16,7 @@
         </p>
       </div>
     </form>
+    <button class="btn btn-primary btn-space btn-sm newEventButton" @click="newEvent()">Nowy pokaz</button>
   </div>
 </template>
 
@@ -46,6 +47,16 @@ export default {
     }
   },
   methods: {
+    newEvent() {
+      this.$store.dispatch("newEvent");
+      this.$store.dispatch("getHorses");
+      this.$store.dispatch("getJudges");
+      this.$store.dispatch("getClasses");
+
+      setTimeout(() => {
+        this.$router.push({ name: "classes" });
+      }, 500);
+    },
     reset() {
       this.currentStatus = STATUS_INITIAL;
       this.uploadedFiles = [];
@@ -54,7 +65,13 @@ export default {
     save(file) {
       this.currentStatus = STATUS_SAVING;
       this.$store.dispatch("importData", file);
-      this.$router.go(-1);
+      this.$store.dispatch("getHorses");
+      this.$store.dispatch("getJudges");
+      this.$store.dispatch("getClasses");
+
+      setTimeout(() => {
+        this.$router.push({ name: "classes" });
+      }, 300);
     },
     filesChange(fieldName, fileList) {
       return new Promise((resolve, reject) => {
@@ -106,5 +123,11 @@ export default {
   font-size: 1.2em;
   text-align: center;
   padding: 50px 0;
+}
+
+.newEventButton {
+  margin: auto;
+  float: right;
+  margin-top: 15px;
 }
 </style>

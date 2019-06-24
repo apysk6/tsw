@@ -64,8 +64,17 @@ db.defaults({
   konie: []
 }).write();
 
-app.use(bodyParser.json({ limit: "50mb" }));
-app.use(bodyParser.urlencoded({ limit: "50mb", extended: true }));
+app.use(
+  bodyParser.json({
+    limit: "50mb"
+  })
+);
+app.use(
+  bodyParser.urlencoded({
+    limit: "50mb",
+    extended: true
+  })
+);
 
 app.use(
   cors({
@@ -307,6 +316,25 @@ app.post("/import", (_req, res) => {
   });
 
   res.status(200).send("Import completed succesfully.");
+});
+
+app.post("/newEvent", (_req, res) => {
+  console.log("weszło");
+  fs.unlinkSync("./db.json", err => {
+    if (err) {
+      console.error(err);
+      return;
+    }
+    console.log("success");
+    db.defaults({
+      sedziowie: [],
+      klasy: [],
+      konie: []
+    }).write();
+    db.read();
+  });
+  db.read();
+  res.status(200).send("New event created succesfully.");
 });
 
 // serwer HTTP dla aplikacji „app”

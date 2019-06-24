@@ -33,7 +33,7 @@
             </li>
             <li class="nav-item">
               <router-link to="/import">
-                <a class="nav-link">Importuj</a>
+                <a class="nav-link">Zarządzaj pokazem</a>
               </router-link>
             </li>
             <li class="nav-item">
