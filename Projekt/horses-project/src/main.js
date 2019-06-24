@@ -15,7 +15,7 @@ Vue.config.devtools = true;
 Vue.use(
   new VueSocketIO({
     debug: true,
-    connection: "http://localhost:3000"
+    connection: "http://192.168.0.13:3000"
   })
 );
 

@@ -8,6 +8,8 @@ const express = require("express");
 const cors = require("cors");
 const app = require("express")();
 const uniqid = require("uniqid");
+const fs = require("fs");
+const ip = require("ip");
 
 // Session config.
 const session = require("express-session");
@@ -61,18 +63,18 @@ db.defaults({
   klasy: [],
   konie: []
 }).write();
-app.use(bodyParser.json());
+
+app.use(bodyParser.json({ limit: "50mb" }));
+app.use(bodyParser.urlencoded({ limit: "50mb", extended: true }));
 
 app.use(
-  bodyParser.urlencoded({
-    extended: true
+  cors({
+    credentials: true,
+    origin: function(origin, callback) {
+      return callback(null, true);
+    }
   })
 );
-
-app.use(cors({
-  credentials: true,
-  origin: "http://localhost:8080"
-}));
 app.use(express.static("public"));
 
 // konfiguracja obsługi sesji (poziom Express,js)
@@ -294,6 +296,19 @@ app.delete("/konie/:id", (_req, res) => {
   res.status(200).send("Hrse has been removed");
 });
 
+app.post("/import", (_req, res) => {
+  let database = _req.body;
+  fs.writeFile("./db.json", JSON.stringify(database), "utf8", function(err) {
+    if (err) {
+      return console.log("nie pykło");
+    }
+    db.read();
+    console.log("The file was saved!");
+  });
+
+  res.status(200).send("Import completed succesfully.");
+});
+
 // serwer HTTP dla aplikacji „app”
 const server = require("http").createServer(app);
 
@@ -328,6 +343,6 @@ sio.sockets.on("connection", socket => {
   console.log("test");
 });
 
-server.listen(3000, () => {
-  console.log("Serwer pod adresem http://localhost:3000/");
+server.listen(3000, ip.address(), () => {
+  console.log("Serwer pod adresem " + ip.address() + ":3000/");
 });

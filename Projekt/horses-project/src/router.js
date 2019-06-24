@@ -9,6 +9,7 @@ import ClassRank from "./views/Classes/ClassRank.vue";
 import JudgeEdit from "./views/Judges/JudgeEdit.vue";
 import JudgeAdd from "./views/Judges/JudgeAdd.vue";
 import HorseDetails from "./views/Horses/HorseDetails.vue";
+import ImportData from "./components/ImportData.vue";
 import HorseAdd from "./views/Horses/HorseAdd.vue";
 import Login from "@/views/Login.vue";
 import store from "@/store";
@@ -21,6 +22,14 @@ const router = new Router({
       path: "/login",
       name: "login",
       component: Login
+    },
+    {
+      path: "/import",
+      name: "import",
+      component: ImportData,
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: "/judges",

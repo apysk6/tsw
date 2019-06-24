@@ -18,7 +18,7 @@ const store = new Vuex.Store({
     authStatus: new Promise(resolve => {
       setTimeout(() => {
         axios
-          .get("http://localhost:3000/user")
+          .get("http://192.168.0.13:3000/user")
           .then(response => {
             let requestResult = response.data.user ? true : false;
             store.commit("SET_AUTH", requestResult);
@@ -125,7 +125,7 @@ const store = new Vuex.Store({
     login({ commit }, user) {
       let errorOccured = false;
       axios
-        .post("http://localhost:3000/login", {
+        .post("http://192.168.0.13:3000/login", {
           username: user.login,
           password: user.password
         })
@@ -145,7 +145,7 @@ const store = new Vuex.Store({
 
     logout({ commit }) {
       axios
-        .get("http://localhost:3000/logout")
+        .get("http://192.168.0.13:3000/logout")
         .then(r => r.data)
         .then(() => {
           commit("SET_AUTH", false);
@@ -155,7 +155,7 @@ const store = new Vuex.Store({
 
     getJudges({ commit }) {
       axios
-        .get("http://localhost:3000/sedziowie")
+        .get("http://192.168.0.13:3000/sedziowie")
         .then(r => r.data)
         .then(judges => {
           commit("SET_JUDGES", judges);
@@ -165,7 +165,7 @@ const store = new Vuex.Store({
     addJudge({ commit, dispatch }, judge) {
       let errorOccured = false;
       axios
-        .post("http://localhost:3000/sedziowie", {
+        .post("http://192.168.0.13:3000/sedziowie", {
           sedzia: judge.sedzia,
           kraj: judge.kraj
         })
@@ -189,7 +189,7 @@ const store = new Vuex.Store({
     updateJudge({ commit }, judge) {
       let errorOccured = false;
       axios
-        .put("http://localhost:3000/sedziowie/" + judge.id, {
+        .put("http://192.168.0.13:3000/sedziowie/" + judge.id, {
           sedzia: judge.sedzia,
           kraj: judge.kraj
         })
@@ -212,7 +212,7 @@ const store = new Vuex.Store({
     deleteJudge({ commit }, id) {
       let errorOccured = false;
       axios
-        .delete("http://localhost:3000/sedziowie/" + id)
+        .delete("http://192.168.0.13:3000/sedziowie/" + id)
         .then(() => {
           commit("DELETE_JUDGE", id);
         })
@@ -230,7 +230,7 @@ const store = new Vuex.Store({
     },
     getHorses({ commit }) {
       axios
-        .get("http://localhost:3000/konie")
+        .get("http://192.168.0.13:3000/konie")
         .then(r => r.data)
         .then(horses => {
           commit("SET_HORSES", horses);
@@ -243,7 +243,7 @@ const store = new Vuex.Store({
 
     getClasses({ commit }) {
       axios
-        .get("http://localhost:3000/klasy")
+        .get("http://192.168.0.13:3000/klasy")
         .then(r => r.data)
         .then(classes => {
           commit("SET_CLASSES", classes);
@@ -253,7 +253,7 @@ const store = new Vuex.Store({
     addClass({ commit }, singleClass) {
       let errorOccured = false;
       axios
-        .post("http://localhost:3000/klasy", {
+        .post("http://192.168.0.13:3000/klasy", {
           numer: singleClass.numer,
           kat: singleClass.kat,
           komisja: singleClass.komisja
@@ -277,7 +277,7 @@ const store = new Vuex.Store({
     deleteClass({ commit }, id) {
       let errorOccured = false;
       axios
-        .delete("http://localhost:3000/klasy/" + id)
+        .delete("http://192.168.0.13:3000/klasy/" + id)
         .then(() => {
           commit("DELETE_CLASS", id);
         })
@@ -297,7 +297,7 @@ const store = new Vuex.Store({
     updateClass({ commit }, singleClass) {
       let errorOccured = false;
       axios
-        .put("http://localhost:3000/klasy/" + singleClass.id, {
+        .put("http://192.168.0.13:3000/klasy/" + singleClass.id, {
           numer: singleClass.numer,
           kat: singleClass.kat,
           komisja: singleClass.komisja
@@ -322,7 +322,7 @@ const store = new Vuex.Store({
       let errorOccured = false;
       if (typeof horse.wynik.rozjemca !== "undefined") {
         axios
-          .put("http://localhost:3000/konie/" + horse.id, {
+          .put("http://192.168.0.13:3000/konie/" + horse.id, {
             numer: horse.numer,
             klasa: horse.klasa,
             nazwa: horse.nazwa,
@@ -350,7 +350,7 @@ const store = new Vuex.Store({
           });
       } else {
         axios
-          .put("http://localhost:3000/konie/" + horse.id, {
+          .put("http://192.168.0.13:3000/konie/" + horse.id, {
             numer: horse.numer,
             klasa: horse.klasa,
             nazwa: horse.nazwa,
@@ -385,7 +385,7 @@ const store = new Vuex.Store({
     addHorse({ commit }, horse) {
       let errorOccured = false;
       axios
-        .post("http://localhost:3000/konie", {
+        .post("http://192.168.0.13:3000/konie", {
           numer: parseInt(horse.numer),
           klasa: parseInt(horse.klasa),
           nazwa: horse.nazwa,
@@ -419,7 +419,7 @@ const store = new Vuex.Store({
     deleteHorse({ commit }, id) {
       let errorOccured = false;
       axios
-        .delete("http://localhost:3000/konie/" + id)
+        .delete("http://192.168.0.13:3000/konie/" + id)
         .then(() => {
           commit("DELETE_HORSE", id);
         })
@@ -433,6 +433,24 @@ const store = new Vuex.Store({
 
       if (!errorOccured) {
         commit("SET_MESSAGE", "Koń został pomyślnie usunięty.");
+      }
+    },
+
+    importData({ commit }, file) {
+      let errorOccured = false;
+      axios
+        .post("http://192.168.0.13:3000/import/", file)
+        .then(() => {})
+        .catch(() => {
+          commit(
+            "SET_MESSAGE",
+            "Nie udało się wykonać żądania. Spróbuj ponownie!"
+          );
+          errorOccured = true;
+        });
+
+      if (!errorOccured) {
+        commit("SET_MESSAGE", "Import zakończony pomyślnie.");
       }
     }
   },

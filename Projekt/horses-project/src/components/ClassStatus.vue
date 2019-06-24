@@ -26,16 +26,18 @@ export default {
   },
   mounted() {
     this.$store.dispatch("getHorses");
+
     setTimeout(() => {
       this.calculateStatus(this.getClassStatus(this.classNumber));
-    }, 80);
+    }, 100);
   },
   sockets: {
     updateRank: function(data) {
       this.$store.dispatch("getHorses");
+
       setTimeout(() => {
         this.calculateStatus(this.getClassStatus(this.classNumber));
-      }, 80);
+      }, 100);
     }
   },
   methods: {
