@@ -247,6 +247,17 @@ app.post("/konie", (_req, res) => {
   let lineage = _req.body.rodowod;
   let results = _req.body.wynik;
 
+  let foundHorse = db
+    .get("konie")
+    .find({
+      numer: number
+    })
+    .value();
+
+  if (foundHorse !== undefined) {
+    updateStartNumbers(number);
+  }
+
   db.get("konie")
     .push({
       id: uniqid(),
@@ -266,6 +277,20 @@ app.post("/konie", (_req, res) => {
 
   res.status(201).send("Horse has been created");
 });
+
+const updateStartNumbers = currentNumber => {
+  console.log(currentNumber);
+  let foundHorses = db.get("konie").value();
+
+  Array.from(foundHorses).forEach(horse => {
+    if (horse.numer >= currentNumber) {
+      db.get("konie")
+        .find({ numer: horse.numer })
+        .assign({ numer: parseInt(horse.numer) + 1 })
+        .write();
+    }
+  });
+};
 
 app.put("/konie/:id", (req, res) => {
   let updateId = req.params.id;

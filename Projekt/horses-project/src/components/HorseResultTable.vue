@@ -10,19 +10,19 @@
     </tr>
     <tr v-for="(judge, index) in judges" :key="index">
       <td>
-        <ScoreInput v-model="horse.wynik.noty[index].typ" :index="1" @change="resultChanged()"/>
+        <ScoreInput v-model="horse.wynik.noty[index].typ" :index="1" :horse="horse" @change="resultChanged()"/>
       </td>
       <td>
-        <ScoreInput v-model="horse.wynik.noty[index].glowa" :index="2" @change="resultChanged()"/>
+        <ScoreInput v-model="horse.wynik.noty[index].glowa" :index="2" :horse="horse" @change="resultChanged()"/>
       </td>
       <td>
-        <ScoreInput v-model="horse.wynik.noty[index].kloda" :index="3" @change="resultChanged()"/>
+        <ScoreInput v-model="horse.wynik.noty[index].kloda" :index="3"  :horse="horse"@change="resultChanged()"/>
       </td>
       <td>
-        <ScoreInput v-model="horse.wynik.noty[index].nogi" :index="4" @change="resultChanged()"/>
+        <ScoreInput v-model="horse.wynik.noty[index].nogi" :index="4" :horse="horse" @change="resultChanged()"/>
       </td>
       <td>
-        <ScoreInput v-model="horse.wynik.noty[index].ruch" :index="5" @change="resultChanged()"/>
+        <ScoreInput v-model="horse.wynik.noty[index].ruch" :index="5" :horse="horse" @change="resultChanged()"/>
       </td>
       <td>
         <a>{{ judge.sedzia }} ({{ judge.kraj }})</a>
@@ -66,12 +66,17 @@ export default {
       this.judges.push(judge);
     });
 
+    if (typeof this.horse.isDraw === 'undefined') {
+      delete this.horse.wynik.rozjemca;
+    }
+
     if (typeof this.horse.wynik.rozjemca !== 'undefined') {
       this.isDraw = true;
     }
   },
   methods: {
     resultChanged: function() {
+      console.log("wchodze");
         delete this.horse.wynik.rozjemca;
         this.horse.isDraw = false;
     },

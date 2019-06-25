@@ -55,7 +55,9 @@ const store = new Vuex.Store({
     },
 
     SET_HORSES(state, horses) {
-      state.horses = horses;
+      state.horses = horses.sort((a, b) => {
+        return a.numer - b.numer;
+      });
     },
 
     SET_CLASSES(state, classes) {
@@ -234,6 +236,7 @@ const store = new Vuex.Store({
         .then(r => r.data)
         .then(horses => {
           commit("SET_HORSES", horses);
+          return horses;
         });
     },
 
@@ -382,7 +385,7 @@ const store = new Vuex.Store({
       }
     },
 
-    addHorse({ commit }, horse) {
+    addHorse({ commit, dispatch }, horse) {
       let errorOccured = false;
       axios
         .post("http://192.168.0.13:3000/konie", {
@@ -401,7 +404,9 @@ const store = new Vuex.Store({
           }
         })
         .then(() => {
-          commit("ADD_HORSE", horse);
+          dispatch("getHorses");
+          //commit("ADD_HORSE", horse);
+          return horse;
         })
         .catch(() => {
           commit(

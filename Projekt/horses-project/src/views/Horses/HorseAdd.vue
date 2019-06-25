@@ -303,11 +303,11 @@ export default {
           this.horse.wynik.noty.push(emptyNotes);
         }
 
-        this.$store.dispatch("getClasses");
-        this.$store.dispatch("getJudges");
-        this.$store.dispatch("addHorse", this.horse);
-        this.$store.dispatch("getHorses");
-        this.$router.go(-1);
+        this.$store.dispatch("addHorse", this.horse).then(() => {
+          this.$store.dispatch("getHorses").then(() => {
+            this.$router.push({ name: "horses"})
+          });
+        });
       } else {
         if (!this.singleClass.numer) {
           this.validationMessages.push("Numer kategorii jest wymagany!");
