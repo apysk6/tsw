@@ -31,11 +31,11 @@ export default {
   },
   sockets: {
     updateRank: function(data) {
-      this.$store.dispatch("getHorses");
-
-      setTimeout(() => {
-        this.calculateStatus(this.getClassStatus(this.classNumber));
-      }, 150);
+      this.$store.dispatch("getHorses").then(() => {
+        setTimeout(() => {
+          this.calculateStatus(this.getClassStatus(this.classNumber));
+        }, 150);
+      });
     }
   },
   methods: {
@@ -125,7 +125,6 @@ export default {
       if (!zeroBehind && !notStarted) {
         return 0;
       }
-
 
       if (notStarted) {
         return null;

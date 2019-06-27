@@ -363,6 +363,7 @@ const store = new Vuex.Store({
         .then(() => {
           commit("UPDATE_CLASS", singleClass);
           dispatch("getClasses");
+          dispatch("getHorses");
           return;
         })
         .catch(() => {

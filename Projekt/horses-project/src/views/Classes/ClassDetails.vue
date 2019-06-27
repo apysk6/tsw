@@ -155,9 +155,13 @@ export default {
       this.validationMessages = [];
       if (this.singleClass.numer && this.singleClass.kat) {
         this.$store.dispatch("updateClass", this.singleClass).then(() => {
-          this.$router.push({ name: "classes", params: { isManaging: true } });
+          setTimeout(() => {
+            this.$router.push({
+              name: "classes",
+              params: { isManaging: true }
+            });
+          }, 150);
         });
-
       } else {
         if (!this.singleClass.numer) {
           this.validationMessages.push("Numer kategorii jest wymagany!");

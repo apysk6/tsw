@@ -77,6 +77,8 @@ export default {
 
         if (firstHorse.moveSum > secondHorse.moveSum) return -1;
 
+        if (firstHorse.moveSum === 0) return 1;
+
         if (
           typeof firstHorse.wynik.rozjemca === "undefined" ||
           firstHorse.wynik.rozjemca === null ||

@@ -79,7 +79,7 @@ app.use(
 app.use(
   cors({
     credentials: true,
-    origin: function(origin, callback) {
+    origin: function (origin, callback) {
       return callback(null, true);
     }
   })
@@ -209,6 +209,7 @@ app.post("/klasy", (_req, res) => {
 app.put("/klasy/:id", (req, res) => {
   let updateId = req.params.id;
   let updateNumber = req.body.numer;
+  let judges = req.body.komisja;
   let allClasses = db.get("klasy").value();
   let foundHorses = db.get("konie").value();
 
@@ -218,6 +219,24 @@ app.put("/klasy/:id", (req, res) => {
       id: updateId
     })
     .value();
+
+  if (JSON.stringify(judges) !== JSON.stringify(oldClass.komisja)) {
+    Array.from(foundHorses).forEach(horse => {
+      if (horse.klasa === updateNumber) {
+        horse.wynik.noty = [];
+
+        Array.from(judges).forEach(() => {
+          horse.wynik.noty.push({
+            typ: 0,
+            glowa: 0,
+            kloda: 0,
+            nogi: 0,
+            ruch: 0
+          });
+        });
+      }
+    });
+  }
 
   let oldHorses = db
     .get("konie")
@@ -530,7 +549,7 @@ app.delete("/konie/:id", (_req, res) => {
 
 app.post("/import", (_req, res) => {
   let database = _req.body;
-  fs.writeFile("./db.json", JSON.stringify(database), "utf8", function(err) {
+  fs.writeFile("./db.json", JSON.stringify(database), "utf8", function (err) {
     if (err) {
       return console.log("nie pykło");
     }
