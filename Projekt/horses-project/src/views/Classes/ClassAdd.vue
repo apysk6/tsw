@@ -157,7 +157,7 @@ export default {
         }
 
         if (!this.singleClass.kat) {
-          this.validationMessages.push("Nazwa klasy jest wymagana!");
+          this.validationMessages.push("Kategoria klasy jest wymagana!");
         }
       }
     }

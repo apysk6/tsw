@@ -266,6 +266,16 @@
         "a6m5vu5ncjwi4ta9j",
         "a6m5vu5ncjwi4ta9k"
       ]
+    },
+    {
+      "id": "a6m4ve6bojxes1a42",
+      "numer": 25,
+      "kat": "teee",
+      "komisja": [
+        "a6m5vu5ncjwi4ta9i",
+        "a6m5vu5ncjwi4ta9j",
+        "a6m5vu5ncjwi4ta9k"
+      ]
     }
   ],
   "konie": [
@@ -702,7 +712,7 @@
       "wynik": {
         "noty": [
           {
-            "typ": 18.5,
+            "typ": "0",
             "glowa": 14.5,
             "kloda": 16.5,
             "nogi": 15,
@@ -16966,6 +16976,122 @@
             "kloda": 14,
             "nogi": 12.5,
             "ruch": 13.5
+          }
+        ]
+      }
+    },
+    {
+      "id": "a6m4ve6bojxes1sqh",
+      "numer": 298,
+      "klasa": 25,
+      "nazwa": "Tessa",
+      "kraj": "",
+      "rocznik": null,
+      "masc": "",
+      "plec": "",
+      "hodowca": {
+        "nazwa": "",
+        "kraj": ""
+      },
+      "wlasciciel": {
+        "nazwa": "",
+        "kraj": ""
+      },
+      "rodowod": {
+        "o": {
+          "nazwa": "",
+          "kraj": ""
+        },
+        "m": {
+          "nazwa": "",
+          "kraj": ""
+        },
+        "om": {
+          "nazwa": "",
+          "kraj": ""
+        }
+      },
+      "wynik": {
+        "rozjemca": 2,
+        "noty": [
+          {
+            "typ": "0",
+            "glowa": 0,
+            "kloda": 0,
+            "nogi": 0,
+            "ruch": 0
+          },
+          {
+            "typ": 0,
+            "glowa": 0,
+            "kloda": "0",
+            "nogi": 0,
+            "ruch": 0
+          },
+          {
+            "typ": 0,
+            "glowa": 0,
+            "kloda": 0,
+            "nogi": 0,
+            "ruch": "4"
+          }
+        ]
+      }
+    },
+    {
+      "id": "a6m4ve6bojxes3sqg",
+      "numer": 299,
+      "klasa": 25,
+      "nazwa": "Tada",
+      "kraj": "",
+      "rocznik": null,
+      "masc": "",
+      "plec": "",
+      "hodowca": {
+        "nazwa": "",
+        "kraj": ""
+      },
+      "wlasciciel": {
+        "nazwa": "",
+        "kraj": ""
+      },
+      "rodowod": {
+        "o": {
+          "nazwa": "",
+          "kraj": ""
+        },
+        "m": {
+          "nazwa": "",
+          "kraj": ""
+        },
+        "om": {
+          "nazwa": "",
+          "kraj": ""
+        }
+      },
+      "wynik": {
+        "rozjemca": 1,
+        "noty": [
+          {
+            "typ": 0,
+            "glowa": 0,
+            "kloda": 0,
+            "nogi": 0,
+            "ruch": 0
+          },
+          {
+            "typ": 0,
+            "glowa": 0,
+            "kloda": "0",
+            "nogi": 0,
+            "ruch": "4"
+          },
+          {
+            "typ": 0,
+            "glowa": 0,
+            "kloda": "0",
+            "nogi": "0",
+            "ruch": 0
           }
         ]
       }

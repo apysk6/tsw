@@ -13,13 +13,13 @@
       </thead>
       <tbody>
         <tr v-for="horse in horses" :key="horse.id">
-          <td v-if="horse.isDraw" style="background: #c14e43">{{ horse.numer}}</td>
+          <td v-if="horse.isDraw" style="background: #db8c79">{{ horse.numer}}</td>
           <td v-if="!horse.isDraw" style>{{ horse.numer}}</td>
-          <td v-if="horse.isDraw" style="background: #c14e43">{{ horse.nazwa}}</td>
+          <td v-if="horse.isDraw" style="background: #db8c79">{{ horse.nazwa}}</td>
           <td v-if="!horse.isDraw" style>{{ horse.nazwa}}</td>
-          <td v-if="horse.isDraw" style="background: #c14e43">{{ horse.kraj }}</td>
+          <td v-if="horse.isDraw" style="background: #db8c79">{{ horse.kraj }}</td>
           <td v-if="!horse.isDraw" style>{{ horse.kraj}}</td>
-          <td v-if="horse.isDraw" style="background: #c14e43">{{ horse.sumScore || 0 }}</td>
+          <td v-if="horse.isDraw" style="background: #db8c79">{{ horse.sumScore || 0 }}</td>
           <td v-if="!horse.isDraw" style>{{ horse.sumScore || 0 }}</td>
           <td v-if="isLogged">
             <button class="btn setScoreButton" @click="horseDetails(horse.id)">Oceń</button>

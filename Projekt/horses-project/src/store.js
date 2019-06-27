@@ -222,6 +222,24 @@ const store = new Vuex.Store({
 
     deleteJudge({ commit }, id) {
       let errorOccured = false;
+      let judgeInClass = false;
+
+      Array.from(this.state.classes).forEach(singleClass => {
+        if (Object.values(singleClass.komisja).indexOf(id) > -1) {
+          commit(
+            "SET_MESSAGE",
+            "Sędzia " +
+              this.state.judges.find(judge => judge.id === id).sedzia +
+              " sędziuje klasę o numerze " +
+              singleClass.numer +
+              "! Przed usunięciem zmień skład sędziowski klasy."
+          );
+          judgeInClass = true;
+        }
+      });
+
+      if (judgeInClass) return;
+
       axios
         .delete("http://192.168.0.13:3000/sedziowie/" + id)
         .then(() => {
@@ -291,6 +309,22 @@ const store = new Vuex.Store({
 
     deleteClass({ commit }, id) {
       let errorOccured = false;
+      let horseInClass = false;
+
+      let singleClass = this.state.classes.find(x => x.id === id);
+
+      Array.from(this.state.horses).forEach(horse => {
+        if (horse.klasa === singleClass.numer) {
+          commit(
+            "SET_MESSAGE",
+            "Wybrana klasa zawiera przyporządkowane do niej konie. Nie możesz jej usunąć!"
+          );
+          horseInClass = true;
+        }
+      });
+
+      if (horseInClass) return;
+
       axios
         .delete("http://192.168.0.13:3000/klasy/" + id)
         .then(() => {

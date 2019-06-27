@@ -14,6 +14,7 @@
                   <tr>
                     <td>
                       <input
+                        min="1"
                         type="number"
                         class="form-control"
                         placeholder="Wprowadź numer konia"
@@ -26,12 +27,9 @@
                   </tr>
                   <tr>
                     <td>
-                      <input
-                        type="number"
-                        class="form-control"
-                        placeholder="Wprowadź klasę konia"
-                        v-model="horse.klasa"
-                      >
+                      <select class="custom-select" v-model="horse.klasa">
+                        <option v-for="singleClass in classes" :key="singleClass.numer" v-bind:value="singleClass.numer">{{singleClass.kat}} ({{singleClass.numer}})</option>
+                      </select>
                     </td>
                   </tr>
                   <tr>
@@ -228,6 +226,14 @@
           </table>
         </div>
       </div>
+      <div v-if="validationMessages.length">
+        <b-badge
+          variant="danger"
+          :key="message"
+          v-for="message in validationMessages"
+          class="error-badge"
+        >{{ message }}</b-badge>
+      </div>
     </form>
   </div>
 </template>
@@ -281,12 +287,13 @@ export default {
     };
   },
   mounted() {},
-  computed: mapState(["horses"]),
+  computed: mapState(["horses", "classes"]),
   components: {},
   methods: {
     addHorse: function() {
+      console.log(this.horse.klasa);
       this.validationMessages = [];
-      if (this.horse.numer && this.horse.klasa) {
+      if (this.horse.numer && this.horse.klasa && this.horse.nazwa) {
         this.$store.dispatch("getClasses");
         let numberOfNotes = store.getters.getNumberOfJudgesInClass(
           this.horse.klasa
@@ -307,12 +314,16 @@ export default {
           this.$router.push({ name: "horses" });
         });
       } else {
-        if (!this.singleClass.numer) {
-          this.validationMessages.push("Numer kategorii jest wymagany!");
+        if (!this.horse.numer) {
+          this.validationMessages.push("Numer startowy konia jest wymagany!");
         }
 
-        if (!this.singleClass.kat) {
-          this.validationMessages.push("Nazwa klasy jest wymagana!");
+        if (!this.horse.kat) {
+          this.validationMessages.push("Klasa konia jest wymagana!");
+        }
+
+        if (!this.horse.nazwa) {
+          this.validationMessages.push("Nazwa konia jest wymagana!");
         }
       }
     }
