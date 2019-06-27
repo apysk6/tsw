@@ -71,6 +71,11 @@ export default {
     loggedIn() {
       return this.$store.state.loggedIn;
     }
+  },
+  mounted() {
+    this.$store.dispatch("getJudges");
+    this.$store.dispatch("getClasses");
+    this.$store.dispatch("getHorses");
   }
 };
 </script>

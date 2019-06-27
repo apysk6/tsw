@@ -304,9 +304,7 @@ export default {
         }
 
         this.$store.dispatch("addHorse", this.horse).then(() => {
-          this.$store.dispatch("getHorses").then(() => {
-            this.$router.push({ name: "horses"})
-          });
+          this.$router.push({ name: "horses" });
         });
       } else {
         if (!this.singleClass.numer) {

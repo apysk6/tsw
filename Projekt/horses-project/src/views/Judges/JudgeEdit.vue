@@ -66,7 +66,6 @@ export default {
       this.validationMessages = [];
       if (this.judge.sedzia && this.judge.kraj) {
         this.$store.dispatch("updateJudge", this.judge);
-        this.$store.dispatch("getJudges");
         this.$router.go(-1);
       } else {
         if (!this.judge.sedzia) {

@@ -302,7 +302,6 @@ export default {
       this.validationMessages = [];
       if (this.horse.numer && this.horse.klasa) {
         this.$store.dispatch("updateHorse", this.horse);
-        this.$store.dispatch("getHorses");
         this.$router.go(-1);
       } else {
         if (!this.singleClass.numer) {

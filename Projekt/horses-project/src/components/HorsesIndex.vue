@@ -34,7 +34,6 @@ import ActionMessage from "@/components/ActionMessage.vue";
 export default {
   name: "Horses",
   mounted() {
-    this.$store.dispatch("getHorses");
   },
   computed: mapState(["horses"]),
   components: { ActionMessage },

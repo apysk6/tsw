@@ -358,28 +358,27 @@
         }
       },
       "wynik": {
-        "rozjemca": 2,
         "noty": [
           {
-            "typ": "0",
-            "glowa": "0",
-            "kloda": "0",
-            "nogi": "0",
-            "ruch": "0"
+            "typ": 11.5,
+            "glowa": 11.5,
+            "kloda": 17,
+            "nogi": 13.5,
+            "ruch": 15.5
           },
           {
-            "typ": "0",
-            "glowa": "0",
-            "kloda": "0",
-            "nogi": "0",
-            "ruch": "1"
+            "typ": 12,
+            "glowa": 13,
+            "kloda": 19.5,
+            "nogi": 13,
+            "ruch": 11.5
           },
           {
-            "typ": "0",
-            "glowa": "0",
-            "kloda": "0",
-            "nogi": "0",
-            "ruch": "0"
+            "typ": 18,
+            "glowa": 16,
+            "kloda": 11.5,
+            "nogi": 19,
+            "ruch": 11.5
           }
         ]
       }
@@ -931,25 +930,25 @@
       "wynik": {
         "noty": [
           {
-            "typ": "0",
-            "glowa": "0",
-            "kloda": "0",
-            "nogi": "0",
-            "ruch": "1"
+            "typ": 12,
+            "glowa": 11,
+            "kloda": 15.5,
+            "nogi": 11.5,
+            "ruch": 13.5
           },
           {
-            "typ": "0",
-            "glowa": "0",
-            "kloda": "0",
-            "nogi": "0",
-            "ruch": "0"
+            "typ": 19,
+            "glowa": 16.5,
+            "kloda": 17,
+            "nogi": 18,
+            "ruch": 10
           },
           {
-            "typ": "0",
-            "glowa": "0",
-            "kloda": "10",
-            "nogi": "10",
-            "ruch": "0"
+            "typ": 13.5,
+            "glowa": 11.5,
+            "kloda": 14,
+            "nogi": 18,
+            "ruch": 13
           }
         ]
       }
@@ -16403,7 +16402,7 @@
     },
     {
       "id": "a6m5vu5ncjwi4tai6",
-      "numer": 288,
+      "numer": 284,
       "klasa": 23,
       "nazwa": "Sonny",
       "kraj": "TG",
@@ -16630,58 +16629,343 @@
       }
     },
     {
-      "id": "a6m4ve9w8jxc938ny",
-      "numer": 284,
-      "klasa": 1,
-      "nazwa": "Tajne",
-      "kraj": "",
-      "rocznik": null,
-      "masc": "",
-      "plec": "",
+      "id": "a6m5vu5ncjwi4taia",
+      "numer": 288,
+      "klasa": 24,
+      "nazwa": "Estel",
+      "kraj": "UM",
+      "rocznik": 2000,
+      "masc": "kaszt.",
+      "plec": "og.",
       "hodowca": {
-        "nazwa": "",
-        "kraj": ""
+        "nazwa": "Americo Lindgren",
+        "kraj": "PW"
       },
       "wlasciciel": {
-        "nazwa": "",
-        "kraj": ""
+        "nazwa": "Miss Maybell Weber",
+        "kraj": "BQ"
       },
       "rodowod": {
         "o": {
-          "nazwa": "",
-          "kraj": ""
+          "nazwa": "Monserrate",
+          "kraj": "IN"
         },
         "m": {
-          "nazwa": "",
-          "kraj": ""
+          "nazwa": "Grayce",
+          "kraj": "MP"
         },
         "om": {
-          "nazwa": "",
-          "kraj": ""
+          "nazwa": "Deion",
+          "kraj": "TK"
         }
       },
       "wynik": {
         "noty": [
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 18.5,
+            "glowa": 10,
+            "kloda": 18,
+            "nogi": 11.5,
+            "ruch": 19
           },
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 14,
+            "glowa": 18,
+            "kloda": 16.5,
+            "nogi": 18.5,
+            "ruch": 12.5
           },
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 19,
+            "glowa": 11.5,
+            "kloda": 14.5,
+            "nogi": 12.5,
+            "ruch": 14
+          }
+        ]
+      }
+    },
+    {
+      "id": "a6m5vu5ncjwi4taib",
+      "numer": 289,
+      "klasa": 24,
+      "nazwa": "Charley",
+      "kraj": "YT",
+      "rocznik": 2001,
+      "masc": "siwy",
+      "plec": "og.",
+      "hodowca": {
+        "nazwa": "Isac Runte DVM",
+        "kraj": "PF"
+      },
+      "wlasciciel": {
+        "nazwa": "Carolyn Kozey DDS",
+        "kraj": "TG"
+      },
+      "rodowod": {
+        "o": {
+          "nazwa": "Tia",
+          "kraj": "AX"
+        },
+        "m": {
+          "nazwa": "Davonte",
+          "kraj": "BV"
+        },
+        "om": {
+          "nazwa": "Faustino",
+          "kraj": "SG"
+        }
+      },
+      "wynik": {
+        "noty": [
+          {
+            "typ": 17.5,
+            "glowa": 19.5,
+            "kloda": 11,
+            "nogi": 15.5,
+            "ruch": 15
+          },
+          {
+            "typ": 18,
+            "glowa": 13.5,
+            "kloda": 12,
+            "nogi": 12.5,
+            "ruch": 14
+          },
+          {
+            "typ": 17,
+            "glowa": 11.5,
+            "kloda": 16,
+            "nogi": 10.5,
+            "ruch": 13
+          }
+        ]
+      }
+    },
+    {
+      "id": "a6m5vu5ncjwi4taic",
+      "numer": 290,
+      "klasa": 24,
+      "nazwa": "Anya",
+      "kraj": "KG",
+      "rocznik": 2007,
+      "masc": "kaszt.",
+      "plec": "og.",
+      "hodowca": {
+        "nazwa": "Salma Witting",
+        "kraj": "WS"
+      },
+      "wlasciciel": {
+        "nazwa": "Frederique Wyman",
+        "kraj": "CH"
+      },
+      "rodowod": {
+        "o": {
+          "nazwa": "Mittie",
+          "kraj": "PE"
+        },
+        "m": {
+          "nazwa": "Marlen",
+          "kraj": "NA"
+        },
+        "om": {
+          "nazwa": "Verda",
+          "kraj": "MR"
+        }
+      },
+      "wynik": {
+        "noty": [
+          {
+            "typ": 19,
+            "glowa": 14.5,
+            "kloda": 10.5,
+            "nogi": 19,
+            "ruch": 19.5
+          },
+          {
+            "typ": 19,
+            "glowa": 13.5,
+            "kloda": 15,
+            "nogi": 16,
+            "ruch": 15
+          },
+          {
+            "typ": 11,
+            "glowa": 17.5,
+            "kloda": 16,
+            "nogi": 11.5,
+            "ruch": 12.5
+          }
+        ]
+      }
+    },
+    {
+      "id": "a6m5vu5ncjwi4taid",
+      "numer": 291,
+      "klasa": 24,
+      "nazwa": "Margie",
+      "kraj": "AT",
+      "rocznik": 2004,
+      "masc": "kaszt.",
+      "plec": "og.",
+      "hodowca": {
+        "nazwa": "Mercedes Welch",
+        "kraj": "HT"
+      },
+      "wlasciciel": {
+        "nazwa": "Odell Luettgen",
+        "kraj": "HU"
+      },
+      "rodowod": {
+        "o": {
+          "nazwa": "Milan",
+          "kraj": "TK"
+        },
+        "m": {
+          "nazwa": "Brooks",
+          "kraj": "IO"
+        },
+        "om": {
+          "nazwa": "Caterina",
+          "kraj": "SJ"
+        }
+      },
+      "wynik": {
+        "noty": [
+          {
+            "typ": 17.5,
+            "glowa": 15.5,
+            "kloda": 17.5,
+            "nogi": 17,
+            "ruch": 18
+          },
+          {
+            "typ": 19.5,
+            "glowa": 10,
+            "kloda": 12.5,
+            "nogi": 14.5,
+            "ruch": 17.5
+          },
+          {
+            "typ": 12.5,
+            "glowa": 16.5,
+            "kloda": 14,
+            "nogi": 15,
+            "ruch": 19.5
+          }
+        ]
+      }
+    },
+    {
+      "id": "a6m5vu5ncjwi4taie",
+      "numer": 292,
+      "klasa": 24,
+      "nazwa": "Gilda",
+      "kraj": "ES",
+      "rocznik": 2005,
+      "masc": "kary",
+      "plec": "og.",
+      "hodowca": {
+        "nazwa": "Fred Champlin",
+        "kraj": "SX"
+      },
+      "wlasciciel": {
+        "nazwa": "Della Mosciski",
+        "kraj": "MS"
+      },
+      "rodowod": {
+        "o": {
+          "nazwa": "Brett",
+          "kraj": "GY"
+        },
+        "m": {
+          "nazwa": "Monserrat",
+          "kraj": "LR"
+        },
+        "om": {
+          "nazwa": "Daisy",
+          "kraj": "FK"
+        }
+      },
+      "wynik": {
+        "noty": [
+          {
+            "typ": 17.5,
+            "glowa": 14,
+            "kloda": 19,
+            "nogi": 19,
+            "ruch": 16.5
+          },
+          {
+            "typ": 12.5,
+            "glowa": 11,
+            "kloda": 13.5,
+            "nogi": 15,
+            "ruch": 12
+          },
+          {
+            "typ": 13,
+            "glowa": 17.5,
+            "kloda": 12,
+            "nogi": 18,
+            "ruch": 18.5
+          }
+        ]
+      }
+    },
+    {
+      "id": "a6m5vu5ncjwi4taif",
+      "numer": 293,
+      "klasa": 24,
+      "nazwa": "Brianne",
+      "kraj": "MK",
+      "rocznik": 2010,
+      "masc": "sk.gn.",
+      "plec": "og.",
+      "hodowca": {
+        "nazwa": "Loma Kshlerin",
+        "kraj": "NR"
+      },
+      "wlasciciel": {
+        "nazwa": "Kristy Homenick Jr.",
+        "kraj": "MD"
+      },
+      "rodowod": {
+        "o": {
+          "nazwa": "Princess",
+          "kraj": "LU"
+        },
+        "m": {
+          "nazwa": "Sheldon",
+          "kraj": "GR"
+        },
+        "om": {
+          "nazwa": "Mellie",
+          "kraj": "PL"
+        }
+      },
+      "wynik": {
+        "noty": [
+          {
+            "typ": 11.5,
+            "glowa": 11.5,
+            "kloda": 20,
+            "nogi": 17.5,
+            "ruch": 20
+          },
+          {
+            "typ": 15,
+            "glowa": 19.5,
+            "kloda": 15.5,
+            "nogi": 17.5,
+            "ruch": 13
+          },
+          {
+            "typ": 13.5,
+            "glowa": 19,
+            "kloda": 14,
+            "nogi": 12.5,
+            "ruch": 13.5
           }
         ]
       }

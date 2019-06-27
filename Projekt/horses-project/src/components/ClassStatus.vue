@@ -37,7 +37,7 @@ export default {
 
       setTimeout(() => {
         this.calculateStatus(this.getClassStatus(this.classNumber));
-      }, 100);
+      }, 150);
     }
   },
   methods: {

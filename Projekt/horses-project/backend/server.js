@@ -176,6 +176,17 @@ app.post("/klasy", (_req, res) => {
   let categoryName = _req.body.kat;
   let commision = _req.body.komisja;
 
+  let foundClass = db
+    .get("klasy")
+    .find({
+      numer: parseInt(number)
+    })
+    .value();
+
+  if (foundClass !== undefined) {
+    updateClassNumbers(number);
+  }
+
   let newClass = {
     id: uniqid(),
     numer: number,
@@ -197,18 +208,117 @@ app.post("/klasy", (_req, res) => {
 
 app.put("/klasy/:id", (req, res) => {
   let updateId = req.params.id;
+  let updateNumber = req.body.numer;
+  let allClasses = db.get("klasy").value();
+  let foundHorses = db.get("konie").value();
+
+  let oldClass = db
+    .get("klasy")
+    .find({
+      id: updateId
+    })
+    .value();
+
+  let oldHorses = db
+    .get("konie")
+    .filter({
+      klasa: parseInt(oldClass.numer)
+    })
+    .value();
+
+  let actualNumber = oldClass.numer;
+
+  let foundClass = db
+    .get("klasy")
+    .find({
+      numer: parseInt(updateNumber)
+    })
+    .value();
+
+  if (foundClass !== undefined) {
+    if (updateNumber > actualNumber) {
+      Array.from(allClasses).forEach(singleClass => {
+        if (
+          singleClass.numer > actualNumber &&
+          singleClass.numer <= updateNumber
+        ) {
+          console.log("update");
+          db.get("klasy")
+            .find({
+              id: singleClass.id
+            })
+            .assign({
+              numer: parseInt(singleClass.numer) - 1
+            })
+            .write();
+        }
+      });
+    } else if (updateNumber < actualNumber) {
+      Array.from(allClasses).forEach(singleClass => {
+        if (
+          singleClass.numer >= updateNumber &&
+          singleClass.numer < actualNumber
+        ) {
+          db.get("klasy")
+            .find({
+              id: singleClass.id
+            })
+            .assign({
+              numer: parseInt(singleClass.numer) + 1
+            })
+            .write();
+        }
+      });
+    }
+  }
+
+  Array.from(foundHorses).forEach(horse => {
+    if (horse.klasa >= updateNumber && horse.klasa < actualNumber) {
+      db.get("konie")
+        .find({
+          numer: horse.numer
+        })
+        .assign({
+          klasa: horse.klasa + 1
+        })
+        .write();
+    } else if (horse.klasa <= updateNumber && horse.klasa > actualNumber) {
+      db.get("konie")
+        .find({
+          numer: horse.numer
+        })
+        .assign({
+          klasa: horse.klasa - 1
+        })
+        .write();
+    }
+  });
 
   db.get("klasy")
     .find({
       id: updateId
     })
     .assign({
-      numer: req.body.numer,
+      numer: parseInt(req.body.numer),
       nazwa: req.body.nazwa,
       komisja: req.body.komisja,
       kat: req.body.kat
     })
     .write();
+
+  if (actualNumber !== updateNumber) {
+    Array.from(oldHorses).forEach(horse => {
+      console.log(horse);
+      db.get("konie")
+        .find({
+          id: horse.id
+        })
+        .assign({
+          klasa: parseInt(updateNumber)
+        })
+        .write();
+    });
+  }
 
   res.status(200).send("Class has been updated");
 });
@@ -226,6 +336,12 @@ app.delete("/klasy/:id", (_req, res) => {
 
 app.get("/klasy", (req, res) => {
   let classes = db.get("klasy");
+
+  if (classes.length > 2) {
+    classes.sort((a, b) => {
+      return a.numer - b.numer;
+    });
+  }
   res.json(classes);
 });
 
@@ -279,14 +395,48 @@ app.post("/konie", (_req, res) => {
 });
 
 const updateStartNumbers = currentNumber => {
-  console.log(currentNumber);
   let foundHorses = db.get("konie").value();
 
   Array.from(foundHorses).forEach(horse => {
     if (horse.numer >= currentNumber) {
       db.get("konie")
-        .find({ numer: horse.numer })
-        .assign({ numer: parseInt(horse.numer) + 1 })
+        .find({
+          numer: horse.numer
+        })
+        .assign({
+          numer: parseInt(horse.numer) + 1
+        })
+        .write();
+    }
+  });
+};
+
+const updateClassNumbers = currentNumber => {
+  let foundClasses = db.get("klasy").value();
+  let foundHorses = db.get("konie").value();
+
+  Array.from(foundClasses).forEach(singleClass => {
+    if (singleClass.numer >= currentNumber) {
+      Array.from(foundHorses).forEach(horse => {
+        if (horse.klasa === parseInt(singleClass.numer)) {
+          db.get("konie")
+            .find({
+              numer: horse.numer
+            })
+            .assign({
+              klasa: parseInt(singleClass.numer) + 1
+            })
+            .write();
+        }
+      });
+
+      db.get("klasy")
+        .find({
+          numer: parseInt(singleClass.numer)
+        })
+        .assign({
+          numer: parseInt(singleClass.numer) + 1
+        })
         .write();
     }
   });
@@ -294,6 +444,54 @@ const updateStartNumbers = currentNumber => {
 
 app.put("/konie/:id", (req, res) => {
   let updateId = req.params.id;
+  let updateNumber = req.body.numer;
+  let allHorses = db.get("konie").value();
+
+  let oldHorse = db
+    .get("konie")
+    .find({
+      id: req.params.id
+    })
+    .value();
+  let actualNumber = oldHorse.numer;
+
+  let foundHorse = db
+    .get("konie")
+    .find({
+      numer: parseInt(updateNumber)
+    })
+    .value();
+
+  console.log(updateNumber);
+  if (typeof foundHorse !== "undefined") {
+    if (updateNumber > actualNumber) {
+      Array.from(allHorses).forEach(horse => {
+        if (horse.numer > actualNumber && horse.numer <= updateNumber) {
+          db.get("konie")
+            .find({
+              id: horse.id
+            })
+            .assign({
+              numer: parseInt(horse.numer) - 1
+            })
+            .write();
+        }
+      });
+    } else if (updateNumber < actualNumber) {
+      Array.from(allHorses).forEach(horse => {
+        if (horse.numer >= updateNumber && horse.numer < actualNumber) {
+          db.get("konie")
+            .find({
+              id: horse.id
+            })
+            .assign({
+              numer: parseInt(horse.numer) + 1
+            })
+            .write();
+        }
+      });
+    }
+  }
 
   db.get("konie")
     .find({

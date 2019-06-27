@@ -148,9 +148,9 @@ export default {
     addClass: function() {
       this.validationMessages = [];
       if (this.singleClass.numer && this.singleClass.kat) {
-        this.$store.dispatch("addClass", this.singleClass);
-        this.$store.dispatch("getClasses");
-        this.$router.go(-1);
+        this.$store.dispatch("addClass", this.singleClass).then(() => {
+          this.$router.push({ name: "classes", params: { isManaging: true } });
+        });
       } else {
         if (!this.singleClass.numer) {
           this.validationMessages.push("Numer kategorii jest wymagany!");

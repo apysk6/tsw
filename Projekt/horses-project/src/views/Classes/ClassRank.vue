@@ -42,7 +42,7 @@ export default {
       this.horses = store.getters.getClassHorses(this.$route.params.id);
       this.currentClass = store.getters.getClassById(this.$route.params.id);
       this.setHorsesScores();
-    }, 100);
+    }, 150);
   },
   props: ["isManaging"],
   data() {
@@ -112,7 +112,7 @@ export default {
         this.horses = store.getters.getClassHorses(this.$route.params.id);
         this.currentClass = store.getters.getClassById(this.$route.params.id);
         this.setHorsesScores();
-      }, 80);
+      }, 150);
     },
 
     getSumPoints: function(horse) {

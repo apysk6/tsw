@@ -1,6 +1,7 @@
 <template>
   <div class="container">
-    <h1 class="display-5">Klasy</h1>
+    <h1 class="display-5" v-if="isManaging">Klasy</h1>
+    <h1 class="display-5" v-if="!isManaging">Panel Kibica</h1>
     <ActionMessage/>
     <table>
       <thead>
@@ -61,9 +62,6 @@ import ClassStatus from "@/components/ClassStatus.vue";
 export default {
   name: "Classes",
   mounted() {
-    this.$store.dispatch("getJudges");
-    this.$store.dispatch("getClasses");
-    this.$store.dispatch("getHorses");
   },
   computed: mapState(["classes", "judges"]),
   props: ["isManaging"],

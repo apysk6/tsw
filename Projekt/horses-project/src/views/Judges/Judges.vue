@@ -38,7 +38,6 @@ import ActionMessage from "@/components/ActionMessage.vue";
 export default {
   name: "Judges",
   mounted() {
-    this.$store.dispatch("getJudges");
   },
   components: {
     ActionMessage

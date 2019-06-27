@@ -55,13 +55,22 @@ const store = new Vuex.Store({
     },
 
     SET_HORSES(state, horses) {
-      state.horses = horses.sort((a, b) => {
-        return a.numer - b.numer;
-      });
+      state.horses = horses;
+
+      if (state.horses.length > 2) {
+        state.horses.sort((a, b) => {
+          return a.numer - b.numer;
+        });
+      }
     },
 
     SET_CLASSES(state, classes) {
       state.classes = classes;
+      if (state.classes.length > 2) {
+        state.classes.sort((a, b) => {
+          return a.numer - b.numer;
+        });
+      }
     },
 
     ADD_CLASS(state, singleClass) {
@@ -164,7 +173,7 @@ const store = new Vuex.Store({
         });
     },
 
-    addJudge({ commit, dispatch }, judge) {
+    addJudge({ commit }, judge) {
       let errorOccured = false;
       axios
         .post("http://192.168.0.13:3000/sedziowie", {
@@ -172,8 +181,7 @@ const store = new Vuex.Store({
           kraj: judge.kraj
         })
         .then(() => {
-          dispatch("getJudges");
-          //commit("ADD_JUDGE", judge);
+          commit("ADD_JUDGE", judge);
         })
         .catch(() => {
           commit(
@@ -188,7 +196,7 @@ const store = new Vuex.Store({
       }
     },
 
-    updateJudge({ commit }, judge) {
+    updateJudge({ commit, dispatch }, judge) {
       let errorOccured = false;
       axios
         .put("http://192.168.0.13:3000/sedziowie/" + judge.id, {
@@ -197,6 +205,7 @@ const store = new Vuex.Store({
         })
         .then(() => {
           commit("UPDATE_JUDGE", judge);
+          dispatch("getJudges");
         })
         .catch(() => {
           commit(
@@ -250,10 +259,11 @@ const store = new Vuex.Store({
         .then(r => r.data)
         .then(classes => {
           commit("SET_CLASSES", classes);
+          return;
         });
     },
 
-    addClass({ commit }, singleClass) {
+    addClass({ commit, dispatch }, singleClass) {
       let errorOccured = false;
       axios
         .post("http://192.168.0.13:3000/klasy", {
@@ -263,6 +273,8 @@ const store = new Vuex.Store({
         })
         .then(() => {
           commit("ADD_CLASS", singleClass);
+          dispatch("getClasses");
+          return;
         })
         .catch(() => {
           commit(
@@ -297,7 +309,7 @@ const store = new Vuex.Store({
       }
     },
 
-    updateClass({ commit }, singleClass) {
+    updateClass({ commit, dispatch }, singleClass) {
       let errorOccured = false;
       axios
         .put("http://192.168.0.13:3000/klasy/" + singleClass.id, {
@@ -307,6 +319,8 @@ const store = new Vuex.Store({
         })
         .then(() => {
           commit("UPDATE_CLASS", singleClass);
+          dispatch("getClasses");
+          return;
         })
         .catch(() => {
           commit(
@@ -342,6 +356,7 @@ const store = new Vuex.Store({
             }
           })
           .then(() => {
+            commit("UPDATE_HORSE", horse);
             dispatch("getHorses");
           })
           .catch(() => {
@@ -404,8 +419,8 @@ const store = new Vuex.Store({
           }
         })
         .then(() => {
+          commit("ADD_HORSE", horse);
           dispatch("getHorses");
-          //commit("ADD_HORSE", horse);
           return horse;
         })
         .catch(() => {
@@ -441,11 +456,16 @@ const store = new Vuex.Store({
       }
     },
 
-    importData({ commit }, file) {
+    importData({ commit, dispatch }, file) {
       let errorOccured = false;
       axios
         .post("http://192.168.0.13:3000/import/", file)
-        .then(() => {})
+        .then(() => {
+          dispatch("getHorses");
+          dispatch("getClasses");
+          dispatch("getJudges");
+          return;
+        })
         .catch(() => {
           commit(
             "SET_MESSAGE",
@@ -459,11 +479,16 @@ const store = new Vuex.Store({
       }
     },
 
-    newEvent({ commit }) {
+    newEvent({ commit, dispatch }) {
       let errorOccured = false;
       axios
         .post("http://192.168.0.13:3000/newEvent/")
-        .then(() => {})
+        .then(() => {
+          dispatch("getHorses");
+          dispatch("getClasses");
+          dispatch("getJudges");
+          return;
+        })
         .catch(() => {
           commit(
             "SET_MESSAGE",

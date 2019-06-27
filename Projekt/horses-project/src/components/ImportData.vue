@@ -48,14 +48,9 @@ export default {
   },
   methods: {
     newEvent() {
-      this.$store.dispatch("newEvent");
-      this.$store.dispatch("getHorses");
-      this.$store.dispatch("getJudges");
-      this.$store.dispatch("getClasses");
-
-      setTimeout(() => {
+      this.$store.dispatch("newEvent").then(() => {
         this.$router.push({ name: "classes" });
-      }, 500);
+      });
     },
     reset() {
       this.currentStatus = STATUS_INITIAL;
@@ -64,14 +59,9 @@ export default {
     },
     save(file) {
       this.currentStatus = STATUS_SAVING;
-      this.$store.dispatch("importData", file);
-      this.$store.dispatch("getHorses");
-      this.$store.dispatch("getJudges");
-      this.$store.dispatch("getClasses");
-
-      setTimeout(() => {
-        this.$router.push({ name: "classes" });
-      }, 300);
+      this.$store.dispatch("importData", file).then(() => {
+        this.$router.push({ name: "classes", params: { isManaging: true } });
+      });
     },
     filesChange(fieldName, fileList) {
       return new Promise((resolve, reject) => {
