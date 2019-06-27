@@ -282,7 +282,7 @@
     {
       "id": "a6m5vu5ncjwi4taab",
       "numer": 1,
-      "klasa": 1,
+      "klasa": "2",
       "nazwa": "ss",
       "kraj": "TK",
       "rocznik": 2018,
@@ -313,25 +313,25 @@
       "wynik": {
         "noty": [
           {
-            "typ": 17.5,
-            "glowa": 16,
-            "kloda": 17.5,
-            "nogi": 15,
-            "ruch": 13.5
+            "typ": "0",
+            "glowa": "0",
+            "kloda": "0",
+            "nogi": "0",
+            "ruch": "0"
           },
           {
-            "typ": 12,
-            "glowa": 12,
-            "kloda": 10,
-            "nogi": 12.5,
-            "ruch": 18.5
+            "typ": "0",
+            "glowa": "0",
+            "kloda": "0",
+            "nogi": "0",
+            "ruch": "0"
           },
           {
-            "typ": 16,
-            "glowa": 17,
-            "kloda": 20,
-            "nogi": 11,
-            "ruch": 17
+            "typ": "0",
+            "glowa": "0",
+            "kloda": "0",
+            "nogi": "0",
+            "ruch": "0"
           }
         ]
       }

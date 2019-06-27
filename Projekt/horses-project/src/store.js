@@ -14,6 +14,7 @@ const store = new Vuex.Store({
     horses: [],
     classes: [],
     actionMessage: null,
+    canChangeClass: 0,
     loggedIn: false,
     authStatus: new Promise(resolve => {
       setTimeout(() => {
@@ -130,6 +131,10 @@ const store = new Vuex.Store({
       setTimeout(() => {
         state.actionMessage = null;
       }, 3000);
+    },
+
+    SET_CHANGE_CLASS(state, canChange) {
+      state.canChangeClass = canChange;
     }
   },
   actions: {
@@ -152,6 +157,10 @@ const store = new Vuex.Store({
       if (!errorOccured) {
         commit("SET_MESSAGE", "Zostałeś pomyślnie zalogowany!");
       }
+    },
+
+    setChangeClassStatus({ commit }, canChange) {
+      commit("SET_CHANGE_CLASS", canChange);
     },
 
     logout({ commit }) {

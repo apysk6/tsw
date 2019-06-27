@@ -26,7 +26,7 @@
                   </tr>
                   <tr>
                     <td>
-                      <input
+                      <input :disabled="canChangeClass == 1 ? true : false"
                         type="number"
                         class="form-control"
                         placeholder="Wprowadź klasę konia"
@@ -287,7 +287,7 @@ export default {
       selectedAvailableJudges: [],
       selectedJudges: [],
       availableJudges: [],
-      isMounted: false
+      isMounted: false,
     };
   },
   mounted() {
@@ -295,7 +295,7 @@ export default {
     console.log(this.horse);
     this.isMounted = true;
   },
-  computed: mapState(["horses"]),
+  computed: mapState(["horses", "canChangeClass"]) ,
   components: { HorseResultTable },
   methods: {
     updateHorse: function() {

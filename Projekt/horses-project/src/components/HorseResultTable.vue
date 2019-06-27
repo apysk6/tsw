@@ -16,7 +16,7 @@
         <ScoreInput v-model="horse.wynik.noty[index].glowa" :index="2" :horse="horse" @change="resultChanged()"/>
       </td>
       <td>
-        <ScoreInput v-model="horse.wynik.noty[index].kloda" :index="3"  :horse="horse"@change="resultChanged()"/>
+        <ScoreInput v-model="horse.wynik.noty[index].kloda" :index="3"  :horse="horse" @change="resultChanged()"/>
       </td>
       <td>
         <ScoreInput v-model="horse.wynik.noty[index].nogi" :index="4" :horse="horse" @change="resultChanged()"/>
@@ -121,6 +121,13 @@ export default {
         sum += parseFloat(results.kloda);
         sum += parseFloat(results.nogi);
       });
+
+      if (sum === 0) {
+        this.$store.dispatch("setChangeClassStatus", 0);
+      }
+      else {
+        this.$store.dispatch("setChangeClassStatus", 1);
+      }
 
       return sum;
     }
