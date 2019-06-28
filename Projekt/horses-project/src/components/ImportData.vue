@@ -60,7 +60,12 @@ export default {
     save(file) {
       this.currentStatus = STATUS_SAVING;
       this.$store.dispatch("importData", file).then(() => {
-        this.$router.push({ name: "classes", params: { isManaging: true } });
+        setTimeout(() => {
+          this.$router.push({
+            name: "classes",
+            params: { isManaging: true }
+          });
+        }, 150);
       });
     },
     filesChange(fieldName, fileList) {

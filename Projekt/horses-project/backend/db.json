@@ -29,21 +29,22 @@
   "klasy": [
     {
       "id": "a6m5vu5ncjwi4ta9n",
-      "numer": 1,
+      "numer": 2,
       "kat": "klacze roczneee",
       "komisja": [
         "a6m5vu5ncjwi4ta9i",
         "a6m5vu5ncjwi4ta9j",
-        "a6m5vu5ncjwi4ta9k",
-        "a6m5vu5ncjwi4ta9m"
+        "a6m5vu5ncjwi4ta9k"
       ]
     },
     {
       "id": "a6m5vu5ncjwi4ta9o",
-      "numer": 2,
+      "numer": 1,
       "kat": "klacze roczne",
       "komisja": [
-        "a6m5vu5ncjwi4ta9j"
+        "a6m5vu5ncjwi4ta9j",
+        "a6m5vu5ncjwi4ta9k",
+        "a6m5vu5ncjwi4ta9l"
       ]
     },
     {
@@ -51,7 +52,9 @@
       "numer": 3,
       "kat": "klacze roczne",
       "komisja": [
-        "a6m5vu5ncjwi4ta9j"
+        "a6m5vu5ncjwi4ta9j",
+        "a6m5vu5ncjwi4ta9k",
+        "a6m5vu5ncjwi4ta9l"
       ]
     },
     {
@@ -59,7 +62,9 @@
       "numer": 4,
       "kat": "ogiery roczne",
       "komisja": [
-        "a6m5vu5ncjwi4ta9i"
+        "a6m5vu5ncjwi4ta9i",
+        "a6m5vu5ncjwi4ta9j",
+        "a6m5vu5ncjwi4ta9k"
       ]
     },
     {
@@ -67,7 +72,9 @@
       "numer": 5,
       "kat": "ogiery roczne",
       "komisja": [
-        "a6m5vu5ncjwi4ta9j"
+        "a6m5vu5ncjwi4ta9i",
+        "a6m5vu5ncjwi4ta9j",
+        "a6m5vu5ncjwi4ta9k"
       ]
     },
     {
@@ -76,10 +83,8 @@
       "kat": "klacze dwuletnie",
       "komisja": [
         "a6m5vu5ncjwi4ta9i",
-        "a6m5vu5ncjwi4ta9k",
         "a6m5vu5ncjwi4ta9j",
-        "a6m5vu5ncjwi4ta9l",
-        "a6m5vu5ncjwi4ta9m"
+        "a6m5vu5ncjwi4ta9k"
       ]
     },
     {
@@ -267,8 +272,8 @@
     {
       "id": "a6m5vu5ncjwi4taab",
       "numer": 1,
-      "klasa": 1,
-      "nazwa": "ss",
+      "klasa": 2,
+      "nazwa": "Tessa",
       "kraj": "TK",
       "rocznik": 2018,
       "masc": "gniada",
@@ -298,32 +303,25 @@
       "wynik": {
         "noty": [
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 17.5,
+            "glowa": 16,
+            "kloda": 17.5,
+            "nogi": 15,
+            "ruch": 13.5
           },
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 12,
+            "glowa": 12,
+            "kloda": 10,
+            "nogi": 12.5,
+            "ruch": 18.5
           },
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
-          },
-          {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 16,
+            "glowa": 17,
+            "kloda": 20,
+            "nogi": 11,
+            "ruch": 17
           }
         ]
       }
@@ -331,7 +329,7 @@
     {
       "id": "a6m5vu5ncjwi4taac",
       "numer": 2,
-      "klasa": 1,
+      "klasa": 2,
       "nazwa": "Jaron",
       "kraj": "PR",
       "rocznik": 2018,
@@ -362,32 +360,25 @@
       "wynik": {
         "noty": [
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 11.5,
+            "glowa": 11.5,
+            "kloda": 17,
+            "nogi": 13.5,
+            "ruch": 15.5
           },
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 12,
+            "glowa": 13,
+            "kloda": 19.5,
+            "nogi": 13,
+            "ruch": 11.5
           },
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
-          },
-          {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 18,
+            "glowa": 16,
+            "kloda": 11.5,
+            "nogi": 19,
+            "ruch": 11.5
           }
         ]
       }
@@ -395,7 +386,7 @@
     {
       "id": "a6m5vu5ncjwi4taad",
       "numer": 3,
-      "klasa": 1,
+      "klasa": 2,
       "nazwa": "Josiah",
       "kraj": "VU",
       "rocznik": 2018,
@@ -426,32 +417,25 @@
       "wynik": {
         "noty": [
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 14,
+            "glowa": 13.5,
+            "kloda": 14.5,
+            "nogi": 10,
+            "ruch": 19.5
           },
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 15,
+            "glowa": 18.5,
+            "kloda": 16.5,
+            "nogi": 11.5,
+            "ruch": 15.5
           },
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
-          },
-          {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 15.5,
+            "glowa": 14,
+            "kloda": 20,
+            "nogi": 11,
+            "ruch": 20
           }
         ]
       }
@@ -459,7 +443,7 @@
     {
       "id": "a6m5vu5ncjwi4taae",
       "numer": 4,
-      "klasa": 1,
+      "klasa": 2,
       "nazwa": "Raven",
       "kraj": "AI",
       "rocznik": 2018,
@@ -490,32 +474,25 @@
       "wynik": {
         "noty": [
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 10.5,
+            "glowa": 17,
+            "kloda": 15,
+            "nogi": 19,
+            "ruch": 13
           },
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 18,
+            "glowa": 18,
+            "kloda": 12,
+            "nogi": 17,
+            "ruch": 13.5
           },
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
-          },
-          {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 19.5,
+            "glowa": 16.5,
+            "kloda": 15,
+            "nogi": 13,
+            "ruch": 19.5
           }
         ]
       }
@@ -523,7 +500,7 @@
     {
       "id": "a6m5vu5ncjwi4taaf",
       "numer": 5,
-      "klasa": 1,
+      "klasa": 2,
       "nazwa": "Brannon",
       "kraj": "GT",
       "rocznik": 2018,
@@ -554,32 +531,25 @@
       "wynik": {
         "noty": [
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 10,
+            "glowa": 17,
+            "kloda": 19.5,
+            "nogi": 16.5,
+            "ruch": 19.5
           },
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 18.5,
+            "glowa": 16,
+            "kloda": 12,
+            "nogi": 15,
+            "ruch": 14
           },
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
-          },
-          {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 13,
+            "glowa": 10,
+            "kloda": 14.5,
+            "nogi": 11,
+            "ruch": 12
           }
         ]
       }
@@ -587,7 +557,7 @@
     {
       "id": "a6m5vu5ncjwi4taag",
       "numer": 6,
-      "klasa": 1,
+      "klasa": 2,
       "nazwa": "Dandre",
       "kraj": "PY",
       "rocznik": 2018,
@@ -618,32 +588,25 @@
       "wynik": {
         "noty": [
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 18,
+            "glowa": 10.5,
+            "kloda": 13.5,
+            "nogi": 11.5,
+            "ruch": 17
           },
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 17.5,
+            "glowa": 14,
+            "kloda": 20,
+            "nogi": 18,
+            "ruch": 10
           },
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
-          },
-          {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 19.5,
+            "glowa": 16,
+            "kloda": 17.5,
+            "nogi": 10.5,
+            "ruch": 15
           }
         ]
       }
@@ -651,7 +614,7 @@
     {
       "id": "a6m5vu5ncjwi4taah",
       "numer": 7,
-      "klasa": 1,
+      "klasa": 2,
       "nazwa": "Skylar",
       "kraj": "CF",
       "rocznik": 2018,
@@ -682,32 +645,25 @@
       "wynik": {
         "noty": [
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 11,
+            "glowa": 14.5,
+            "kloda": 17,
+            "nogi": 15.5,
+            "ruch": 11
           },
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 11,
+            "glowa": 11,
+            "kloda": 14.5,
+            "nogi": 17,
+            "ruch": 17.5
           },
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
-          },
-          {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 18.5,
+            "glowa": 14.5,
+            "kloda": 18,
+            "nogi": 18,
+            "ruch": 18
           }
         ]
       }
@@ -715,7 +671,7 @@
     {
       "id": "a6m5vu5ncjwi4taai",
       "numer": 8,
-      "klasa": 1,
+      "klasa": 2,
       "nazwa": "Taryn",
       "kraj": "AE",
       "rocznik": 2018,
@@ -746,32 +702,25 @@
       "wynik": {
         "noty": [
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 18.5,
+            "glowa": 14.5,
+            "kloda": 16.5,
+            "nogi": 15,
+            "ruch": 16.5
           },
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 13,
+            "glowa": 17.5,
+            "kloda": 16,
+            "nogi": 15,
+            "ruch": 19.5
           },
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
-          },
-          {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 16,
+            "glowa": 17,
+            "kloda": 16,
+            "nogi": 14,
+            "ruch": 14.5
           }
         ]
       }
@@ -779,7 +728,7 @@
     {
       "id": "a6m5vu5ncjwi4taaj",
       "numer": 9,
-      "klasa": 1,
+      "klasa": 2,
       "nazwa": "Edwina",
       "kraj": "KM",
       "rocznik": 2018,
@@ -810,32 +759,25 @@
       "wynik": {
         "noty": [
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 10,
+            "glowa": 16.5,
+            "kloda": 17.5,
+            "nogi": 17,
+            "ruch": 20
           },
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 15,
+            "glowa": 12.5,
+            "kloda": 19,
+            "nogi": 14,
+            "ruch": 10
           },
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
-          },
-          {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 16.5,
+            "glowa": 13.5,
+            "kloda": 16,
+            "nogi": 13.5,
+            "ruch": 20
           }
         ]
       }
@@ -843,7 +785,7 @@
     {
       "id": "a6m5vu5ncjwi4taak",
       "numer": 10,
-      "klasa": 1,
+      "klasa": 2,
       "nazwa": "Michaela",
       "kraj": "VG",
       "rocznik": 2018,
@@ -874,32 +816,25 @@
       "wynik": {
         "noty": [
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 14.5,
+            "glowa": 17.5,
+            "kloda": 20,
+            "nogi": 12,
+            "ruch": 11
           },
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 18.5,
+            "glowa": 15.5,
+            "kloda": 13.5,
+            "nogi": 15,
+            "ruch": 14.5
           },
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
-          },
-          {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 12,
+            "glowa": 12,
+            "kloda": 14.5,
+            "nogi": 17,
+            "ruch": 17.5
           }
         ]
       }
@@ -907,7 +842,7 @@
     {
       "id": "a6m5vu5ncjwi4taal",
       "numer": 11,
-      "klasa": 1,
+      "klasa": 2,
       "nazwa": "Cindy",
       "kraj": "MY",
       "rocznik": 2018,
@@ -938,32 +873,25 @@
       "wynik": {
         "noty": [
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 13,
+            "glowa": 10.5,
+            "kloda": 13,
+            "nogi": 19.5,
+            "ruch": 20
           },
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 11.5,
+            "glowa": 17.5,
+            "kloda": 15.5,
+            "nogi": 10.5,
+            "ruch": 18.5
           },
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
-          },
-          {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 15,
+            "glowa": 17,
+            "kloda": 13,
+            "nogi": 19.5,
+            "ruch": 14.5
           }
         ]
       }
@@ -971,7 +899,7 @@
     {
       "id": "a6m5vu5ncjwi4taam",
       "numer": 12,
-      "klasa": 1,
+      "klasa": 2,
       "nazwa": "Melyna",
       "kraj": "NE",
       "rocznik": 2018,
@@ -1002,32 +930,25 @@
       "wynik": {
         "noty": [
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 12,
+            "glowa": 11,
+            "kloda": 15.5,
+            "nogi": 11.5,
+            "ruch": 13.5
           },
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 19,
+            "glowa": 16.5,
+            "kloda": 17,
+            "nogi": 18,
+            "ruch": 10
           },
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
-          },
-          {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 13.5,
+            "glowa": 11.5,
+            "kloda": 14,
+            "nogi": 18,
+            "ruch": 13
           }
         ]
       }
@@ -1035,7 +956,7 @@
     {
       "id": "a6m5vu5ncjwi4taan",
       "numer": 13,
-      "klasa": 1,
+      "klasa": 2,
       "nazwa": "Luther",
       "kraj": "AG",
       "rocznik": 2018,
@@ -1066,32 +987,25 @@
       "wynik": {
         "noty": [
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 18,
+            "glowa": 19.5,
+            "kloda": 10.5,
+            "nogi": 13.5,
+            "ruch": 18
           },
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 19.5,
+            "glowa": 14,
+            "kloda": 10,
+            "nogi": 14.5,
+            "ruch": 19.5
           },
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
-          },
-          {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 14.5,
+            "glowa": 20,
+            "kloda": 15,
+            "nogi": 13.5,
+            "ruch": 16.5
           }
         ]
       }
@@ -1099,7 +1013,7 @@
     {
       "id": "a6m5vu5ncjwi4taao",
       "numer": 14,
-      "klasa": 1,
+      "klasa": 2,
       "nazwa": "Hoyt",
       "kraj": "KM",
       "rocznik": 2018,
@@ -1130,32 +1044,25 @@
       "wynik": {
         "noty": [
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 14.5,
+            "glowa": 17.5,
+            "kloda": 14.5,
+            "nogi": 12.5,
+            "ruch": 12
           },
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 19,
+            "glowa": 11,
+            "kloda": 14.5,
+            "nogi": 11.5,
+            "ruch": 18
           },
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
-          },
-          {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 17.5,
+            "glowa": 11,
+            "kloda": 17,
+            "nogi": 15.5,
+            "ruch": 17.5
           }
         ]
       }
@@ -1163,7 +1070,7 @@
     {
       "id": "a6m5vu5ncjwi4taap",
       "numer": 15,
-      "klasa": 2,
+      "klasa": 1,
       "nazwa": "Anthony",
       "kraj": "KH",
       "rocznik": 2018,
@@ -1194,11 +1101,25 @@
       "wynik": {
         "noty": [
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 10.5,
+            "glowa": 15.5,
+            "kloda": 15,
+            "nogi": 15,
+            "ruch": 12.5
+          },
+          {
+            "typ": 16.5,
+            "glowa": 14,
+            "kloda": 11,
+            "nogi": 15.5,
+            "ruch": 13
+          },
+          {
+            "typ": 15,
+            "glowa": 20,
+            "kloda": 10.5,
+            "nogi": 11.5,
+            "ruch": 13
           }
         ]
       }
@@ -1206,7 +1127,7 @@
     {
       "id": "a6m5vu5ncjwi4taaq",
       "numer": 16,
-      "klasa": 2,
+      "klasa": 1,
       "nazwa": "Sabina",
       "kraj": "AX",
       "rocznik": 2018,
@@ -1237,11 +1158,25 @@
       "wynik": {
         "noty": [
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 10.5,
+            "glowa": 18.5,
+            "kloda": 19,
+            "nogi": 13,
+            "ruch": 10
+          },
+          {
+            "typ": 12,
+            "glowa": 12,
+            "kloda": 20,
+            "nogi": 15,
+            "ruch": 17.5
+          },
+          {
+            "typ": 10,
+            "glowa": 18.5,
+            "kloda": 16,
+            "nogi": 11,
+            "ruch": 19.5
           }
         ]
       }
@@ -1249,7 +1184,7 @@
     {
       "id": "a6m5vu5ncjwi4taar",
       "numer": 17,
-      "klasa": 2,
+      "klasa": 1,
       "nazwa": "Annabell",
       "kraj": "CY",
       "rocznik": 2018,
@@ -1280,11 +1215,25 @@
       "wynik": {
         "noty": [
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 19,
+            "glowa": 14.5,
+            "kloda": 11.5,
+            "nogi": 19,
+            "ruch": 18
+          },
+          {
+            "typ": 17,
+            "glowa": 11,
+            "kloda": 19,
+            "nogi": 10.5,
+            "ruch": 10.5
+          },
+          {
+            "typ": 18.5,
+            "glowa": 18,
+            "kloda": 15.5,
+            "nogi": 12.5,
+            "ruch": 19.5
           }
         ]
       }
@@ -1292,7 +1241,7 @@
     {
       "id": "a6m5vu5ncjwi4taas",
       "numer": 18,
-      "klasa": 2,
+      "klasa": 1,
       "nazwa": "Nigel",
       "kraj": "TL",
       "rocznik": 2018,
@@ -1323,11 +1272,25 @@
       "wynik": {
         "noty": [
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 19.5,
+            "glowa": 18,
+            "kloda": 10.5,
+            "nogi": 13.5,
+            "ruch": 20
+          },
+          {
+            "typ": 10.5,
+            "glowa": 13.5,
+            "kloda": 15.5,
+            "nogi": 13.5,
+            "ruch": 19.5
+          },
+          {
+            "typ": 17,
+            "glowa": 10.5,
+            "kloda": 13,
+            "nogi": 13,
+            "ruch": 15.5
           }
         ]
       }
@@ -1335,7 +1298,7 @@
     {
       "id": "a6m5vu5ncjwi4taat",
       "numer": 19,
-      "klasa": 2,
+      "klasa": 1,
       "nazwa": "Eloy",
       "kraj": "VU",
       "rocznik": 2018,
@@ -1366,11 +1329,25 @@
       "wynik": {
         "noty": [
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 11.5,
+            "glowa": 11,
+            "kloda": 14,
+            "nogi": 12,
+            "ruch": 14.5
+          },
+          {
+            "typ": 13.5,
+            "glowa": 15,
+            "kloda": 19.5,
+            "nogi": 10.5,
+            "ruch": 13.5
+          },
+          {
+            "typ": 20,
+            "glowa": 18.5,
+            "kloda": 17.5,
+            "nogi": 10.5,
+            "ruch": 18
           }
         ]
       }
@@ -1378,7 +1355,7 @@
     {
       "id": "a6m5vu5ncjwi4taau",
       "numer": 20,
-      "klasa": 2,
+      "klasa": 1,
       "nazwa": "Mireille",
       "kraj": "LK",
       "rocznik": 2018,
@@ -1409,11 +1386,25 @@
       "wynik": {
         "noty": [
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 11,
+            "glowa": 10,
+            "kloda": 17,
+            "nogi": 11.5,
+            "ruch": 15
+          },
+          {
+            "typ": 15.5,
+            "glowa": 13.5,
+            "kloda": 17,
+            "nogi": 16,
+            "ruch": 20
+          },
+          {
+            "typ": 13.5,
+            "glowa": 10,
+            "kloda": 11.5,
+            "nogi": 18.5,
+            "ruch": 13
           }
         ]
       }
@@ -1421,7 +1412,7 @@
     {
       "id": "a6m5vu5ncjwi4taav",
       "numer": 21,
-      "klasa": 2,
+      "klasa": 1,
       "nazwa": "Janet",
       "kraj": "ES",
       "rocznik": 2018,
@@ -1452,11 +1443,25 @@
       "wynik": {
         "noty": [
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 17.5,
+            "glowa": 11,
+            "kloda": 14.5,
+            "nogi": 19.5,
+            "ruch": 18
+          },
+          {
+            "typ": 13,
+            "glowa": 19.5,
+            "kloda": 12.5,
+            "nogi": 16.5,
+            "ruch": 11
+          },
+          {
+            "typ": 12.5,
+            "glowa": 10.5,
+            "kloda": 13,
+            "nogi": 12,
+            "ruch": 10
           }
         ]
       }
@@ -1464,7 +1469,7 @@
     {
       "id": "a6m5vu5ncjwi4taaw",
       "numer": 22,
-      "klasa": 2,
+      "klasa": 1,
       "nazwa": "Art",
       "kraj": "GN",
       "rocznik": 2018,
@@ -1495,11 +1500,25 @@
       "wynik": {
         "noty": [
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 10.5,
+            "glowa": 17,
+            "kloda": 18,
+            "nogi": 16.5,
+            "ruch": 10
+          },
+          {
+            "typ": 19,
+            "glowa": 10,
+            "kloda": 14,
+            "nogi": 12.5,
+            "ruch": 18.5
+          },
+          {
+            "typ": 13.5,
+            "glowa": 10.5,
+            "kloda": 18,
+            "nogi": 13,
+            "ruch": 20
           }
         ]
       }
@@ -1507,7 +1526,7 @@
     {
       "id": "a6m5vu5ncjwi4taax",
       "numer": 23,
-      "klasa": 2,
+      "klasa": 1,
       "nazwa": "Edward",
       "kraj": "GR",
       "rocznik": 2018,
@@ -1538,11 +1557,25 @@
       "wynik": {
         "noty": [
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 13.5,
+            "glowa": 13,
+            "kloda": 12.5,
+            "nogi": 10.5,
+            "ruch": 10
+          },
+          {
+            "typ": 16,
+            "glowa": 19.5,
+            "kloda": 18.5,
+            "nogi": 19.5,
+            "ruch": 14.5
+          },
+          {
+            "typ": 20,
+            "glowa": 11.5,
+            "kloda": 14.5,
+            "nogi": 10.5,
+            "ruch": 18
           }
         ]
       }
@@ -1550,7 +1583,7 @@
     {
       "id": "a6m5vu5ncjwi4taay",
       "numer": 24,
-      "klasa": 2,
+      "klasa": 1,
       "nazwa": "Tito",
       "kraj": "DZ",
       "rocznik": 2018,
@@ -1581,11 +1614,25 @@
       "wynik": {
         "noty": [
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 14.5,
+            "glowa": 10,
+            "kloda": 19.5,
+            "nogi": 17,
+            "ruch": 20
+          },
+          {
+            "typ": 12,
+            "glowa": 12.5,
+            "kloda": 12,
+            "nogi": 11,
+            "ruch": 15.5
+          },
+          {
+            "typ": 15.5,
+            "glowa": 11.5,
+            "kloda": 20,
+            "nogi": 18,
+            "ruch": 19.5
           }
         ]
       }
@@ -1593,7 +1640,7 @@
     {
       "id": "a6m5vu5ncjwi4taaz",
       "numer": 25,
-      "klasa": 2,
+      "klasa": 1,
       "nazwa": "Dave",
       "kraj": "BA",
       "rocznik": 2018,
@@ -1624,11 +1671,25 @@
       "wynik": {
         "noty": [
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 15.5,
+            "glowa": 10.5,
+            "kloda": 13.5,
+            "nogi": 13.5,
+            "ruch": 18.5
+          },
+          {
+            "typ": 17,
+            "glowa": 19,
+            "kloda": 10,
+            "nogi": 11.5,
+            "ruch": 18
+          },
+          {
+            "typ": 18,
+            "glowa": 11.5,
+            "kloda": 20,
+            "nogi": 10.5,
+            "ruch": 11.5
           }
         ]
       }
@@ -1636,7 +1697,7 @@
     {
       "id": "a6m5vu5ncjwi4tab0",
       "numer": 26,
-      "klasa": 2,
+      "klasa": 1,
       "nazwa": "Reyes",
       "kraj": "NR",
       "rocznik": 2018,
@@ -1667,11 +1728,25 @@
       "wynik": {
         "noty": [
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 15,
+            "glowa": 14,
+            "kloda": 10,
+            "nogi": 14.5,
+            "ruch": 17
+          },
+          {
+            "typ": 18.5,
+            "glowa": 10,
+            "kloda": 15,
+            "nogi": 18,
+            "ruch": 15.5
+          },
+          {
+            "typ": 17,
+            "glowa": 13.5,
+            "kloda": 10.5,
+            "nogi": 11,
+            "ruch": 12
           }
         ]
       }
@@ -1679,7 +1754,7 @@
     {
       "id": "a6m5vu5ncjwi4tab1",
       "numer": 27,
-      "klasa": 2,
+      "klasa": 1,
       "nazwa": "Melyna",
       "kraj": "CK",
       "rocznik": 2018,
@@ -1710,11 +1785,25 @@
       "wynik": {
         "noty": [
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 15.5,
+            "glowa": 13,
+            "kloda": 14.5,
+            "nogi": 13.5,
+            "ruch": 19
+          },
+          {
+            "typ": 13,
+            "glowa": 17.5,
+            "kloda": 17.5,
+            "nogi": 10,
+            "ruch": 15
+          },
+          {
+            "typ": 17,
+            "glowa": 14.5,
+            "kloda": 10.5,
+            "nogi": 12,
+            "ruch": 18.5
           }
         ]
       }
@@ -1722,7 +1811,7 @@
     {
       "id": "a6m5vu5ncjwi4tab2",
       "numer": 28,
-      "klasa": 2,
+      "klasa": 1,
       "nazwa": "Zoe",
       "kraj": "SZ",
       "rocznik": 2018,
@@ -1753,11 +1842,25 @@
       "wynik": {
         "noty": [
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 18.5,
+            "glowa": 18,
+            "kloda": 10.5,
+            "nogi": 19.5,
+            "ruch": 13
+          },
+          {
+            "typ": 15,
+            "glowa": 17,
+            "kloda": 19,
+            "nogi": 11,
+            "ruch": 19.5
+          },
+          {
+            "typ": 17.5,
+            "glowa": 20,
+            "kloda": 16,
+            "nogi": 11,
+            "ruch": 19
           }
         ]
       }
@@ -1765,7 +1868,7 @@
     {
       "id": "a6m5vu5ncjwi4tab3",
       "numer": 29,
-      "klasa": 2,
+      "klasa": 1,
       "nazwa": "Catalina",
       "kraj": "BI",
       "rocznik": 2018,
@@ -1796,11 +1899,25 @@
       "wynik": {
         "noty": [
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 14.5,
+            "glowa": 17,
+            "kloda": 19,
+            "nogi": 14,
+            "ruch": 14.5
+          },
+          {
+            "typ": 18,
+            "glowa": 14.5,
+            "kloda": 13.5,
+            "nogi": 13.5,
+            "ruch": 19.5
+          },
+          {
+            "typ": 20,
+            "glowa": 10.5,
+            "kloda": 11,
+            "nogi": 10,
+            "ruch": 13
           }
         ]
       }
@@ -1808,7 +1925,7 @@
     {
       "id": "a6m5vu5ncjwi4tab4",
       "numer": 30,
-      "klasa": 2,
+      "klasa": 1,
       "nazwa": "Juwan",
       "kraj": "CZ",
       "rocznik": 2018,
@@ -1839,11 +1956,25 @@
       "wynik": {
         "noty": [
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 15,
+            "glowa": 11,
+            "kloda": 17,
+            "nogi": 14.5,
+            "ruch": 10.5
+          },
+          {
+            "typ": 15,
+            "glowa": 19.5,
+            "kloda": 15.5,
+            "nogi": 17.5,
+            "ruch": 14
+          },
+          {
+            "typ": 11.5,
+            "glowa": 11.5,
+            "kloda": 14.5,
+            "nogi": 10,
+            "ruch": 14
           }
         ]
       }
@@ -1882,11 +2013,25 @@
       "wynik": {
         "noty": [
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 16.5,
+            "glowa": 16,
+            "kloda": 15.5,
+            "nogi": 12.5,
+            "ruch": 11
+          },
+          {
+            "typ": 10.5,
+            "glowa": 16.5,
+            "kloda": 10.5,
+            "nogi": 17,
+            "ruch": 10
+          },
+          {
+            "typ": 11,
+            "glowa": 12.5,
+            "kloda": 12.5,
+            "nogi": 14,
+            "ruch": 19.5
           }
         ]
       }
@@ -1925,11 +2070,25 @@
       "wynik": {
         "noty": [
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 11,
+            "glowa": 10,
+            "kloda": 16,
+            "nogi": 10,
+            "ruch": 17.5
+          },
+          {
+            "typ": 17.5,
+            "glowa": 19,
+            "kloda": 18.5,
+            "nogi": 16,
+            "ruch": 13
+          },
+          {
+            "typ": 17,
+            "glowa": 17,
+            "kloda": 19,
+            "nogi": 10.5,
+            "ruch": 12.5
           }
         ]
       }
@@ -1968,11 +2127,25 @@
       "wynik": {
         "noty": [
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 13.5,
+            "glowa": 14,
+            "kloda": 15.5,
+            "nogi": 17,
+            "ruch": 14
+          },
+          {
+            "typ": 18.5,
+            "glowa": 15.5,
+            "kloda": 12.5,
+            "nogi": 13.5,
+            "ruch": 12
+          },
+          {
+            "typ": 10.5,
+            "glowa": 19.5,
+            "kloda": 18,
+            "nogi": 11.5,
+            "ruch": 13.5
           }
         ]
       }
@@ -2011,11 +2184,25 @@
       "wynik": {
         "noty": [
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 13.5,
+            "glowa": 14,
+            "kloda": 14,
+            "nogi": 10.5,
+            "ruch": 10.5
+          },
+          {
+            "typ": 13.5,
+            "glowa": 19,
+            "kloda": 10.5,
+            "nogi": 15.5,
+            "ruch": 15
+          },
+          {
+            "typ": 18.5,
+            "glowa": 13,
+            "kloda": 17,
+            "nogi": 11,
+            "ruch": 10
           }
         ]
       }
@@ -2054,11 +2241,25 @@
       "wynik": {
         "noty": [
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 13,
+            "glowa": 13.5,
+            "kloda": 16.5,
+            "nogi": 13,
+            "ruch": 19
+          },
+          {
+            "typ": 14,
+            "glowa": 16.5,
+            "kloda": 11,
+            "nogi": 18,
+            "ruch": 16
+          },
+          {
+            "typ": 14,
+            "glowa": 10,
+            "kloda": 13,
+            "nogi": 11,
+            "ruch": 15
           }
         ]
       }
@@ -2097,11 +2298,25 @@
       "wynik": {
         "noty": [
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 12.5,
+            "glowa": 10,
+            "kloda": 14,
+            "nogi": 10.5,
+            "ruch": 13.5
+          },
+          {
+            "typ": 17.5,
+            "glowa": 15.5,
+            "kloda": 14,
+            "nogi": 16.5,
+            "ruch": 13.5
+          },
+          {
+            "typ": 18,
+            "glowa": 15,
+            "kloda": 17.5,
+            "nogi": 15,
+            "ruch": 12
           }
         ]
       }
@@ -2140,11 +2355,25 @@
       "wynik": {
         "noty": [
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 13.5,
+            "glowa": 11,
+            "kloda": 20,
+            "nogi": 20,
+            "ruch": 18
+          },
+          {
+            "typ": 19,
+            "glowa": 16.5,
+            "kloda": 18.5,
+            "nogi": 12,
+            "ruch": 12.5
+          },
+          {
+            "typ": 15.5,
+            "glowa": 12.5,
+            "kloda": 16,
+            "nogi": 17,
+            "ruch": 13.5
           }
         ]
       }
@@ -2183,11 +2412,25 @@
       "wynik": {
         "noty": [
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 19,
+            "glowa": 15,
+            "kloda": 19,
+            "nogi": 11,
+            "ruch": 16
+          },
+          {
+            "typ": 11,
+            "glowa": 11,
+            "kloda": 12,
+            "nogi": 19,
+            "ruch": 10.5
+          },
+          {
+            "typ": 17,
+            "glowa": 11.5,
+            "kloda": 14,
+            "nogi": 19,
+            "ruch": 10.5
           }
         ]
       }
@@ -2226,11 +2469,25 @@
       "wynik": {
         "noty": [
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 14,
+            "glowa": 11,
+            "kloda": 19,
+            "nogi": 15,
+            "ruch": 10
+          },
+          {
+            "typ": 13.5,
+            "glowa": 16.5,
+            "kloda": 10.5,
+            "nogi": 10.5,
+            "ruch": 12
+          },
+          {
+            "typ": 15.5,
+            "glowa": 20,
+            "kloda": 11.5,
+            "nogi": 11.5,
+            "ruch": 19.5
           }
         ]
       }
@@ -2269,11 +2526,25 @@
       "wynik": {
         "noty": [
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 18,
+            "glowa": 13,
+            "kloda": 19,
+            "nogi": 19,
+            "ruch": 17
+          },
+          {
+            "typ": 12,
+            "glowa": 20,
+            "kloda": 14,
+            "nogi": 12.5,
+            "ruch": 11.5
+          },
+          {
+            "typ": 17.5,
+            "glowa": 19,
+            "kloda": 19.5,
+            "nogi": 18,
+            "ruch": 15.5
           }
         ]
       }
@@ -2312,11 +2583,25 @@
       "wynik": {
         "noty": [
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 20,
+            "glowa": 16.5,
+            "kloda": 12,
+            "nogi": 13.5,
+            "ruch": 19.5
+          },
+          {
+            "typ": 18,
+            "glowa": 10.5,
+            "kloda": 17.5,
+            "nogi": 14.5,
+            "ruch": 17
+          },
+          {
+            "typ": 11,
+            "glowa": 17.5,
+            "kloda": 13.5,
+            "nogi": 17.5,
+            "ruch": 16
           }
         ]
       }
@@ -2355,11 +2640,25 @@
       "wynik": {
         "noty": [
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 15.5,
+            "glowa": 10.5,
+            "kloda": 12,
+            "nogi": 17,
+            "ruch": 14.5
+          },
+          {
+            "typ": 12,
+            "glowa": 12,
+            "kloda": 15.5,
+            "nogi": 10.5,
+            "ruch": 11.5
+          },
+          {
+            "typ": 11.5,
+            "glowa": 14,
+            "kloda": 12.5,
+            "nogi": 15.5,
+            "ruch": 18
           }
         ]
       }
@@ -2398,11 +2697,25 @@
       "wynik": {
         "noty": [
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 11.5,
+            "glowa": 10.5,
+            "kloda": 11.5,
+            "nogi": 14,
+            "ruch": 14.5
+          },
+          {
+            "typ": 11,
+            "glowa": 19,
+            "kloda": 12,
+            "nogi": 15.5,
+            "ruch": 13.5
+          },
+          {
+            "typ": 17.5,
+            "glowa": 15.5,
+            "kloda": 17.5,
+            "nogi": 17.5,
+            "ruch": 20
           }
         ]
       }
@@ -2441,11 +2754,25 @@
       "wynik": {
         "noty": [
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 17,
+            "glowa": 10,
+            "kloda": 18,
+            "nogi": 15.5,
+            "ruch": 10.5
+          },
+          {
+            "typ": 12.5,
+            "glowa": 12,
+            "kloda": 10.5,
+            "nogi": 11,
+            "ruch": 10
+          },
+          {
+            "typ": 15,
+            "glowa": 10,
+            "kloda": 16.5,
+            "nogi": 18,
+            "ruch": 14
           }
         ]
       }
@@ -2484,11 +2811,25 @@
       "wynik": {
         "noty": [
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 16,
+            "glowa": 13,
+            "kloda": 17,
+            "nogi": 19,
+            "ruch": 12
+          },
+          {
+            "typ": 11.5,
+            "glowa": 15,
+            "kloda": 18,
+            "nogi": 14,
+            "ruch": 14
+          },
+          {
+            "typ": 11,
+            "glowa": 12.5,
+            "kloda": 20,
+            "nogi": 17.5,
+            "ruch": 18.5
           }
         ]
       }
@@ -2527,11 +2868,25 @@
       "wynik": {
         "noty": [
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 15,
+            "glowa": 14,
+            "kloda": 16,
+            "nogi": 13.5,
+            "ruch": 12.5
+          },
+          {
+            "typ": 17,
+            "glowa": 14.5,
+            "kloda": 15.5,
+            "nogi": 15,
+            "ruch": 16
+          },
+          {
+            "typ": 17.5,
+            "glowa": 20,
+            "kloda": 16,
+            "nogi": 12,
+            "ruch": 10
           }
         ]
       }
@@ -2570,11 +2925,25 @@
       "wynik": {
         "noty": [
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 12.5,
+            "glowa": 20,
+            "kloda": 11,
+            "nogi": 19.5,
+            "ruch": 15
+          },
+          {
+            "typ": 19.5,
+            "glowa": 10.5,
+            "kloda": 14,
+            "nogi": 10,
+            "ruch": 16
+          },
+          {
+            "typ": 12,
+            "glowa": 18,
+            "kloda": 13,
+            "nogi": 10,
+            "ruch": 18.5
           }
         ]
       }
@@ -2613,11 +2982,25 @@
       "wynik": {
         "noty": [
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 17,
+            "glowa": 13,
+            "kloda": 17,
+            "nogi": 15,
+            "ruch": 18
+          },
+          {
+            "typ": 18,
+            "glowa": 19.5,
+            "kloda": 12,
+            "nogi": 19,
+            "ruch": 14.5
+          },
+          {
+            "typ": 16.5,
+            "glowa": 15,
+            "kloda": 12,
+            "nogi": 18.5,
+            "ruch": 19
           }
         ]
       }
@@ -2656,11 +3039,25 @@
       "wynik": {
         "noty": [
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 20,
+            "glowa": 15,
+            "kloda": 18,
+            "nogi": 11,
+            "ruch": 17.5
+          },
+          {
+            "typ": 18.5,
+            "glowa": 14,
+            "kloda": 12,
+            "nogi": 14.5,
+            "ruch": 17.5
+          },
+          {
+            "typ": 13,
+            "glowa": 14.5,
+            "kloda": 19.5,
+            "nogi": 16.5,
+            "ruch": 11
           }
         ]
       }
@@ -2699,11 +3096,25 @@
       "wynik": {
         "noty": [
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 19.5,
+            "glowa": 13.5,
+            "kloda": 19,
+            "nogi": 17.5,
+            "ruch": 16.5
+          },
+          {
+            "typ": 19,
+            "glowa": 17,
+            "kloda": 10,
+            "nogi": 18.5,
+            "ruch": 14
+          },
+          {
+            "typ": 15.5,
+            "glowa": 18,
+            "kloda": 14,
+            "nogi": 19,
+            "ruch": 14.5
           }
         ]
       }
@@ -2742,11 +3153,25 @@
       "wynik": {
         "noty": [
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 17,
+            "glowa": 20,
+            "kloda": 13,
+            "nogi": 16.5,
+            "ruch": 19.5
+          },
+          {
+            "typ": 16,
+            "glowa": 10,
+            "kloda": 11.5,
+            "nogi": 13,
+            "ruch": 20
+          },
+          {
+            "typ": 12,
+            "glowa": 20,
+            "kloda": 15,
+            "nogi": 16,
+            "ruch": 18.5
           }
         ]
       }
@@ -2785,11 +3210,25 @@
       "wynik": {
         "noty": [
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 17.5,
+            "glowa": 17.5,
+            "kloda": 15.5,
+            "nogi": 19.5,
+            "ruch": 11.5
+          },
+          {
+            "typ": 14.5,
+            "glowa": 17,
+            "kloda": 14.5,
+            "nogi": 12,
+            "ruch": 18
+          },
+          {
+            "typ": 10,
+            "glowa": 16,
+            "kloda": 17.5,
+            "nogi": 10,
+            "ruch": 14
           }
         ]
       }
@@ -2828,11 +3267,25 @@
       "wynik": {
         "noty": [
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 14.5,
+            "glowa": 11.5,
+            "kloda": 16.5,
+            "nogi": 20,
+            "ruch": 14.5
+          },
+          {
+            "typ": 17,
+            "glowa": 19,
+            "kloda": 11.5,
+            "nogi": 17.5,
+            "ruch": 18
+          },
+          {
+            "typ": 12.5,
+            "glowa": 14,
+            "kloda": 12.5,
+            "nogi": 18,
+            "ruch": 17
           }
         ]
       }
@@ -2871,11 +3324,25 @@
       "wynik": {
         "noty": [
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 10.5,
+            "glowa": 18.5,
+            "kloda": 11.5,
+            "nogi": 13,
+            "ruch": 17
+          },
+          {
+            "typ": 16.5,
+            "glowa": 12.5,
+            "kloda": 17,
+            "nogi": 10.5,
+            "ruch": 10.5
+          },
+          {
+            "typ": 17,
+            "glowa": 14,
+            "kloda": 16.5,
+            "nogi": 10.5,
+            "ruch": 18.5
           }
         ]
       }
@@ -2914,11 +3381,25 @@
       "wynik": {
         "noty": [
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 13,
+            "glowa": 19.5,
+            "kloda": 19.5,
+            "nogi": 16,
+            "ruch": 11
+          },
+          {
+            "typ": 12.5,
+            "glowa": 17.5,
+            "kloda": 16.5,
+            "nogi": 10,
+            "ruch": 13.5
+          },
+          {
+            "typ": 16,
+            "glowa": 15.5,
+            "kloda": 18,
+            "nogi": 18,
+            "ruch": 12
           }
         ]
       }
@@ -2957,11 +3438,25 @@
       "wynik": {
         "noty": [
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 11,
+            "glowa": 16,
+            "kloda": 12,
+            "nogi": 17.5,
+            "ruch": 14
+          },
+          {
+            "typ": 18,
+            "glowa": 12.5,
+            "kloda": 14,
+            "nogi": 14,
+            "ruch": 18.5
+          },
+          {
+            "typ": 13.5,
+            "glowa": 10,
+            "kloda": 10,
+            "nogi": 16.5,
+            "ruch": 16.5
           }
         ]
       }
@@ -3000,11 +3495,25 @@
       "wynik": {
         "noty": [
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 14,
+            "glowa": 11.5,
+            "kloda": 17.5,
+            "nogi": 17,
+            "ruch": 18
+          },
+          {
+            "typ": 19,
+            "glowa": 10.5,
+            "kloda": 13.5,
+            "nogi": 10,
+            "ruch": 19.5
+          },
+          {
+            "typ": 12.5,
+            "glowa": 10,
+            "kloda": 18.5,
+            "nogi": 11.5,
+            "ruch": 13
           }
         ]
       }
@@ -3043,39 +3552,25 @@
       "wynik": {
         "noty": [
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 17,
+            "glowa": 14.5,
+            "kloda": 16.5,
+            "nogi": 17.5,
+            "ruch": 18.5
           },
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 17,
+            "glowa": 19.5,
+            "kloda": 18.5,
+            "nogi": 19,
+            "ruch": 18
           },
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
-          },
-          {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
-          },
-          {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 13.5,
+            "glowa": 11.5,
+            "kloda": 20,
+            "nogi": 19,
+            "ruch": 14
           }
         ]
       }
@@ -3114,39 +3609,25 @@
       "wynik": {
         "noty": [
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 15.5,
+            "glowa": 17,
+            "kloda": 16,
+            "nogi": 17,
+            "ruch": 19
           },
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 13.5,
+            "glowa": 11,
+            "kloda": 16.5,
+            "nogi": 17.5,
+            "ruch": 16
           },
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
-          },
-          {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
-          },
-          {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 18,
+            "glowa": 14,
+            "kloda": 16,
+            "nogi": 14.5,
+            "ruch": 15.5
           }
         ]
       }
@@ -3185,39 +3666,25 @@
       "wynik": {
         "noty": [
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 18,
+            "glowa": 14.5,
+            "kloda": 10.5,
+            "nogi": 11,
+            "ruch": 13
           },
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 20,
+            "glowa": 18.5,
+            "kloda": 12.5,
+            "nogi": 18,
+            "ruch": 15
           },
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
-          },
-          {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
-          },
-          {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 12.5,
+            "glowa": 18,
+            "kloda": 10,
+            "nogi": 20,
+            "ruch": 10
           }
         ]
       }
@@ -3256,39 +3723,25 @@
       "wynik": {
         "noty": [
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 12.5,
+            "glowa": 19.5,
+            "kloda": 19.5,
+            "nogi": 18.5,
+            "ruch": 17
           },
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 16,
+            "glowa": 19,
+            "kloda": 13,
+            "nogi": 15.5,
+            "ruch": 18.5
           },
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
-          },
-          {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
-          },
-          {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 11.5,
+            "glowa": 13.5,
+            "kloda": 14.5,
+            "nogi": 20,
+            "ruch": 18
           }
         ]
       }
@@ -3327,39 +3780,25 @@
       "wynik": {
         "noty": [
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 13,
+            "glowa": 12,
+            "kloda": 15.5,
+            "nogi": 14.5,
+            "ruch": 16.5
           },
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 13.5,
+            "glowa": 18.5,
+            "kloda": 18,
+            "nogi": 17,
+            "ruch": 20
           },
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
-          },
-          {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
-          },
-          {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 18,
+            "glowa": 12.5,
+            "kloda": 19.5,
+            "nogi": 10.5,
+            "ruch": 13.5
           }
         ]
       }
@@ -3398,39 +3837,25 @@
       "wynik": {
         "noty": [
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 17.5,
+            "glowa": 13.5,
+            "kloda": 11,
+            "nogi": 17.5,
+            "ruch": 12.5
           },
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 17,
+            "glowa": 19.5,
+            "kloda": 19,
+            "nogi": 10.5,
+            "ruch": 20
           },
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
-          },
-          {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
-          },
-          {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 17.5,
+            "glowa": 13.5,
+            "kloda": 14,
+            "nogi": 11,
+            "ruch": 14
           }
         ]
       }
@@ -3469,39 +3894,25 @@
       "wynik": {
         "noty": [
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 18,
+            "glowa": 19.5,
+            "kloda": 17.5,
+            "nogi": 19.5,
+            "ruch": 11.5
           },
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 19,
+            "glowa": 16.5,
+            "kloda": 11.5,
+            "nogi": 12.5,
+            "ruch": 15
           },
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
-          },
-          {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
-          },
-          {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 16,
+            "glowa": 11,
+            "kloda": 19.5,
+            "nogi": 18,
+            "ruch": 19.5
           }
         ]
       }
@@ -3540,39 +3951,25 @@
       "wynik": {
         "noty": [
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 15.5,
+            "glowa": 17.5,
+            "kloda": 11,
+            "nogi": 19.5,
+            "ruch": 11.5
           },
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 11,
+            "glowa": 15.5,
+            "kloda": 17.5,
+            "nogi": 12,
+            "ruch": 10
           },
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
-          },
-          {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
-          },
-          {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 20,
+            "glowa": 18,
+            "kloda": 10,
+            "nogi": 20,
+            "ruch": 15
           }
         ]
       }
@@ -3611,39 +4008,25 @@
       "wynik": {
         "noty": [
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 12,
+            "glowa": 11,
+            "kloda": 19,
+            "nogi": 14,
+            "ruch": 16.5
           },
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 11.5,
+            "glowa": 15.5,
+            "kloda": 11.5,
+            "nogi": 18.5,
+            "ruch": 19.5
           },
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
-          },
-          {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
-          },
-          {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 11.5,
+            "glowa": 10,
+            "kloda": 18,
+            "nogi": 16,
+            "ruch": 18.5
           }
         ]
       }
@@ -3682,39 +4065,25 @@
       "wynik": {
         "noty": [
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 17.5,
+            "glowa": 19,
+            "kloda": 11,
+            "nogi": 16.5,
+            "ruch": 11
           },
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 19,
+            "glowa": 20,
+            "kloda": 17.5,
+            "nogi": 13,
+            "ruch": 10
           },
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
-          },
-          {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
-          },
-          {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 14,
+            "glowa": 15,
+            "kloda": 18.5,
+            "nogi": 10.5,
+            "ruch": 11.5
           }
         ]
       }
@@ -3753,39 +4122,25 @@
       "wynik": {
         "noty": [
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 15,
+            "glowa": 13.5,
+            "kloda": 17,
+            "nogi": 17,
+            "ruch": 15.5
           },
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 19,
+            "glowa": 19,
+            "kloda": 17.5,
+            "nogi": 13.5,
+            "ruch": 13.5
           },
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
-          },
-          {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
-          },
-          {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 10,
+            "glowa": 20,
+            "kloda": 17.5,
+            "nogi": 19,
+            "ruch": 12
           }
         ]
       }
@@ -3824,39 +4179,25 @@
       "wynik": {
         "noty": [
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 13.5,
+            "glowa": 13,
+            "kloda": 14.5,
+            "nogi": 11.5,
+            "ruch": 12
           },
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 13.5,
+            "glowa": 19.5,
+            "kloda": 16,
+            "nogi": 16.5,
+            "ruch": 18.5
           },
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
-          },
-          {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
-          },
-          {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 10,
+            "glowa": 17.5,
+            "kloda": 10,
+            "nogi": 15.5,
+            "ruch": 12
           }
         ]
       }
@@ -3895,39 +4236,25 @@
       "wynik": {
         "noty": [
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 11.5,
+            "glowa": 15,
+            "kloda": 15,
+            "nogi": 12,
+            "ruch": 10.5
           },
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 19.5,
+            "glowa": 14.5,
+            "kloda": 10,
+            "nogi": 12,
+            "ruch": 13
           },
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
-          },
-          {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
-          },
-          {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 11.5,
+            "glowa": 16,
+            "kloda": 19.5,
+            "nogi": 13.5,
+            "ruch": 10
           }
         ]
       }
@@ -3966,39 +4293,25 @@
       "wynik": {
         "noty": [
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 13,
+            "glowa": 11.5,
+            "kloda": 10,
+            "nogi": 18.5,
+            "ruch": 13.5
           },
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 16.5,
+            "glowa": 12.5,
+            "kloda": 10.5,
+            "nogi": 15.5,
+            "ruch": 14
           },
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
-          },
-          {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
-          },
-          {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 19,
+            "glowa": 10.5,
+            "kloda": 16.5,
+            "nogi": 11,
+            "ruch": 17.5
           }
         ]
       }
@@ -4037,39 +4350,25 @@
       "wynik": {
         "noty": [
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 19,
+            "glowa": 10.5,
+            "kloda": 17.5,
+            "nogi": 11.5,
+            "ruch": 15
           },
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 18,
+            "glowa": 18,
+            "kloda": 16.5,
+            "nogi": 17,
+            "ruch": 11.5
           },
           {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
-          },
-          {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
-          },
-          {
-            "typ": 0,
-            "glowa": 0,
-            "kloda": 0,
-            "nogi": 0,
-            "ruch": 0
+            "typ": 17,
+            "glowa": 20,
+            "kloda": 18,
+            "nogi": 16.5,
+            "ruch": 11.5
           }
         ]
       }
